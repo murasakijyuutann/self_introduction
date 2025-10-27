@@ -126,7 +126,7 @@ export default function Home() {
         <Heading>
           <Typewriter
             words={[
-              'Hi, I’m Farah.',
+              'Hi, I’m Fishyboyxx.',
               'Full-Stack Developer.',
               'Bilingual Engineer.',
               'Welcome to my portfolio.'

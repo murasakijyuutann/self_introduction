@@ -1,8 +1,6 @@
-// src/components/Footer.tsx
-
 import React from 'react';
 import styled from 'styled-components';
-import { FaGithub, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa';
 import { SiQiita } from 'react-icons/si';
 
 const FooterContainer = styled.footer`
@@ -26,18 +24,8 @@ const SocialIcons = styled.div`
     transition: color 0.3s;
 
     &:hover {
-      color: #39c5bb; // Miku teal
+      color: #39c5bb; /* Miku teal */
     }
-  }
-`;
-
-const Email = styled.a`
-  color: #aaa;
-  font-family: monospace;
-  margin-bottom: 1rem;
-
-  &:hover {
-    color: #fff;
   }
 `;
 
@@ -57,22 +45,39 @@ const Copyright = styled.div`
 export default function Footer() {
   return (
     <FooterContainer>
-      <Email href="mailto:fishyboyxx@gmail.com">fishyboyxx[at]gmail.com</Email>
-
       <SocialIcons>
-        <a href="https://github.com/murasakijyuutann/self_introduction" target="_blank" rel="noopener noreferrer">
+        <a href="mailto:fishyboyxx@protonmail.com" title="Email Me">
+          <FaEnvelope size={24} />
+        </a>
+        <a
+          href="https://github.com/murasakijyuutann/self_introduction"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaGithub size={24} />
         </a>
-        <a href="https://www.linkedin.com/in/farah-sinclair-44b175221/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.linkedin.com/in/sunmyung-woo-44b175221/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaLinkedin size={24} />
         </a>
-        <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/hBE9ck3QAY1931" target="_blank" rel="noopener noreferrer">
           <FaTwitter size={24} />
         </a>
-        <a href="https://qiita.com/yourhandle" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://qiita.com/murasakijyuutann"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <SiQiita size={24} />
         </a>
-        <a href="https://www.youtube.com/@%E3%83%81%E3%83%A0%E3%83%81%E3%83%A0-r7s" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.youtube.com/@%E3%83%81%E3%83%A0%E3%83%81%E3%83%A0-r7s"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaYoutube size={24} />
         </a>
       </SocialIcons>
