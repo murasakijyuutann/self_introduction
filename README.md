@@ -65,13 +65,19 @@ Copy code
 
 ---
 
-## 🚀 Getting Started
-💻 Setup & Run Locally
-🧩 Step 1. Clone the Repository
+# 🚀 Getting Started
+
+## 💻 Setup & Run Locally
+
+### 🧩 Step 1. Clone the Repository
+
+```bash
 git clone https://github.com/yourusername/self-intro-portfolio.git
 cd self-intro-portfolio
+```
 
-# ⚙️ Step 2. Install Dependencies
+### ⚙️ Step 2. Install Dependencies
+
 ```bash
 npm install
 ```
