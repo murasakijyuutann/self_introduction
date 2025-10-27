@@ -67,8 +67,10 @@ Copy code
 
 ## 🚀 Getting Started
 
-### 1️⃣ Clone the repository
+
 ```bash
+1️⃣ Clone the repository
+
 git clone https://github.com/yourusername/self-intro-portfolio.git
 cd self-intro-portfolio
 2️⃣ Install dependencies
@@ -88,6 +90,8 @@ bash
 Copy code
 npm run dev
 Then open http://localhost:5173 in your browser.
+```
+
 
 💼 Featured Projects
 Project	Description	Tech
