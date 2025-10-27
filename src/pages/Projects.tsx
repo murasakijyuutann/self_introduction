@@ -1,115 +1,164 @@
+import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
+import { animatedGradient } from '../styles/AnimatedBackground'
 
-const Wrapper = styled.div`
+// 🌈 Full-page animated background
+const Section = styled.section`
+  ${animatedGradient};
+  min-height: 100vh;
+  padding: 6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`
+
+const Wrapper = styled(motion.div)`
   max-width: 1000px;
-  margin: 4rem auto;
-  padding: 0 1.5rem;
+  width: 100%;
 `
 
 const Heading = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.4);
 `
 
 const ProjectGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 `
 
-const Card = styled.div`
-  background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-`
+// ✨ Glass-style cards with hover lift
+const Card = styled(motion.div)`
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 1.8rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-align: left;
+  transition: all 0.3s ease;
 
-// const Image = styled.img`
-//   width: 100%;
-//   height: auto;
-//   border-radius: 8px;
-//   margin-bottom: 1rem;
-// `
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  }
+`
 
 const Title = styled.h3`
   font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
 `
 
 const Description = styled.p`
-  font-size: 0.95rem;
-  color: #555;
+  font-size: 1rem;
+  color: #f2f2f2;
   margin-bottom: 1rem;
+  line-height: 1.5;
 `
 
 const TechList = styled.div`
-  font-size: 0.85rem;
-  color: #888;
+  font-size: 0.9rem;
+  color: #e0e0e0;
   margin-bottom: 1rem;
+  font-style: italic;
 `
 
 const Link = styled.a`
-  color: teal;
+  color: #ffb6ff;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: bold;
-
+  transition: 0.3s;
   &:hover {
     text-decoration: underline;
+    color: #fff;
   }
 `
-// //   <Image src="/images/MIku.jpg" alt="Spring Boot Board" />
-// <Image src="/images/Sakine.jpg" alt="Movie Explorer" />
-// <Image src="/images/MEIKOV3.jpg" alt="JSP Shopping Mall" />
-//<Image src="/images/MEIKO1.jpg" alt="Todo App on EC2" />
+
+// 🌀 Motion variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.6 },
+  }),
+}
+
 export default function Projects() {
+  const projects = [
+    {
+      title: '🎬 Movie Explorer',
+      desc: 'A movie search app using TMDB API with infinite scroll, responsive layout, and detailed movie pages.',
+      tech: 'React · Tailwind CSS · TMDB API',
+      link: 'https://github.com/yourusername/movie-explorer',
+    },
+    {
+      title: '📋 Spring Boot Board',
+      desc: 'A full-featured backend system with token login, DTOs, role management, and Swagger API testing.',
+      tech: 'Spring Boot · MyBatis · JWT · Swagger',
+      link: 'https://github.com/yourusername/board-system',
+    },
+    {
+      title: '🛍 JSP Shopping Mall',
+      desc: 'An early JSP/Servlet-based shopping mall project featuring login, product listing, and checkout flow.',
+      tech: 'JSP · Servlet · JSTL · Tomcat',
+      link: 'https://github.com/yourusername/jsp-practise',
+    },
+    {
+      title: '☁️ EC2 Todo App',
+      desc: 'A React + NestJS app hosted on AWS EC2 with Supabase OAuth login and full CRUD task list.',
+      tech: 'React · NestJS · Prisma · EC2 · Supabase',
+      link: 'https://github.com/yourusername/ec2-todo-app',
+    },
+    {
+      title: '🎬 Movie Explorer',
+      desc: 'A movie search app using TMDB API with infinite scroll, responsive layout, and detailed movie pages.',
+      tech: 'React · Tailwind CSS · TMDB API',
+      link: 'https://github.com/yourusername/movie-explorer',
+    },
+    {
+      title: '🎬 Movie Explorer',
+      desc: 'A movie search app using TMDB API with infinite scroll, responsive layout, and detailed movie pages.',
+      tech: 'React · Tailwind CSS · TMDB API',
+      link: 'https://github.com/yourusername/movie-explorer',
+    },
+  ]
+
   return (
-    <Wrapper>
-      <Heading>My Projects</Heading>
-      <ProjectGrid>
+    <Section id="projects">
+      <Wrapper
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Heading>My Projects</Heading>
 
-        <Card>
-          
-          <Title>🎬 Movie Explorer</Title>
-          <Description>
-            A movie search app using TMDB API with infinite scroll, responsive layout, and detail pages.
-          </Description>
-          <TechList>React · Tailwind CSS · TMDB API</TechList>
-          <Link href="https://github.com/yourusername/movie-explorer" target="_blank">GitHub</Link>
-        </Card>
-
-        <Card>
-        
-          <Title>📋 Spring Boot Board</Title>
-          <Description>
-            A full-featured backend system with token login, DTOs, user-role management, and Swagger test UI.
-          </Description>
-          <TechList>Spring Boot · MyBatis · JWT · Swagger</TechList>
-          <Link href="https://github.com/yourusername/board-system" target="_blank">GitHub</Link>
-        </Card>
-
-        <Card>
-          
-          <Title>🛍 JSP Shopping Mall</Title>
-          <Description>
-            An early JSP/Servlet-based shopping mall project with add-to-cart, login, product list, and checkout.
-          </Description>
-          <TechList>JSP · Servlet · JSTL · Tomcat</TechList>
-          <Link href="https://github.com/yourusername/jsp-practise" target="_blank">GitHub</Link>
-        </Card>
-
-        <Card>
-          
-          <Title>☁️ EC2 Todo App</Title>
-          <Description>
-            A React + NestJS app hosted on AWS EC2 with Supabase OAuth login and full CRUD task list.
-          </Description>
-          <TechList>React · NestJS · Prisma · EC2 · Supabase</TechList>
-          <Link href="https://github.com/yourusername/ec2-todo-app" target="_blank">GitHub</Link>
-        </Card>
-
-      </ProjectGrid>
-    </Wrapper>
+        <ProjectGrid>
+          {projects.map((p, i) => (
+            <Card
+              key={p.title}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              custom={i}
+              viewport={{ once: true }}
+            >
+              <Title>{p.title}</Title>
+              <Description>{p.desc}</Description>
+              <TechList>{p.tech}</TechList>
+              <Link href={p.link} target="_blank" rel="noopener noreferrer">
+                View on GitHub →
+              </Link>
+            </Card>
+          ))}
+        </ProjectGrid>
+      </Wrapper>
+    </Section>
   )
 }

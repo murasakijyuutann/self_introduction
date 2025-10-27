@@ -1,21 +1,17 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
+import { animatedGradient } from '../styles/AnimatedBackground';
 import { motion } from 'framer-motion'
 
 // 🌈 Animate the entire background
-const gradientShift = keyframes`
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-`
+
 
 // 💫 Full-page background
 const Page = styled.section`
   min-height: 100vh;
   padding: 6rem 1.5rem;
-  background: linear-gradient(135deg, #40e0d0, #764ba2, #ff66cc);
-  background-size: 300% 300%;
-  animation: ${gradientShift} 10s ease infinite;
+  
+  ${animatedGradient};
   color: #fff;
   text-align: center;
   display: flex;

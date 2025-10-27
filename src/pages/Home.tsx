@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 import { Typewriter } from 'react-simple-typewriter'
 import { useNavigate } from 'react-router-dom'
+import { animatedGradient } from '../styles/AnimatedBackground'
 
 const fadeInUp = keyframes`
   from {
@@ -14,7 +15,7 @@ const fadeInUp = keyframes`
 `
 
 const Wrapper = styled.div`
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  ${animatedGradient};
   padding: rem 1.5rem;
   color: #fff;
   text-align: center;

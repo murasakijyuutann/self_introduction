@@ -1,14 +1,15 @@
+// src/App.tsx
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import About from './pages/About.tsx'
+import About from './pages/About'
 import Navbar from './components/Navbar'
 import Skills from './pages/Skills'
 import Projects from './pages/Projects'
+import Journey from './pages/Journey'
+import { ChinchiroGame } from './pages/Chinchiro'
+import Contact from './pages/Contact'
+import Footer from './components/Footer'
 import './App.css'
-import Journey from './pages/Journey.tsx'
-import Footer from './components/Footer';
-import { ChinchiroGame } from './pages/Chinchiro.tsx'
-
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/chinchiro" element={<ChinchiroGame />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <Footer />
