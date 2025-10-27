@@ -1,35 +1,50 @@
-// src/components/Journey.tsx
-
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const journeyData = [
   {
-    year: '2019–2021',
-    title: 'Studied Systems Administration in Australia',
-    description: 'Learned networking, cloud infrastructure, and Linux/Windows systems.',
+  year: '2015–2016',
+  title: 'Began My IT Journey in Australia',
+  description:
+    'Started and completed a Diploma of IT at UTS:INSEARCH, building a strong foundation in networking, databases, and programming fundamentals.',
+},
+{
+  year: '2017–2019',
+  title: 'Advanced to Bachelor Studies',
+  description:
+    'Progressed to Charles Sturt University in Sydney, majoring in Systems Administration, where I deepened my understanding of infrastructure, cloud systems, and IT management.',
+},
+  {
+    year: '2020–2022',
+    title: 'Internship & Full-Time Developer Role',
+    description:
+      'Worked as an intern for 6 months, then became a permanent staff member. Assisted full-stack teams, mainly debugging and testing backend Java systems.',
   },
   {
-    year: '2022',
-    title: 'Transitioned into Software Development',
-    description: 'Started exploring Java, built console apps and database projects.',
+    year: '2020–Present',
+    title: 'Exploring Frontend & Modern Web',
+    description:
+      'Started learning React around 2020 when it became a popular trend, combining my backend knowledge with frontend frameworks to build full-stack applications.',
   },
   {
-    year: '2023',
-    title: 'Created My First Full-Stack Applications',
-    description: 'Built React + Spring Boot apps, deployed to EC2, added OAuth, responsive UI.',
-  },
-  {
-    year: '2024',
-    title: 'Built Real-World Features',
-    description: 'JWT login, MyBatis, Tailwind, Swiper, JSP shopping mall, infinite scroll app.',
-  },
-  {
-    year: '2025',
-    title: 'Conditional Dev Offer in Japan',
-    description: 'Now refining portfolio to reflect 3 years of full-stack experience.',
-  },
+  year: '2023',
+  title: 'Returned to Korea & Advanced Java Bootcamp',
+  description:
+    'Completed a 6-month Java developer bootcamp after returning from Australia. Strengthened my full-stack fundamentals and explored new tools and frameworks including Spring Boot, MyBatis, AWS, and React.',
+},
+{
+  year: '2024',
+  title: 'Expanding Technical Stack & Building Projects',
+  description:
+    'Created multiple full-stack portfolio projects using React, Vite, Tailwind, and Spring Boot. Integrated OAuth, JWT, MyBatis, EC2 deployments, and JSP-based web apps while learning advanced frontend design and backend integration.',
+},
+{
+  year: '2025',
+  title: 'Full-Stack Career Preparation for Japan',
+  description:
+    'Currently enrolled in a 6-month intensive bootcamp that connects developers to companies in Japan. Refining my portfolio to showcase three years of full-stack experience and preparing for placement interviews.',
+},
 ];
 
 const Section = styled.section`

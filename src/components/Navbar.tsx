@@ -135,9 +135,11 @@ export default function Navbar() {
         <NavLink to="/" onClick={closeMenu}>Home</NavLink>
         <NavLink to="/about" onClick={closeMenu}>About</NavLink>
         <NavLink to="/journey" onClick={closeMenu}>Journey</NavLink>
+        <NavLink to="/chinchiro" onClick={closeMenu}>Chinchiro</NavLink>
         <NavLink to="/skills" onClick={closeMenu}>Skills</NavLink>
         <NavLink to="/projects" onClick={closeMenu}>Projects</NavLink>
         <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
+        
       </NavLinks>
 
       <Hamburger onClick={toggleMenu} isOpen={isOpen} aria-label="Toggle Menu">

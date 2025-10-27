@@ -14,18 +14,16 @@ const fadeInUp = keyframes`
 `
 
 const Wrapper = styled.div`
-  min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 5rem 0 6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: rem 1.5rem;
+  color: #fff;
+  text-align: center;
 `
 
 const Container = styled.div`
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 9rem 2rem;
   text-align: center;
   position: relative;
   z-index: 2;

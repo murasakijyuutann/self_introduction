@@ -1,4 +1,4 @@
-// src/components/AboutMe.tsx
+// src/components/About.tsx
 
 import React from 'react';
 import styled  from 'styled-components';
@@ -9,10 +9,13 @@ const Section = styled.section`
   background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   background-size: 20px 20px, cover;
+
   color: #fff;
-  padding: 6rem 1.5rem;
+  padding: 9rem 1.5rem;
   text-align: center;
+  position: relative;
 `;
+
 
 const Title = styled.h2`
   font-size: 3rem;
