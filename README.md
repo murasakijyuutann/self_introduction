@@ -92,7 +92,7 @@ npm run dev
 Then open http://localhost:5173 in your browser.
 ```
 
-
+---
 💼 Featured Projects
 Project	Description	Tech
 🎬 Movie Explorer	TMDB API-powered React app with infinite scroll	React · Tailwind · TMDB API
@@ -101,7 +101,9 @@ Project	Description	Tech
 ☁️ EC2 Todo App	Full-stack app deployed on AWS EC2	React · NestJS · Prisma
 🎧 Vocaloid DAO Simulator	Java collection-based OOP project	Java · DAO Pattern
 🎲 Chinchirorin Game	Japanese dice game remake in React	React · Framer Motion · Howler.js
+---
 
+---
 📫 Contact
 If you’d like to reach out or collaborate:
 
@@ -112,11 +114,15 @@ If you’d like to reach out or collaborate:
 💼 LinkedIn: linkedin.com/in/yourprofile
 
 🧠 Qiita: qiita.com/yourqiita
+---
 
+---
 🧩 Philosophy
 “Code is my language. Culture is my bridge.”
 This portfolio reflects my goal to combine technical skill, creativity, and cross-cultural understanding in every project I create.
+---
 
+---
 🛠️ Future Plans
  Add 日本語版ページ (Japanese version) toggle
 
@@ -125,11 +131,16 @@ This portfolio reflects my goal to combine technical skill, creativity, and cros
  Add Dark Mode switch for accessibility
 
  Deploy via Vercel + AWS Route 53 custom domain
+---
 
+---
 🧾 License
 This project is open-source under the MIT License — feel free to fork, modify, or reference for your own portfolio!
+---
 
+---
 💬 Final Words
 This portfolio was designed and built by Farah Sinclair (Fishyboyxx)
 to represent a 3-year-level developer’s skill set across frontend, backend, and full-stack web development.
 Thank you for visiting! 🌸
+---
