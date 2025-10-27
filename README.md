@@ -120,10 +120,10 @@ If you’d like to get in touch or collaborate:
 
 | Platform | Link |
 |-----------|------|
-| 💌 **Email** | [your.email@example.com](mailto:your.email@example.com) |
-| 🐙 **GitHub** | [github.com/yourusername](https://github.com/yourusername) |
-| 💼 **LinkedIn** | [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile) |
-| 🧠 **Qiita** | [qiita.com/yourqiita](https://qiita.com/yourqiita) |
+| 💌 **Email** | [fishyboyxx@protonmail.com](mailto:fishyboyxx@protonmail.com) |
+| 🐙 **GitHub** | [github.com/murasakijyuutann](https://github.com/murasakijyuutann) |
+| 💼 **LinkedIn** | [linkedin.com/in/sunmyung-woo-44b175221/](https://www.linkedin.com/in/sunmyung-woo-44b175221/e) |
+| 🧠 **Qiita** | [qiita.com/murasakijyuutann](https://qiita.com/murasakijyuutann) |
 
 ---
 
