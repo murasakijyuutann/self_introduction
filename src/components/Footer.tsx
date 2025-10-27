@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { FaGithub, FaLinkedin, FaTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa'
 import { SiQiita } from 'react-icons/si'
@@ -26,15 +26,31 @@ const SocialIcons = styled.div`
     transition: all 0.3s ease;
 
     &:hover {
-      color: #39c5bb; /* Miku teal */
+      color: #39c5bb;
       transform: translateY(-2px);
     }
   }
 `
 
+// const ModeLinks = styled.div`
+//   display: flex;
+//   gap: 1rem;
+//   margin-top: 0.5rem;
+//   font-size: 0.9rem;
+
+//   a {
+//     color: #aaa;
+//     text-decoration: underline;
+//     transition: color 0.3s;
+//     &:hover {
+//       color: #39c5bb;
+//     }
+//   }
+// `
+
 const Tagline = styled.p`
   font-size: 0.95rem;
-  margin-top: 0.5rem;
+  margin-top: 0.8rem;
   color: #aaa;
 `
 
@@ -45,38 +61,56 @@ const Copyright = styled.p`
   letter-spacing: 0.3px;
 `
 
-
-
-
-/* 
-  
-  https://www.linkedin.com/in/sunmyung-woo-44b175221/
-  https://x.com/hBE9ck3QAY1931
-  https://www.youtube.com/@%E3%83%81%E3%83%A0%E3%83%81%E3%83%A0-r7s*/
-
 export default function Footer() {
+  useEffect(() => {
+    // Detect device width and redirect automatically
+    const screenWidth = window.innerWidth
+
+    if (screenWidth <= 768) {
+      // Redirect mobile users to mobile version
+      if (!window.location.href.includes('/mobile')) {
+        window.location.href = 'https://your-portfolio-link.vercel.app/mobile'
+      }
+    } else {
+      // Redirect desktop users to PC version
+      if (!window.location.href.includes('/')) {
+        window.location.href = 'https://your-portfolio-link.vercel.app/'
+      }
+    }
+  }, [])
+
   return (
     <FooterContainer>
       <SocialIcons>
-        <a href="https://github.com/murasakijyuutann/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <FaGithub />
         </a>
-        <a href="https://www.linkedin.com/in/sunmyung-woo-44b175221/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <FaLinkedin />
         </a>
-        <a href="https://twitter.com/hBE9ck3QAY1931" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
           <FaTwitter />
         </a>
-        <a href="https://www.youtube.com/@%E3%83%81%E3%83%A0%E3%83%81%E3%83%A0-r7s" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <a href="https://www.youtube.com/@yourchannel" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <FaYoutube />
         </a>
-        <a href="https://qiita.com/murasakijyuutann" target="_blank" rel="noopener noreferrer" aria-label="Qiita">
+        <a href="https://qiita.com/yourqiita" target="_blank" rel="noopener noreferrer" aria-label="Qiita">
           <SiQiita />
         </a>
-        <a href="mailto:fishyboyxx@protonmail.com" aria-label="Send Email">
+        <a href="mailto:your.email@example.com" aria-label="Send Email">
           <FaEnvelope />
         </a>
       </SocialIcons>
+
+      {/* 🌐 PC/Mobile Links (manual switch) */}
+      {/* <ModeLinks>
+        <a href="https://your-portfolio-link.vercel.app" target="_blank" rel="noopener noreferrer">
+          💻 PC Version
+        </a>
+        <a href="https://your-portfolio-link.vercel.app/mobile" target="_blank" rel="noopener noreferrer">
+          📱 Mobile Version
+        </a>
+      </ModeLinks> */}
 
       <Tagline>Made with 💙 React, Styled Components, and creativity.</Tagline>
       <Copyright>
