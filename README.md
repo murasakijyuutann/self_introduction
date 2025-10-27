@@ -66,81 +66,71 @@ Copy code
 ---
 
 ## 🚀 Getting Started
-
-
-```bash
-1️⃣ Clone the repository
-
+💻 Setup & Run Locally
+🧩 Step 1. Clone the Repository
 git clone https://github.com/yourusername/self-intro-portfolio.git
 cd self-intro-portfolio
-2️⃣ Install dependencies
-bash
-Copy code
-npm install
-3️⃣ Set up EmailJS environment variables
-Create a .env file in the root directory:
 
-bash
-Copy code
+⚙️ Step 2. Install Dependencies
+npm install
+
+🔐 Step 3. Configure EmailJS Environment Variables
+
+Create a .env file in your project root and add the following:
+
 VITE_EMAILJS_SERVICE_ID=your_service_id
 VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
-4️⃣ Run locally
-bash
-Copy code
+
+🚀 Step 4. Run the Development Server
 npm run dev
-Then open http://localhost:5173 in your browser.
-```
 
----
+
+Then open 👉 http://localhost:5173
+ in your browser.
+
 💼 Featured Projects
-Project	Description	Tech
-🎬 Movie Explorer	TMDB API-powered React app with infinite scroll	React · Tailwind · TMDB API
-📋 Spring Boot Board	Token-authenticated backend with DTOs & Swagger	Spring Boot · MyBatis · JWT
-🛍 JSP Shopping Mall	JSP/Servlet-based e-commerce prototype	JSP · JSTL · Tomcat
-☁️ EC2 Todo App	Full-stack app deployed on AWS EC2	React · NestJS · Prisma
-🎧 Vocaloid DAO Simulator	Java collection-based OOP project	Java · DAO Pattern
-🎲 Chinchirorin Game	Japanese dice game remake in React	React · Framer Motion · Howler.js
----
-
----
+Project	Description	Tech Stack
+🎬 Movie Explorer	TMDB API-powered movie search app with infinite scroll and clean UI	React · Tailwind CSS · TMDB API
+📋 Spring Boot Board	Token-authenticated backend with DTOs, Swagger UI, and layered architecture	Spring Boot · MyBatis · JWT
+🛍 JSP Shopping Mall	JSP/Servlet-based mini e-commerce system with cart & login	JSP · JSTL · Tomcat
+☁️ EC2 Todo App	Full-stack app deployed on AWS EC2 with Supabase OAuth login	React · NestJS · Prisma
+🎧 Vocaloid DAO Simulator	Java collection-based OOP project themed around Vocaloid characters	Java · DAO Pattern
+🎲 Chinchirorin Game	Japanese dice game remake with sound and animation	React · Framer Motion · Howler.js
 📫 Contact
-If you’d like to reach out or collaborate:
 
-💌 Email: your.email@example.com
+If you’d like to get in touch or collaborate:
 
-🐙 GitHub: github.com/yourusername
+Platform	Link
+💌 Email	your.email@example.com
 
-💼 LinkedIn: linkedin.com/in/yourprofile
+🐙 GitHub	github.com/yourusername
 
-🧠 Qiita: qiita.com/yourqiita
----
+💼 LinkedIn	linkedin.com/in/yourprofile
 
----
+🧠 Qiita	qiita.com/yourqiita
 🧩 Philosophy
+
 “Code is my language. Culture is my bridge.”
-This portfolio reflects my goal to combine technical skill, creativity, and cross-cultural understanding in every project I create.
----
+This portfolio reflects my mission to combine technical skill, creativity, and cross-cultural understanding in every project I build.
 
----
 🛠️ Future Plans
- Add 日本語版ページ (Japanese version) toggle
 
- Integrate Spring Boot API backend for dynamic project updates
+🇯🇵 Add 日本語版ページ (Japanese version) toggle
 
- Add Dark Mode switch for accessibility
+🔗 Integrate Spring Boot API backend for dynamic project updates
 
- Deploy via Vercel + AWS Route 53 custom domain
----
+🌗 Add Dark Mode toggle for accessibility
 
----
+☁️ Deploy via Vercel + AWS Route 53 custom domain
+
 🧾 License
-This project is open-source under the MIT License — feel free to fork, modify, or reference for your own portfolio!
----
 
----
+This project is open-source under the MIT License.
+Feel free to fork, modify, and adapt it for your own use.
+
 💬 Final Words
+
 This portfolio was designed and built by Farah Sinclair (Fishyboyxx)
-to represent a 3-year-level developer’s skill set across frontend, backend, and full-stack web development.
+to represent a 3-year-experience-level developer’s full-stack skill set.
 Thank you for visiting! 🌸
----
