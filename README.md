@@ -102,14 +102,18 @@ Then open 👉 http://localhost:5173
 
 ### 💼 Featured Projects
 
-Project	Description	Tech Stack
-🎬 Movie Explorer	TMDB API-powered movie search app with infinite scroll and clean UI	React · Tailwind CSS · TMDB API
-📋 Spring Boot Board	Token-authenticated backend with DTOs, Swagger UI, and layered architecture	Spring Boot · MyBatis · JWT
-🛍 JSP Shopping Mall	JSP/Servlet-based mini e-commerce system with cart & login	JSP · JSTL · Tomcat
-☁️ EC2 Todo App	Full-stack app deployed on AWS EC2 with Supabase OAuth login	React · NestJS · Prisma
-🎧 Vocaloid DAO Simulator	Java collection-based OOP project themed around Vocaloid characters	Java · DAO Pattern
-🎲 Chinchirorin Game	Japanese dice game remake with sound and animation	React · Framer Motion · Howler.js
-📫 Contact
+| Project | Description | Tech Stack |
+|----------|--------------|------------|
+| 🎬 Movie Explorer | TMDB API-powered React app with infinite scroll & responsive UI | React · Tailwind CSS · TMDB API |
+| 📋 Spring Boot Board | Token-authenticated backend with DTOs, Swagger UI & role access control | Spring Boot · MyBatis · JWT |
+| 🛍 JSP Shopping Mall | JSP/Servlet-based e-commerce prototype with login & cart system | JSP · JSTL · Tomcat |
+| ☁️ EC2 Todo App | Full-stack app deployed on AWS EC2 with Supabase OAuth login | React · NestJS · Prisma |
+| 🎧 Vocaloid DAO Simulator | Java OOP collection project themed around Vocaloid characters | Java · DAO Pattern |
+| 🎲 Chinchirorin Game | Traditional Japanese dice game remake with sound & motion | React · Framer Motion · Howler.js |
+| Project | Description | Tech Stack |
+|:--------|:-------------|:------------:|
+
+
 
 If you’d like to get in touch or collaborate:
 
