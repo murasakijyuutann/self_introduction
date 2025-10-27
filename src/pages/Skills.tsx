@@ -1,147 +1,173 @@
-import styled from 'styled-components'
+import React from 'react'
+import styled, { keyframes } from 'styled-components'
+import { motion } from 'framer-motion'
 
-const Wrapper = styled.div`
+// 🌈 Animate the entire background
+const gradientShift = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`
+
+// 💫 Full-page background
+const Page = styled.section`
+  min-height: 100vh;
+  padding: 6rem 1.5rem;
+  background: linear-gradient(135deg, #40e0d0, #764ba2, #ff66cc);
+  background-size: 300% 300%;
+  animation: ${gradientShift} 10s ease infinite;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
+const Wrapper = styled(motion.div)`
   max-width: 1000px;
-  margin: 4rem auto;
-  padding: 0 1.5rem;
+  margin: 0 auto;
 `
 
 const Heading = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.4);
 `
 
-const Section = styled.div`
-  margin-bottom: 2.5rem;
+const Section = styled(motion.div)`
+  margin-bottom: 3rem;
 `
 
 const SectionTitle = styled.h3`
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #555;
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  color: #ffeefc;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 `
 
 const BadgeList = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.75rem;
 `
 
-const Badge = styled.span`
-  background-color: #e0f2f1;
-  color: #00695c;
-  padding: 0.4rem 0.8rem;
-  border-radius: 1rem;
+const Badge = styled(motion.span)`
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
   font-size: 0.95rem;
   font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.25s ease;
+  cursor: default;
+
+  &:hover {
+    transform: scale(1.12);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
 `
 
+// 🌀 Framer motion variants
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+}
+
+const badgeVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: { delay: i * 0.05, duration: 0.4 },
+  }),
+}
+
 export default function Skills() {
+  const renderBadges = (badges: string[]) =>
+    badges.map((text, i) => (
+      <Badge
+        key={text}
+        variants={badgeVariants}
+        initial="hidden"
+        whileInView="visible"
+        custom={i}
+        viewport={{ once: true }}
+      >
+        {text}
+      </Badge>
+    ))
+
   return (
-    <Wrapper>
-      <Heading>Skills & Technologies</Heading>
+    <Page id="skills">
+      <Wrapper
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Heading>Skills & Technologies</Heading>
 
-      <Section>
-        <SectionTitle>Languages</SectionTitle>
-        <BadgeList>
-          <Badge>Java</Badge>
-          <Badge>JavaScript</Badge>
-          <Badge>TypeScript</Badge>
-          <Badge>C</Badge>
-        </BadgeList>
-      </Section>
+        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <SectionTitle>Languages</SectionTitle>
+          <BadgeList>{renderBadges(['Java', 'JavaScript', 'TypeScript', 'C'])}</BadgeList>
+        </Section>
 
-      <Section>
-        <SectionTitle>Frontend</SectionTitle>
-        <BadgeList>
-          <Badge>React</Badge>
-          <Badge>Vite</Badge>
-          <Badge>Styled Components</Badge>
-          <Badge>Tailwind CSS</Badge>
-          <Badge>HTML</Badge>
-          <Badge>CSS</Badge>
-        </BadgeList>
-      </Section>
+        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <SectionTitle>Frontend</SectionTitle>
+          <BadgeList>
+            {renderBadges(['React', 'Vite', 'Styled Components', 'Tailwind CSS', 'HTML', 'CSS'])}
+          </BadgeList>
+        </Section>
 
-      <Section>
-        <SectionTitle>Backend & Frameworks</SectionTitle>
-        <BadgeList>
-          <Badge>Spring Boot</Badge>
-          <Badge>MyBatis</Badge>
-          <Badge>Node.js</Badge>
-          <Badge>Express</Badge>
-          <Badge>NestJS</Badge>
-          <Badge>Prisma</Badge>
-          <Badge>Axios</Badge>
-          <Badge>REST API Design</Badge>
-        </BadgeList>
-      </Section>
+        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <SectionTitle>Backend & Frameworks</SectionTitle>
+          <BadgeList>
+            {renderBadges(['Spring Boot', 'MyBatis', 'Node.js', 'Express', 'NestJS', 'Prisma', 'Axios', 'REST API Design'])}
+          </BadgeList>
+        </Section>
 
-      <Section>
-        <SectionTitle>Authentication & Architecture</SectionTitle>
-        <BadgeList>
-          <Badge>JWT Auth</Badge>
-          <Badge>Session-based Auth</Badge>
-          <Badge>OAuth (Google, Kakao)</Badge>
-          <Badge>DTO Pattern</Badge>
-          <Badge>Global Exception Handling</Badge>
-          <Badge>MVC & Layered Architecture</Badge>
-        </BadgeList>
-      </Section>
+        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <SectionTitle>Authentication & Architecture</SectionTitle>
+          <BadgeList>
+            {renderBadges(['JWT Auth', 'Session-based Auth', 'OAuth (Google, Kakao)', 'DTO Pattern', 'Global Exception Handling', 'MVC & Layered Architecture'])}
+          </BadgeList>
+        </Section>
 
-      <Section>
-        <SectionTitle>Database & Tools</SectionTitle>
-        <BadgeList>
-          <Badge>MySQL</Badge>
-          <Badge>DBeaver</Badge>
-          <Badge>Supabase</Badge>
-          <Badge>Postman</Badge>
-          <Badge>Swagger</Badge>
-        </BadgeList>
-      </Section>
+        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <SectionTitle>Database & Tools</SectionTitle>
+          <BadgeList>{renderBadges(['MySQL', 'DBeaver', 'Supabase', 'Postman', 'Swagger'])}</BadgeList>
+        </Section>
 
-      <Section>
-        <SectionTitle>Infrastructure / DevOps</SectionTitle>
-        <BadgeList>
-          <Badge>AWS EC2</Badge>
-          <Badge>SSH</Badge>
-          <Badge>Linux CLI</Badge>
-          <Badge>VMWare</Badge>
-          <Badge>Network Troubleshooting</Badge>
-          <Badge>Tomcat (JSP)</Badge>
-        </BadgeList>
-      </Section>
+        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <SectionTitle>Infrastructure / DevOps</SectionTitle>
+          <BadgeList>
+            {renderBadges(['AWS EC2', 'SSH', 'Linux CLI', 'VMWare', 'Network Troubleshooting', 'Tomcat (JSP)'])}
+          </BadgeList>
+        </Section>
 
-      <Section>
-        <SectionTitle>Project & Dev Practice</SectionTitle>
-        <BadgeList>
-          <Badge>Version Control (Git)</Badge>
-          <Badge>Multi-page Form Design</Badge>
-          <Badge>Responsive Layout</Badge>
-          <Badge>Debugging & Troubleshooting</Badge>
-          <Badge>Database Schema Design</Badge>
-          <Badge>Team Collaboration</Badge>
-        </BadgeList>
-      </Section>
+        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <SectionTitle>Project & Dev Practice</SectionTitle>
+          <BadgeList>
+            {renderBadges(['Version Control (Git)', 'Multi-page Form Design', 'Responsive Layout', 'Debugging & Troubleshooting', 'Database Schema Design', 'Team Collaboration'])}
+          </BadgeList>
+        </Section>
 
-      <Section>
-        <SectionTitle>Languages & Communication</SectionTitle>
-        <BadgeList>
-          <Badge>English (Fluent)</Badge>
-          <Badge>Japanese (JLPT N1)</Badge>
-          <Badge>Korean (Native)</Badge>
-          <Badge>Technical Writing</Badge>
-          <Badge>Cross-cultural Teamwork</Badge>
-        </BadgeList>
-      </Section>
+        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <SectionTitle>Languages & Communication</SectionTitle>
+          <BadgeList>
+            {renderBadges(['English (Fluent)', 'Japanese (JLPT N1)', 'Korean (Native)', 'Technical Writing', 'Cross-cultural Teamwork'])}
+          </BadgeList>
+        </Section>
 
-      <Section>
-        <SectionTitle>Certifications</SectionTitle>
-        <BadgeList>
-          <Badge>JLPT N1 (2024.07)</Badge>
-          <Badge>IELTS 7.5 (2019.11)</Badge>
-        </BadgeList>
-      </Section>
-    </Wrapper>
+        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <SectionTitle>Certifications</SectionTitle>
+          <BadgeList>{renderBadges(['JLPT N1 (2024.07)', 'IELTS 7.5 (2019.11)'])}</BadgeList>
+        </Section>
+      </Wrapper>
+    </Page>
   )
 }

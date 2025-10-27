@@ -1,13 +1,15 @@
 // src/components/About.tsx
 
 import React from 'react';
-import styled  from 'styled-components';
+import styled from 'styled-components';
+import { animatedGradient } from '../styles/AnimatedBackground';
 import { motion } from 'framer-motion';
 
 const Section = styled.section`
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  ${animatedGradient};
+
   background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
   background-size: 20px 20px, cover;
 
   color: #fff;

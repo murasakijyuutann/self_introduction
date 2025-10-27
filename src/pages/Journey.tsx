@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { animatedGradient } from '../styles/AnimatedBackground'
 import { motion } from 'framer-motion';
 
 const journeyData = [
@@ -22,12 +23,6 @@ const journeyData = [
       'Worked as an intern for 6 months, then became a permanent staff member. Assisted full-stack teams, mainly debugging and testing backend Java systems.',
   },
   {
-    year: '2020–Present',
-    title: 'Exploring Frontend & Modern Web',
-    description:
-      'Started learning React around 2020 when it became a popular trend, combining my backend knowledge with frontend frameworks to build full-stack applications.',
-  },
-  {
   year: '2023',
   title: 'Returned to Korea & Advanced Java Bootcamp',
   description:
@@ -48,7 +43,7 @@ const journeyData = [
 ];
 
 const Section = styled.section`
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  ${animatedGradient};
   padding: 6rem 1rem;
   color: #fff;
   text-align: center;

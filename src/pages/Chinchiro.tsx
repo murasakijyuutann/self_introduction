@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
+import { animatedGradient } from '../styles/AnimatedBackground';
 import { motion } from 'framer-motion'
 import { FaDice, FaGlassWhiskey } from 'react-icons/fa'
 import { Howl } from 'howler'
@@ -17,9 +18,10 @@ const fadeIn = keyframes`
 `
 
 // 💅 Styled Components
+// background: linear-gradient(135deg, #40e0d0 0%, #ff66cc 100%); // Miku teal to pink
 const Wrapper = styled.div`
   min-height: 100vh;
-  background: linear-gradient(135deg, #40e0d0 0%, #ff66cc 100%);
+  ${animatedGradient};
   color: #fff;
   display: flex;
   flex-direction: column;
