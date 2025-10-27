@@ -124,7 +124,7 @@ export default function Projects() {
       title: '🎲 Chinchirorin Game',
       desc: 'A fun React mini-game recreating the traditional Japanese dice game, complete with animations and sound effects.',
       tech: 'React · Framer Motion · Howler.js',
-      link: 'https://github.com/yourusername/chinchiro-game',
+      link: 'https://github.com/murasakijyuutann/self_introduction/blob/main/src/pages/Chinchiro.tsx',
     },
   ]
 

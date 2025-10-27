@@ -1,4 +1,4 @@
-# 🌸 Self Introduction / Developer Portfolio — *Farah Sinclair (Fishyboyxx)*
+# 🌸 Self Introduction / Developer Portfolio — *Fishyboyxx*
 
 A personal developer portfolio built with **React + Vite + TypeScript + Styled Components**, featuring smooth animations, bilingual-friendly sections, and a clean, modern UI inspired by **Hatsune Miku’s mint–pink color palette**.  
 This site introduces my journey, skills, and projects while showcasing the ability to design, build, and deploy production-ready React applications.
@@ -6,7 +6,7 @@ This site introduces my journey, skills, and projects while showcasing the abili
 ---
 
 ## 🌐 Live Demo
-> [https://your-portfolio-link.vercel.app](https://your-portfolio-link.vercel.app)
+> [https://your-portfolio-link.vercel.app](https://your-portfolio-link.vercel.app will be updated soon)
 
 ---
 
