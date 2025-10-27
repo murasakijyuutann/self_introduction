@@ -110,43 +110,50 @@ Then open 👉 http://localhost:5173
 | ☁️ EC2 Todo App | Full-stack app deployed on AWS EC2 with Supabase OAuth login | React · NestJS · Prisma |
 | 🎧 Vocaloid DAO Simulator | Java OOP collection project themed around Vocaloid characters | Java · DAO Pattern |
 | 🎲 Chinchirorin Game | Traditional Japanese dice game remake with sound & motion | React · Framer Motion · Howler.js |
-| Project | Description | Tech Stack |
-|:--------|:-------------|:------------:|
 
 
+---
+
+### 📫 Contact
 
 If you’d like to get in touch or collaborate:
 
-Platform	Link
-💌 Email	your.email@example.com
+| Platform | Link |
+|-----------|------|
+| 💌 **Email** | [your.email@example.com](mailto:your.email@example.com) |
+| 🐙 **GitHub** | [github.com/yourusername](https://github.com/yourusername) |
+| 💼 **LinkedIn** | [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile) |
+| 🧠 **Qiita** | [qiita.com/yourqiita](https://qiita.com/yourqiita) |
 
-🐙 GitHub	github.com/yourusername
+---
 
-💼 LinkedIn	linkedin.com/in/yourprofile
+### 🧩 Philosophy
 
-🧠 Qiita	qiita.com/yourqiita
-🧩 Philosophy
+> “**Code is my language. Culture is my bridge.**”  
+> This portfolio reflects my mission to combine technical skill, creativity,  
+> and cross-cultural understanding in every project I build.
 
-“Code is my language. Culture is my bridge.”
-This portfolio reflects my mission to combine technical skill, creativity, and cross-cultural understanding in every project I build.
+---
 
-🛠️ Future Plans
+### 🛠️ Future Plans
 
-🇯🇵 Add 日本語版ページ (Japanese version) toggle
+- 🇯🇵 Add **日本語版ページ (Japanese version)** toggle  
+- 🔗 Integrate **Spring Boot API backend** for dynamic project updates  
+- 🌗 Add **Dark Mode** toggle for accessibility  
+- ☁️ Deploy via **Vercel + AWS Route 53** custom domain  
 
-🔗 Integrate Spring Boot API backend for dynamic project updates
+---
 
-🌗 Add Dark Mode toggle for accessibility
+### 🧾 License
 
-☁️ Deploy via Vercel + AWS Route 53 custom domain
+This project is open-source under the **MIT License**.  
+Feel free to **fork**, **modify**, and **adapt** it for your own use.
 
-🧾 License
+---
 
-This project is open-source under the MIT License.
-Feel free to fork, modify, and adapt it for your own use.
+### 💬 Final Words
 
-💬 Final Words
+> This portfolio was designed and built by **Farah Sinclair (Fishyboyxx)**  
+> to represent a *3-year-experience-level developer’s* full-stack skill set.  
+> Thank you for visiting! 🌸
 
-This portfolio was designed and built by Farah Sinclair (Fishyboyxx)
-to represent a 3-year-experience-level developer’s full-stack skill set.
-Thank you for visiting! 🌸
