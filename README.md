@@ -89,7 +89,8 @@ npm run dev
 Then open 👉 http://localhost:5173
  in your browser.
 
-💼 Featured Projects
+### 💼 Featured Projects
+```
 Project	Description	Tech Stack
 🎬 Movie Explorer	TMDB API-powered movie search app with infinite scroll and clean UI	React · Tailwind CSS · TMDB API
 📋 Spring Boot Board	Token-authenticated backend with DTOs, Swagger UI, and layered architecture	Spring Boot · MyBatis · JWT
@@ -98,6 +99,7 @@ Project	Description	Tech Stack
 🎧 Vocaloid DAO Simulator	Java collection-based OOP project themed around Vocaloid characters	Java · DAO Pattern
 🎲 Chinchirorin Game	Japanese dice game remake with sound and animation	React · Framer Motion · Howler.js
 📫 Contact
+```
 
 If you’d like to get in touch or collaborate:
 
