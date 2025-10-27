@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { animatedGradient } from '../styles/AnimatedBackground'
 
-// 🌈 Full-page animated background
 const Section = styled.section`
   ${animatedGradient};
   min-height: 100vh;
@@ -23,7 +22,7 @@ const Heading = styled.h2`
   font-size: 2.8rem;
   margin-bottom: 3rem;
   font-weight: 700;
-  text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.4);
+  text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.3);
 `
 
 const ProjectGrid = styled.div`
@@ -32,7 +31,6 @@ const ProjectGrid = styled.div`
   gap: 2rem;
 `
 
-// ✨ Glass-style cards with hover lift
 const Card = styled(motion.div)`
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
@@ -74,13 +72,13 @@ const Link = styled.a`
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s;
+
   &:hover {
     text-decoration: underline;
     color: #fff;
   }
 `
 
-// 🌀 Motion variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
@@ -94,39 +92,39 @@ export default function Projects() {
   const projects = [
     {
       title: '🎬 Movie Explorer',
-      desc: 'A movie search app using TMDB API with infinite scroll, responsive layout, and detailed movie pages.',
+      desc: 'A TMDB-powered movie search app with infinite scroll, responsive design, and detailed movie pages.',
       tech: 'React · Tailwind CSS · TMDB API',
       link: 'https://github.com/yourusername/movie-explorer',
     },
     {
       title: '📋 Spring Boot Board',
-      desc: 'A full-featured backend system with token login, DTOs, role management, and Swagger API testing.',
+      desc: 'A token-authenticated backend system with DTOs, role-based access control, and Swagger API documentation.',
       tech: 'Spring Boot · MyBatis · JWT · Swagger',
       link: 'https://github.com/yourusername/board-system',
     },
     {
       title: '🛍 JSP Shopping Mall',
-      desc: 'An early JSP/Servlet-based shopping mall project featuring login, product listing, and checkout flow.',
+      desc: 'An early JSP/Servlet project implementing login, product listing, and shopping cart management.',
       tech: 'JSP · Servlet · JSTL · Tomcat',
       link: 'https://github.com/yourusername/jsp-practise',
     },
     {
       title: '☁️ EC2 Todo App',
-      desc: 'A React + NestJS app hosted on AWS EC2 with Supabase OAuth login and full CRUD task list.',
+      desc: 'A React + NestJS full-stack app deployed on AWS EC2 with Supabase OAuth login and complete CRUD support.',
       tech: 'React · NestJS · Prisma · EC2 · Supabase',
       link: 'https://github.com/yourusername/ec2-todo-app',
     },
     {
-      title: '🎬 Movie Explorer',
-      desc: 'A movie search app using TMDB API with infinite scroll, responsive layout, and detailed movie pages.',
-      tech: 'React · Tailwind CSS · TMDB API',
-      link: 'https://github.com/yourusername/movie-explorer',
+      title: '🎧 Vocaloid DAO Simulator',
+      desc: 'A Java-based collection management project themed around Vocaloid characters, built to practice OOP and design patterns.',
+      tech: 'Java · Collections · MVC · DAO Pattern',
+      link: 'https://github.com/yourusername/vocaloid-dao',
     },
     {
-      title: '🎬 Movie Explorer',
-      desc: 'A movie search app using TMDB API with infinite scroll, responsive layout, and detailed movie pages.',
-      tech: 'React · Tailwind CSS · TMDB API',
-      link: 'https://github.com/yourusername/movie-explorer',
+      title: '🎲 Chinchirorin Game',
+      desc: 'A fun React mini-game recreating the traditional Japanese dice game, complete with animations and sound effects.',
+      tech: 'React · Framer Motion · Howler.js',
+      link: 'https://github.com/yourusername/chinchiro-game',
     },
   ]
 

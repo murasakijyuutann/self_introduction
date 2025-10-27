@@ -1,22 +1,14 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
-import { animatedGradient } from '../styles/AnimatedBackground';
+import styled from 'styled-components'
+import { animatedGradient } from '../styles/AnimatedBackground'
 import { motion } from 'framer-motion'
 
-// 🌈 Animate the entire background
-
-
-// 💫 Full-page background
 const Page = styled.section`
+  ${animatedGradient};
   min-height: 100vh;
   padding: 6rem 1.5rem;
-  
-  ${animatedGradient};
   color: #fff;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 `
 
 const Wrapper = styled(motion.div)`
@@ -28,7 +20,6 @@ const Heading = styled.h2`
   font-size: 2.8rem;
   margin-bottom: 3rem;
   font-weight: 700;
-  text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.4);
 `
 
 const Section = styled(motion.div)`
@@ -62,13 +53,12 @@ const Badge = styled(motion.span)`
   cursor: default;
 
   &:hover {
-    transform: scale(1.12);
+    transform: scale(1.1);
     background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
   }
 `
 
-// 🌀 Framer motion variants
 const sectionVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -107,61 +97,105 @@ export default function Skills() {
       >
         <Heading>Skills & Technologies</Heading>
 
-        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <SectionTitle>Languages</SectionTitle>
+        <Section
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <SectionTitle>Programming Languages</SectionTitle>
           <BadgeList>{renderBadges(['Java', 'JavaScript', 'TypeScript', 'C'])}</BadgeList>
         </Section>
 
-        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <Section variants={sectionVariants}>
           <SectionTitle>Frontend</SectionTitle>
           <BadgeList>
             {renderBadges(['React', 'Vite', 'Styled Components', 'Tailwind CSS', 'HTML', 'CSS'])}
           </BadgeList>
         </Section>
 
-        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <Section variants={sectionVariants}>
           <SectionTitle>Backend & Frameworks</SectionTitle>
           <BadgeList>
-            {renderBadges(['Spring Boot', 'MyBatis', 'Node.js', 'Express', 'NestJS', 'Prisma', 'Axios', 'REST API Design'])}
+            {renderBadges([
+              'Spring Boot',
+              'MyBatis',
+              'Node.js',
+              'Express',
+              'NestJS',
+              'Prisma',
+              'Axios',
+              'REST API Design',
+            ])}
           </BadgeList>
         </Section>
 
-        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <Section variants={sectionVariants}>
           <SectionTitle>Authentication & Architecture</SectionTitle>
           <BadgeList>
-            {renderBadges(['JWT Auth', 'Session-based Auth', 'OAuth (Google, Kakao)', 'DTO Pattern', 'Global Exception Handling', 'MVC & Layered Architecture'])}
+            {renderBadges([
+              'JWT Authentication',
+              'Session-based Auth',
+              'OAuth (Google / Kakao)',
+              'DTO Pattern',
+              'Global Exception Handling',
+              'MVC & Layered Architecture',
+            ])}
           </BadgeList>
         </Section>
 
-        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <Section variants={sectionVariants}>
           <SectionTitle>Database & Tools</SectionTitle>
-          <BadgeList>{renderBadges(['MySQL', 'DBeaver', 'Supabase', 'Postman', 'Swagger'])}</BadgeList>
-        </Section>
-
-        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <SectionTitle>Infrastructure / DevOps</SectionTitle>
           <BadgeList>
-            {renderBadges(['AWS EC2', 'SSH', 'Linux CLI', 'VMWare', 'Network Troubleshooting', 'Tomcat (JSP)'])}
+            {renderBadges(['MySQL', 'DBeaver', 'Supabase', 'Postman', 'Swagger'])}
           </BadgeList>
         </Section>
 
-        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <SectionTitle>Project & Dev Practice</SectionTitle>
+        <Section variants={sectionVariants}>
+          <SectionTitle>Infrastructure & DevOps</SectionTitle>
           <BadgeList>
-            {renderBadges(['Version Control (Git)', 'Multi-page Form Design', 'Responsive Layout', 'Debugging & Troubleshooting', 'Database Schema Design', 'Team Collaboration'])}
+            {renderBadges([
+              'AWS EC2',
+              'SSH',
+              'Linux CLI',
+              'VMWare',
+              'Tomcat (JSP)',
+              'Docker (Learning)',
+            ])}
           </BadgeList>
         </Section>
 
-        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <Section variants={sectionVariants}>
+          <SectionTitle>Development Practices</SectionTitle>
+          <BadgeList>
+            {renderBadges([
+              'Version Control (Git)',
+              'Responsive Layout Design',
+              'Debugging & Troubleshooting',
+              'Database Schema Design',
+              'Team Collaboration',
+            ])}
+          </BadgeList>
+        </Section>
+
+        <Section variants={sectionVariants}>
           <SectionTitle>Languages & Communication</SectionTitle>
           <BadgeList>
-            {renderBadges(['English (Fluent)', 'Japanese (JLPT N1)', 'Korean (Native)', 'Technical Writing', 'Cross-cultural Teamwork'])}
+            {renderBadges([
+              'English (Fluent)',
+              'Japanese (JLPT N1)',
+              'Korean (Native)',
+              'Technical Writing',
+              'Cross-cultural Teamwork',
+            ])}
           </BadgeList>
         </Section>
 
-        <Section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <Section variants={sectionVariants}>
           <SectionTitle>Certifications</SectionTitle>
-          <BadgeList>{renderBadges(['JLPT N1 (2024.07)', 'IELTS 7.5 (2019.11)'])}</BadgeList>
+          <BadgeList>
+            {renderBadges(['JLPT N1 (2024.07)', 'IELTS 7.5 (2019.11)'])}
+          </BadgeList>
         </Section>
       </Wrapper>
     </Page>

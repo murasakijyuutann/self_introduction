@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
-import { animatedGradient } from '../styles/AnimatedBackground';
+import { animatedGradient } from '../styles/AnimatedBackground'
 import { motion } from 'framer-motion'
 import { FaDice, FaGlassWhiskey } from 'react-icons/fa'
 import { Howl } from 'howler'
@@ -18,7 +18,6 @@ const fadeIn = keyframes`
 `
 
 // 💅 Styled Components
-// background: linear-gradient(135deg, #40e0d0 0%, #ff66cc 100%); // Miku teal to pink
 const Wrapper = styled.div`
   min-height: 100vh;
   ${animatedGradient};
@@ -34,8 +33,16 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
   font-size: 3rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+`
+
+const Intro = styled.p`
+  max-width: 600px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  line-height: 1.6;
 `
 
 const SectionTitle = styled.h2`
@@ -148,16 +155,15 @@ export const ChinchiroGame: React.FC = () => {
     setShowCpuDice(false)
     rollSound.play()
 
-    // 🎲 Player rolls first
+    // 🎲 Player rolls
     const playerNew = [getRandomDice(), getRandomDice(), getRandomDice()]
     setPlayerDice(playerNew)
     setPlayerResult(getResultText(playerNew))
 
-    // ⏳ Wait for CPU turn
+    // ⏳ CPU turn delay
     setMessage('相手のターンを待っています…')
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
-    // 🎲 CPU rolls
     rollSound.play()
     const cpuNew = [getRandomDice(), getRandomDice(), getRandomDice()]
     setCpuDice(cpuNew)
@@ -165,7 +171,7 @@ export const ChinchiroGame: React.FC = () => {
     setCpuResult(getResultText(cpuNew))
     setMessage('')
 
-    // 🧠 Judge
+    // 🧠 Judge result
     const playerScore = getScoreRank(playerNew)
     const cpuScore = getScoreRank(cpuNew)
 
@@ -181,7 +187,16 @@ export const ChinchiroGame: React.FC = () => {
 
   return (
     <Wrapper>
-      <Title><FaGlassWhiskey /> チンチロリン 親 vs 子 <FaDice /></Title>
+      <Title>
+        <FaGlassWhiskey /> チンチロリン 親 vs 子 <FaDice />
+      </Title>
+
+      <Intro>
+        A small fun project recreating the traditional Japanese dice game,
+        <strong> チンチロリン (Chinchirorin)</strong>.  
+        Built with React and Framer Motion to experiment with animations,
+        timing, and sound effects — blending culture and code.
+      </Intro>
 
       {!gameStarted ? (
         <>
@@ -205,37 +220,28 @@ export const ChinchiroGame: React.FC = () => {
           </DiceArea>
           <ResultText>{playerResult}</ResultText>
 
-       {(showCpuDice || message) && (
-  <>
-    <SectionTitle>💻 相手の出目</SectionTitle>
-    <DiceArea>
-      {showCpuDice ? (
-        cpuDice.map((num, i) => (
-          <CpuDice
-            key={i}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 0.5 }}
-          >
-            {num}
-          </CpuDice>
-        ))
-      ) : (
-        <ResultText style={{ opacity: 0.8 }}>
-          {message || '相手のターンを待っています…'}
-        </ResultText>
-      )}
-    </DiceArea>
-    {showCpuDice && <ResultText>{cpuResult}</ResultText>}
-  </>
-)}
-
+          {(showCpuDice || message) && (
+            <>
+              <SectionTitle>💻 相手の出目</SectionTitle>
+              <DiceArea>
+                {showCpuDice ? (
+                  cpuDice.map((num, i) => (
+                    <CpuDice key={i} animate={{ rotate: 360 }} transition={{ duration: 0.5 }}>
+                      {num}
+                    </CpuDice>
+                  ))
+                ) : (
+                  <ResultText style={{ opacity: 0.8 }}>
+                    {message || '相手のターンを待っています…'}
+                  </ResultText>
+                )}
+              </DiceArea>
+              {showCpuDice && <ResultText>{cpuResult}</ResultText>}
+            </>
+          )}
 
           <Button onClick={playGame}>🎲 勝負する！</Button>
-
-          <ResultText style={{ fontSize: '2rem', marginTop: '2rem' }}>
-            {winner}
-          </ResultText>
-
+          <ResultText style={{ fontSize: '2rem', marginTop: '2rem' }}>{winner}</ResultText>
           <Button onClick={() => window.location.reload()}>🔁 もう一度プレイ</Button>
         </>
       )}

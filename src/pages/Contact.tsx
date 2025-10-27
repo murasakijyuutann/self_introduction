@@ -1,11 +1,10 @@
-// src/pages/Contact.tsx
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 import { animatedGradient } from '../styles/AnimatedBackground'
 
-// 🌈 Animated full-page background
+// 🌈 Full-page animated background
 const Section = styled.section`
   ${animatedGradient};
   min-height: 100vh;
@@ -24,14 +23,14 @@ const Wrapper = styled(motion.div)`
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  padding: 2.5rem;
+  padding: 2.8rem 2.5rem;
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
 `
 
 const Heading = styled.h2`
   font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
   text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 `
 
@@ -82,6 +81,8 @@ const Status = styled.p`
   margin-top: 1rem;
   font-size: 1rem;
   color: #fff;
+  font-weight: 500;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 `
 
 export default function Contact() {
@@ -94,16 +95,16 @@ export default function Contact() {
 
     if (!form.current) return
 
-    emailjs.sendForm(
-  import.meta.env.VITE_EMAILJS_SERVICE_ID!,
-  import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
-  form.current,
-  import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
-)
-
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
+      )
       .then(
         () => {
-          setStatus('✅ Your message has been sent successfully!')
+          setStatus('✅ Thanks for reaching out! I’ll get back to you soon.')
           form.current?.reset()
         },
         (error) => {

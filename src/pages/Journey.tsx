@@ -1,59 +1,59 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 import { animatedGradient } from '../styles/AnimatedBackground'
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
 
 const journeyData = [
   {
-  year: '2015–2016',
-  title: 'Began My IT Journey in Australia',
-  description:
-    'Started and completed a Diploma of IT at UTS:INSEARCH, building a strong foundation in networking, databases, and programming fundamentals.',
-},
-{
-  year: '2017–2019',
-  title: 'Advanced to Bachelor Studies',
-  description:
-    'Progressed to Charles Sturt University in Sydney, majoring in Systems Administration, where I deepened my understanding of infrastructure, cloud systems, and IT management.',
-},
+    year: '2015–2016',
+    title: 'Began My IT Journey in Australia',
+    description:
+      'Completed a Diploma of IT at UTS:INSEARCH, gaining solid foundations in networking, databases, and programming.',
+  },
+  {
+    year: '2017–2019',
+    title: 'Advanced to Bachelor Studies',
+    description:
+      'Majored in Systems Administration at Charles Sturt University in Sydney, deepening expertise in cloud infrastructure and IT management.',
+  },
   {
     year: '2020–2022',
     title: 'Internship & Full-Time Developer Role',
     description:
-      'Worked as an intern for 6 months, then became a permanent staff member. Assisted full-stack teams, mainly debugging and testing backend Java systems.',
+      'Worked first as an intern, then transitioned into a full-time role assisting full-stack teams — mainly testing, debugging, and improving backend Java systems.',
   },
   {
-  year: '2023',
-  title: 'Returned to Korea & Advanced Java Bootcamp',
-  description:
-    'Completed a 6-month Java developer bootcamp after returning from Australia. Strengthened my full-stack fundamentals and explored new tools and frameworks including Spring Boot, MyBatis, AWS, and React.',
-},
-{
-  year: '2024',
-  title: 'Expanding Technical Stack & Building Projects',
-  description:
-    'Created multiple full-stack portfolio projects using React, Vite, Tailwind, and Spring Boot. Integrated OAuth, JWT, MyBatis, EC2 deployments, and JSP-based web apps while learning advanced frontend design and backend integration.',
-},
-{
-  year: '2025',
-  title: 'Full-Stack Career Preparation for Japan',
-  description:
-    'Currently enrolled in a 6-month intensive bootcamp that connects developers to companies in Japan. Refining my portfolio to showcase three years of full-stack experience and preparing for placement interviews.',
-},
-];
+    year: '2023',
+    title: 'Returned to Korea & Java Bootcamp',
+    description:
+      'Completed a 6-month Java developer bootcamp after returning from Australia. Strengthened full-stack fundamentals using Spring Boot, MyBatis, AWS, and React.',
+  },
+  {
+    year: '2024',
+    title: 'Expanding Technical Stack',
+    description:
+      'Built full-stack projects integrating OAuth, JWT, MyBatis, EC2 deployments, and Vite-based React frontends while improving UI/UX design practices.',
+  },
+  {
+    year: '2025',
+    title: 'Preparing for a Career in Japan',
+    description:
+      'Currently enrolled in a Japan-placement bootcamp, refining my portfolio to present three years of experience and preparing for interviews with Japanese IT companies.',
+  },
+]
 
 const Section = styled.section`
   ${animatedGradient};
   padding: 6rem 1rem;
   color: #fff;
   text-align: center;
-`;
+`
 
 const Title = styled.h2`
   font-size: 2.8rem;
   margin-bottom: 4rem;
   font-weight: bold;
-`;
+`
 
 const Timeline = styled.div`
   max-width: 800px;
@@ -69,19 +69,19 @@ const Timeline = styled.div`
     width: 4px;
     background: rgba(255, 255, 255, 0.3);
   }
-`;
+`
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
+}
 
 const Event = styled(motion.div)`
   position: relative;
   padding-left: 60px;
   margin-bottom: 3rem;
   text-align: left;
-`;
+`
 
 const Dot = styled.div`
   position: absolute;
@@ -91,25 +91,27 @@ const Dot = styled.div`
   height: 16px;
   border-radius: 50%;
   background: #fff;
-  border: 4px solid #764ba2;
-`;
+  border: 4px solid #ff66cc;
+  box-shadow: 0 0 12px rgba(255, 102, 204, 0.5);
+`
 
 const Year = styled.div`
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 0.2rem;
-`;
+`
 
 const EventTitle = styled.div`
   font-size: 1.1rem;
   font-weight: 600;
-`;
+`
 
 const Description = styled.p`
   font-size: 0.95rem;
   line-height: 1.5;
   color: #e0e0e0;
-`;
+  margin-top: 0.25rem;
+`
 
 export default function Journey() {
   return (
@@ -132,5 +134,5 @@ export default function Journey() {
         ))}
       </Timeline>
     </Section>
-  );
+  )
 }
