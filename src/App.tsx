@@ -9,7 +9,6 @@ import Journey from './pages/Journey'
 import { ChinchiroGame } from './pages/Chinchiro'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
-import './App.css'
 
 function App() {
   return (
