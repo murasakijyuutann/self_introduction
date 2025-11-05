@@ -15,6 +15,8 @@ const Section = styled.section`
   padding: 6rem 1.5rem;
   color: #fff;
   text-align: center;
+  width: 100%; /* ✅ Fix: Prevent overflow */
+  overflow-x: hidden; /* ✅ Fix: Prevent horizontal scroll */
 `
 
 const Wrapper = styled(motion.div)`
@@ -25,6 +27,12 @@ const Wrapper = styled(motion.div)`
   border-radius: 20px;
   padding: 2.8rem 2.5rem;
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  box-sizing: border-box; /* ✅ Fix: Include padding in width calculation */
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem; /* ✅ Fix: Reduce padding on mobile */
+    margin: 0 1rem; /* ✅ Fix: Add margin for mobile */
+  }
 `
 
 const Heading = styled.h2`
@@ -32,6 +40,10 @@ const Heading = styled.h2`
   font-weight: 700;
   margin-bottom: 1.8rem;
   text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+
+  @media (max-width: 768px) {
+    font-size: 2rem; /* ✅ Fix: Smaller heading on mobile */
+  }
 `
 
 const Input = styled.input`
@@ -44,6 +56,12 @@ const Input = styled.input`
   font-size: 1rem;
   color: #333;
   background: #fdfdfd;
+  box-sizing: border-box; /* ✅ Fix: Include padding in width */
+
+  @media (max-width: 768px) {
+    padding: 0.8rem; /* ✅ Fix: Adjust padding for mobile */
+    font-size: 0.95rem;
+  }
 `
 
 const TextArea = styled.textarea`
@@ -58,6 +76,13 @@ const TextArea = styled.textarea`
   background: #fdfdfd;
   resize: none;
   margin-bottom: 1rem;
+  box-sizing: border-box; /* ✅ Fix: Include padding in width */
+
+  @media (max-width: 768px) {
+    padding: 0.8rem; /* ✅ Fix: Adjust padding for mobile */
+    font-size: 0.95rem;
+    height: 120px; /* ✅ Fix: Smaller height on mobile */
+  }
 `
 
 const Button = styled.button`
@@ -70,10 +95,17 @@ const Button = styled.button`
   padding: 0.8rem 2rem;
   cursor: pointer;
   transition: all 0.25s ease;
+  width: 100%; /* ✅ Fix: Full width for better mobile UX */
+  box-sizing: border-box; /* ✅ Fix: Include padding in width */
 
   &:hover {
     transform: scale(1.05);
     background: #ffe6f2;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
   }
 `
 
@@ -83,6 +115,11 @@ const Status = styled.p`
   color: #fff;
   font-weight: 500;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  word-wrap: break-word; /* ✅ Fix: Prevent text overflow */
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `
 
 export default function Contact() {
@@ -104,7 +141,7 @@ export default function Contact() {
       )
       .then(
         () => {
-          setStatus('✅ Thanks for reaching out! I’ll get back to you soon.')
+          setStatus("✅ Thanks for reaching out! I'll get back to you soon.")
           form.current?.reset()
         },
         (error) => {
