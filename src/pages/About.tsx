@@ -52,13 +52,13 @@ const Paragraph = styled(motion.p)`
   border-left: 4px solid rgba(255, 255, 255, 0.4);
   padding-left: 1rem;
   margin-bottom: 2rem;
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.8;
   color: #eaeaea;
 `
 
 const Signature = styled.div`
-  margin-top: 2rem;
+  margin-top: 3rem;
   font-style: italic;
   font-size: 1.1rem;
   color: #ffffffcc;
@@ -78,11 +78,9 @@ const fadeUp = {
 }
 
 const aboutParagraphs = [
-  `I'm a self-driven full-stack developer with practical experience building and deploying web applications using modern stacks such as React, Spring Boot, MySQL, JSP/Servlets, and Node.js.`,
-  `After majoring in systems administration and completing a university cloud migration project, I transitioned into full-time web development. My focus is integrating backend APIs with responsive frontends, designing scalable databases, and deploying to AWS EC2.`,
-  `I’ve built projects like a TMDB-powered movie explorer, a token-authenticated Spring Boot board with JWT and DTO patterns, and a JSP-based shopping mall. My portfolio blends technical and linguistic versatility across English, Japanese, and Korean.`,
-  `My goal is to join a Japanese IT company as a bilingual full-stack engineer, contributing to cross-cultural development teams and building software that connects people through technology.`,
-  `I believe clean architecture and continuous learning are the foundation for creating meaningful, user-centered products.`,
+  `Full-stack developer with 3+ years of hands-on experience building modern web applications using React, Spring Boot, and cloud infrastructure.`,
+  `From systems administration to full-stack development — I specialize in creating scalable backends, responsive frontends, and deploying production-ready apps on AWS EC2.`,
+  `Trilingual engineer (English, Japanese N1, Korean Native) seeking to join Japanese tech teams where I can bridge cultures and build impactful software.`,
 ]
 
 export default function AboutMe() {
@@ -107,7 +105,7 @@ export default function AboutMe() {
           </Paragraph>
         ))}
 
-        <Signature>“Code is my language. Culture is my bridge.”</Signature>
+        <Signature>"Code is my language. Culture is my bridge."</Signature>
       </ContentWrapper>
     </Section>
   )

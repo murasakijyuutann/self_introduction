@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import styled from 'styled-components'
 import { FaGithub, FaLinkedin, FaTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa'
 import { SiQiita } from 'react-icons/si'
@@ -62,23 +61,6 @@ const Copyright = styled.p`
 `
 
 export default function Footer() {
-  useEffect(() => {
-    // Detect device width and redirect automatically
-    const screenWidth = window.innerWidth
-
-    if (screenWidth <= 768) {
-      // Redirect mobile users to mobile version
-      if (!window.location.href.includes('/mobile')) {
-        window.location.href = 'https://self-introduction-i11.vercel.app/mobile'
-      }
-    } else {
-      // Redirect desktop users to PC version
-      if (!window.location.href.includes('/')) {
-        window.location.href = 'https://self-introduction-i11.vercel.app/'
-      }
-    }
-  }, [])
-
   return (
     <FooterContainer>
       <SocialIcons>
@@ -88,7 +70,7 @@ export default function Footer() {
         <a href="https://www.linkedin.com/in/sunmyung-woo-44b175221/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <FaLinkedin />
         </a>
-        <a href="https://twitter.com/murasakijyuutann" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <a href="https://x.com/hBE9ck3QAY1931" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
           <FaTwitter />
         </a>
         <a href="https://www.youtube.com/@%E8%8A%B1%E5%BC%81-d1d" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
