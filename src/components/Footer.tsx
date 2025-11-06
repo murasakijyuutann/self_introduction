@@ -69,12 +69,12 @@ export default function Footer() {
     if (screenWidth <= 768) {
       // Redirect mobile users to mobile version
       if (!window.location.href.includes('/mobile')) {
-        window.location.href = 'https://your-portfolio-link.vercel.app/mobile'
+        window.location.href = 'https://self-introduction-i11.vercel.app/mobile'
       }
     } else {
       // Redirect desktop users to PC version
       if (!window.location.href.includes('/')) {
-        window.location.href = 'https://your-portfolio-link.vercel.app/'
+        window.location.href = 'https://self-introduction-i11.vercel.app/'
       }
     }
   }, [])
@@ -82,22 +82,22 @@ export default function Footer() {
   return (
     <FooterContainer>
       <SocialIcons>
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <a href="https://github.com/murasakijyuutann/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <FaGithub />
         </a>
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/sunmyung-woo-44b175221/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <FaLinkedin />
         </a>
-        <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <a href="https://twitter.com/murasakijyuutann" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
           <FaTwitter />
         </a>
-        <a href="https://www.youtube.com/@yourchannel" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <a href="https://www.youtube.com/@%E8%8A%B1%E5%BC%81-d1d" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <FaYoutube />
         </a>
-        <a href="https://qiita.com/yourqiita" target="_blank" rel="noopener noreferrer" aria-label="Qiita">
+        <a href="https://qiita.com/murasakijyuutann" target="_blank" rel="noopener noreferrer" aria-label="Qiita">
           <SiQiita />
         </a>
-        <a href="mailto:your.email@example.com" aria-label="Send Email">
+        <a href="mailto:neneke.emu@gmail.com" aria-label="Send Email">
           <FaEnvelope />
         </a>
       </SocialIcons>

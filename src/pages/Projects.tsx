@@ -93,7 +93,7 @@ export default function Projects() {
       title: '🎬 Movie Explorer',
       desc: 'A TMDB-powered movie search app with infinite scroll, responsive design, and detailed movie pages.',
       tech: 'React · Tailwind CSS · TMDB API',
-      link: 'https://github.com/murasakijyuutann/mini-movie-review-project',
+      link: 'https://github.com/murasakijyuutann/movie-review-project',
     },
     {
       title: '📋 Spring Boot Board',
