@@ -6,7 +6,7 @@ This site introduces my journey, skills, and projects while showcasing the abili
 ---
 
 ## 🌐 Live Demo
-> [https://your-portfolio-link.vercel.app](https://your-portfolio-link.vercel.app will be updated soon)
+> [https://self-introduction-nu.vercel.app/](https://self-introduction-nu.vercel.app/)
 
 ---
 
@@ -72,7 +72,7 @@ Copy code
 ### 🧩 Step 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/self-intro-portfolio.git
+git clone https://github.com/murasakijyuutann/self-intro-portfolio.git
 cd self-intro-portfolio
 ```
 
