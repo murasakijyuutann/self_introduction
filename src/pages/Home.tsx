@@ -97,7 +97,7 @@ export default function Home(){
         </Heading>
 
         <ProfileCard>
-          <Avatar><img src='/images/piapro.jpg' alt='Farah Avatar'/></Avatar>
+          <Avatar><img src="/images/piapro.jpg" alt="Farah Avatar" /></Avatar>
           <ProfileName>Fishyboyxx</ProfileName>
           <ProfileRole>Full-Stack Developer</ProfileRole>
           <ProfileBio>
