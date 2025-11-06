@@ -91,7 +91,7 @@ export default function Projects() {
   const projects = [
     {
       title: '🎬 Movie Explorer',
-      desc: 'A TMDB-powered movie search app with infinite scroll, responsive design, and detailed movie pages.',
+      desc: 'A TMDB-powered movie search application with infinite scroll, responsive design, and detailed movie information pages.',
       tech: 'React · Tailwind CSS · TMDB API',
       link: 'https://github.com/murasakijyuutann/movie-review-project',
     },
@@ -103,25 +103,25 @@ export default function Projects() {
     },
     {
       title: '🎧 Vocaloid Shopping Mall',
-      desc: 'A full-stack e-commerce platform featuring user authentication, product catalog management, shopping cart functionality, and order processing. Integrates React frontend with Spring Boot REST API and MySQL database.',
+      desc: 'A full-stack e-commerce platform with user authentication, product catalog, shopping cart, and order processing integrated with Spring Boot REST API.',
       tech: 'React · Styled-Components · TypeScript · Spring Boot · MySQL RDS',
       link: 'https://github.com/murasakijyuutann/vocaloidshop-fullstack',
     },
     {
-      title: '☁️ EC2 Todo App',
-      desc: 'A React + NestJS full-stack app deployed on AWS EC2 with Supabase OAuth login and complete CRUD support.',
-      tech: 'React · NestJS · Prisma · EC2 · Supabase',
-      link: 'https://github.com/yourusername/ec2-todo-app',
+      title: '🚌 Public Transport Payment System',
+      desc: 'A Spring Boot payment system API featuring card management, fare calculation, and transaction processing with Thymeleaf frontend and AWS MySQL.',
+      tech: 'Spring Boot · Thymeleaf · Bootstrap · MySQL · AWS RDS',
+      link: 'https://github.com/murasakijyuutann/public-transport-system',
     },
     {
       title: '🧾 Self Intro Repository',
-      desc: 'A modern portfolio website showcasing professional experience, technical skills, and projects. Built with React and TypeScript, featuring responsive design, smooth animations, and an interactive dice game. Deployed on Vercel with CI/CD integration.',
+      desc: 'A modern portfolio website showcasing technical skills and projects with responsive design, smooth animations, and interactive features. Deployed on Vercel.',
       tech: 'React · TypeScript · Styled-Components · Framer Motion · Vercel',
       link: 'https://github.com/murasakijyuutann/self_introduction',
     },
     {
       title: '🎲 Chinchirorin Game',
-      desc: 'A fun React mini-game recreating the traditional Japanese dice game, complete with animations and sound effects.',
+      desc: 'A React mini-game recreating the traditional Japanese dice game with smooth animations and sound effects.',
       tech: 'React · Framer Motion · Howler.js',
       link: 'https://github.com/murasakijyuutann/self_introduction/blob/main/src/pages/Chinchiro.tsx',
     },
