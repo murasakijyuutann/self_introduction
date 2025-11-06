@@ -103,7 +103,7 @@ export default function Projects() {
     },
     {
       title: '🎧 Vocaloid Shopping Mall',
-      desc: 'An early JSP/Servlet project implementing login, product listing, and shopping cart management.',
+      desc: 'A full-stack e-commerce platform featuring user authentication, product catalog management, shopping cart functionality, and order processing. Integrates React frontend with Spring Boot REST API and MySQL database.',
       tech: 'React · Styled-Components · TypeScript · Spring Boot · MySQL RDS',
       link: 'https://github.com/murasakijyuutann/vocaloidshop-fullstack',
     },
@@ -115,8 +115,8 @@ export default function Projects() {
     },
     {
       title: '🧾 Self Intro Repository',
-      desc: 'A Java project for managing and organizing a collection of Vocaloid characters, built to practice object-oriented programming principles and key design patterns.',
-      tech: 'React · TypeScript · Styled-Components',
+      desc: 'A modern portfolio website showcasing professional experience, technical skills, and projects. Built with React and TypeScript, featuring responsive design, smooth animations, and an interactive dice game. Deployed on Vercel with CI/CD integration.',
+      tech: 'React · TypeScript · Styled-Components · Framer Motion · Vercel',
       link: 'https://github.com/murasakijyuutann/self_introduction',
     },
     {
