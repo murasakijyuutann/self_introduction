@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { animatedGradient } from '../styles/AnimatedBackground'
 import { motion } from 'framer-motion'
-import { FaDice, FaGlassWhiskey } from 'react-icons/fa'
+import { FaDice, FaGlassWhiskey, FaInfoCircle } from 'react-icons/fa'
 import { Howl } from 'howler'
 
 // 🎵 Dice roll sound
@@ -11,10 +11,19 @@ const rollSound = new Howl({
   volume: 0.3,
 })
 
-// 💫 Fade-in animation for CPU dice
+// 💫 Smooth fade-in animation
 const fadeIn = keyframes`
-  from { opacity: 0; transform: scale(0.7) rotate(180deg); }
-  to { opacity: 1; transform: scale(1) rotate(0deg); }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`
+
+// 🎲 Dice roll animation
+const rollAnimation = keyframes`
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(90deg) scale(1.1); }
+  50% { transform: rotate(180deg) scale(0.9); }
+  75% { transform: rotate(270deg) scale(1.1); }
+  100% { transform: rotate(360deg); }
 `
 
 // 💅 Styled Components
@@ -28,79 +37,186 @@ const Wrapper = styled.div`
   align-items: center;
   font-family: 'Poppins', sans-serif;
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
+`
+
+const GameCard = styled(motion.div)`
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 2.5rem;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: ${fadeIn} 0.6s ease;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
 `
 
 const Title = styled.h1`
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `
 
 const Intro = styled.p`
-  max-width: 600px;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+`
+
+const RulesBox = styled.details`
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  text-align: left;
+  cursor: pointer;
+  
+  summary {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    user-select: none;
+  }
+  
+  ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
 `
 
 const SectionTitle = styled.h2`
-  font-size: 1.8rem;
-  margin-top: 2rem;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  font-size: 1.3rem;
+  margin: 1.5rem 0 0.8rem;
+  opacity: 0.9;
+  font-weight: 600;
 `
 
 const DiceArea = styled.div`
   display: flex;
-  gap: 1.2rem;
+  gap: 1rem;
+  justify-content: center;
   margin: 1rem 0;
+  flex-wrap: wrap;
 `
 
-const Dice = styled(motion.div)`
-  width: 70px;
-  height: 70px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
+const Dice = styled.div<{ isRolling?: boolean }>`
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.15));
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.2rem;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-`
-
-const CpuDice = styled(Dice)`
-  animation: ${fadeIn} 0.6s ease forwards;
-`
-
-const Button = styled.button`
-  background: #fff;
-  color: #ff66cc;
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  border: none;
-  border-radius: 30px;
-  padding: 0.8rem 2rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 1rem;
-  &:hover {
-    transform: scale(1.05);
-    background: #ffe6f2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: ${props => props.isRolling ? rollAnimation : 'none'} 0.5s ease;
+  
+  @media (max-width: 768px) {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
   }
 `
 
-const ResultText = styled.div`
-  font-size: 1.6rem;
-  margin-top: 1.5rem;
+const Button = styled(motion.button)`
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-size: 1.1rem;
   font-weight: 600;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem 2.5rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  
+  &:hover {
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+`
+
+const SecondaryButton = styled(Button)`
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+`
+
+const ResultText = styled.div<{ isWinner?: boolean }>`
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  padding: 0.8rem;
+  border-radius: 12px;
+  background: ${props => props.isWinner ? 'rgba(76, 175, 80, 0.2)' : 'rgba(255, 255, 255, 0.1)'};
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `
 
 const ChoiceArea = styled.div`
   display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+`
+
+const StatusBadge = styled.div`
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+`
+
+const LoadingText = styled.div`
+  font-size: 1.1rem;
+  opacity: 0.8;
+  font-style: italic;
+  animation: ${fadeIn} 0.5s ease infinite alternate;
 `
 
 const getRandomDice = () => Math.floor(Math.random() * 6) + 1
@@ -143,6 +259,7 @@ export const ChinchiroGame: React.FC = () => {
   const [gameStarted, setGameStarted] = useState(false)
   const [message, setMessage] = useState<string>('')
   const [showCpuDice, setShowCpuDice] = useState<boolean>(false)
+  const [isRolling, setIsRolling] = useState(false)
 
   const handleChoice = (role: '親' | '子') => {
     setPlayerRole(role)
@@ -153,98 +270,166 @@ export const ChinchiroGame: React.FC = () => {
     setWinner('')
     setMessage('')
     setShowCpuDice(false)
+    setIsRolling(true)
     rollSound.play()
 
     // 🎲 Player rolls
     const playerNew = [getRandomDice(), getRandomDice(), getRandomDice()]
     setPlayerDice(playerNew)
     setPlayerResult(getResultText(playerNew))
+    
+    setTimeout(() => setIsRolling(false), 500)
 
     // ⏳ CPU turn delay
-    setMessage('相手のターンを待っています…')
+    setMessage('Opponent is rolling...')
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
+    setIsRolling(true)
     rollSound.play()
     const cpuNew = [getRandomDice(), getRandomDice(), getRandomDice()]
     setCpuDice(cpuNew)
     setShowCpuDice(true)
     setCpuResult(getResultText(cpuNew))
     setMessage('')
+    
+    setTimeout(() => setIsRolling(false), 500)
 
     // 🧠 Judge result
+    await new Promise((resolve) => setTimeout(resolve, 800))
     const playerScore = getScoreRank(playerNew)
     const cpuScore = getScoreRank(cpuNew)
 
     if (playerScore > cpuScore) {
-      setWinner(`🎉 ${playerRole}（あなた）の勝ち！`)
+      setWinner(`🎉 You Win! (${playerRole})`)
     } else if (cpuScore > playerScore) {
       const cpuRole = playerRole === '親' ? '子' : '親'
-      setWinner(`💀 ${cpuRole}（CPU）の勝ち！`)
+      setWinner(`💀 CPU Wins! (${cpuRole})`)
     } else {
-      setWinner('🤝 引き分け！')
+      setWinner('🤝 It\'s a Draw!')
     }
+  }
+
+  const resetGame = () => {
+    setPlayerRole(null)
+    setGameStarted(false)
+    setPlayerDice([1, 1, 1])
+    setCpuDice([1, 1, 1])
+    setPlayerResult('')
+    setCpuResult('')
+    setWinner('')
+    setMessage('')
+    setShowCpuDice(false)
   }
 
   return (
     <Wrapper>
-      <Title>
-        <FaGlassWhiskey /> チンチロリン 親 vs 子 <FaDice />
-      </Title>
+      <GameCard
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Title>
+          <FaGlassWhiskey /> Chinchirorin <FaDice />
+        </Title>
 
-      <Intro>
-        A small fun project recreating the traditional Japanese dice game,
-        <strong> チンチロリン (Chinchirorin)</strong>.  
-        Built with React and Framer Motion to experiment with animations,
-        timing, and sound effects — blending culture and code.
-      </Intro>
+        <Intro>
+          A traditional Japanese dice game where luck meets strategy.
+          Choose your role and roll the dice to see who wins!
+        </Intro>
 
-      {!gameStarted ? (
-        <>
-          <h2>どちらの立場で勝負する？</h2>
-          <ChoiceArea>
-            <Button onClick={() => handleChoice('親')}>👑 親になる</Button>
-            <Button onClick={() => handleChoice('子')}>🧒 子になる</Button>
-          </ChoiceArea>
-        </>
-      ) : (
-        <>
-          <SectionTitle>あなたは {playerRole} です！</SectionTitle>
+        <RulesBox>
+          <summary>
+            <FaInfoCircle /> Game Rules
+          </summary>
+          <ul>
+            <li><strong>ピンゾロ (Pin-zoro):</strong> Three 1s - Highest rank! 💥</li>
+            <li><strong>ゾロ (Zoro):</strong> Three of the same - Very strong 🔥</li>
+            <li><strong>シゴロ (Shigoro):</strong> 4-5-6 sequence - High rank ✨</li>
+            <li><strong>目 (Me):</strong> Two same + one different - The different number counts</li>
+            <li><strong>ヒフミ (Hifumi):</strong> 1-2-3 sequence - Lowest rank 💀</li>
+            <li><strong>目なし (Menashi):</strong> No matching - No score 🎲</li>
+          </ul>
+        </RulesBox>
 
-          <SectionTitle>🎲 あなたの出目</SectionTitle>
-          <DiceArea>
-            {playerDice.map((num, i) => (
-              <Dice key={i} animate={{ rotate: 360 }} transition={{ duration: 0.5 }}>
-                {num}
-              </Dice>
-            ))}
-          </DiceArea>
-          <ResultText>{playerResult}</ResultText>
+        {!gameStarted ? (
+          <>
+            <SectionTitle>Choose Your Role</SectionTitle>
+            <ChoiceArea>
+              <Button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleChoice('親')}
+              >
+                👑 Oya (Parent)
+              </Button>
+              <Button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleChoice('子')}
+              >
+                🧒 Ko (Child)
+              </Button>
+            </ChoiceArea>
+          </>
+        ) : (
+          <>
+            <StatusBadge>You are: {playerRole} {playerRole === '親' ? '👑' : '🧒'}</StatusBadge>
 
-          {(showCpuDice || message) && (
-            <>
-              <SectionTitle>💻 相手の出目</SectionTitle>
-              <DiceArea>
-                {showCpuDice ? (
-                  cpuDice.map((num, i) => (
-                    <CpuDice key={i} animate={{ rotate: 360 }} transition={{ duration: 0.5 }}>
-                      {num}
-                    </CpuDice>
-                  ))
-                ) : (
-                  <ResultText style={{ opacity: 0.8 }}>
-                    {message || '相手のターンを待っています…'}
-                  </ResultText>
-                )}
-              </DiceArea>
-              {showCpuDice && <ResultText>{cpuResult}</ResultText>}
-            </>
-          )}
+            <SectionTitle>🎲 Your Dice</SectionTitle>
+            <DiceArea>
+              {playerDice.map((num, i) => (
+                <Dice key={i} isRolling={isRolling}>
+                  {num}
+                </Dice>
+              ))}
+            </DiceArea>
+            {playerResult && <ResultText>{playerResult}</ResultText>}
 
-          <Button onClick={playGame}>🎲 勝負する！</Button>
-          <ResultText style={{ fontSize: '2rem', marginTop: '2rem' }}>{winner}</ResultText>
-          <Button onClick={() => window.location.reload()}>🔁 もう一度プレイ</Button>
-        </>
-      )}
+            {(showCpuDice || message) && (
+              <>
+                <SectionTitle>💻 Opponent's Dice</SectionTitle>
+                <DiceArea>
+                  {showCpuDice ? (
+                    cpuDice.map((num, i) => (
+                      <Dice key={i} isRolling={isRolling}>
+                        {num}
+                      </Dice>
+                    ))
+                  ) : (
+                    <LoadingText>{message}</LoadingText>
+                  )}
+                </DiceArea>
+                {showCpuDice && cpuResult && <ResultText>{cpuResult}</ResultText>}
+              </>
+            )}
+
+            <Button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={playGame}
+              disabled={isRolling}
+            >
+              {isRolling ? '🎲 Rolling...' : '🎲 Roll Dice!'}
+            </Button>
+
+            {winner && (
+              <ResultText isWinner={winner.includes('Win')} style={{ fontSize: '1.8rem', marginTop: '1.5rem' }}>
+                {winner}
+              </ResultText>
+            )}
+
+            {winner && (
+              <SecondaryButton
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={resetGame}
+              >
+                🔁 Play Again
+              </SecondaryButton>
+            )}
+          </>
+        )}
+      </GameCard>
     </Wrapper>
   )
 }
