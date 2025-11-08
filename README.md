@@ -325,13 +325,50 @@ This project is open-source under the **MIT License**.
 
 ## 🎯 Featured Projects
 
-| Project | Description | Technologies |
-|---------|-------------|--------------|
-| **🎬 Movie Explorer** | TMDB-powered search app with infinite scroll and responsive design | React, Tailwind CSS, TMDB API |
-| **📋 Spring Boot Board** | Token-authenticated backend with role-based access control and Swagger docs | Spring Boot, MyBatis, JWT, Swagger |
-| **🎧 Vocaloid Shopping Mall** | Full-stack e-commerce with product catalog, cart, and order processing | React, TypeScript, Spring Boot, MySQL |
-| **🚌 Public Transport System** | Payment system API with card management and fare calculation | Spring Boot, Thymeleaf, Bootstrap, AWS RDS |
-| **🎲 Chinchirorin Game** | Traditional Japanese dice game with animations and sound effects | React, Framer Motion, Howler.js |
+<table>
+  <tr>
+    <td width="50%">
+      <h3>🎬 Movie Explorer</h3>
+      <p><strong>Description:</strong> TMDB-powered search application with infinite scroll pagination and fully responsive design.</p>
+      <p><strong>Technologies:</strong> React • Tailwind CSS • TMDB API</p>
+      <p><a href="https://github.com/murasakijyuutann/movie-review-project">View Repository →</a></p>
+    </td>
+    <td width="50%">
+      <h3>📋 Spring Boot Board</h3>
+      <p><strong>Description:</strong> Token-authenticated backend system with role-based access control and Swagger API documentation.</p>
+      <p><strong>Technologies:</strong> Spring Boot • MyBatis • JWT • Swagger</p>
+      <p><a href="https://github.com/murasakijyuutann/spring_boot_board">View Repository →</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>🎧 Vocaloid Shopping Mall</h3>
+      <p><strong>Description:</strong> Full-stack e-commerce platform with user authentication, product catalog, shopping cart, and order processing.</p>
+      <p><strong>Technologies:</strong> React • TypeScript • Spring Boot • MySQL</p>
+      <p><a href="https://github.com/murasakijyuutann/vocaloidshop-fullstack">View Repository →</a></p>
+    </td>
+    <td width="50%">
+      <h3>🚌 Public Transport Payment System</h3>
+      <p><strong>Description:</strong> Payment system API featuring card management, fare calculation, and transaction processing with AWS infrastructure.</p>
+      <p><strong>Technologies:</strong> Spring Boot • Thymeleaf • Bootstrap • AWS RDS</p>
+      <p><a href="https://github.com/murasakijyuutann/public-transport-system">View Repository →</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>🎲 Chinchirorin Game</h3>
+      <p><strong>Description:</strong> Interactive recreation of the traditional Japanese dice game with smooth animations and sound effects.</p>
+      <p><strong>Technologies:</strong> React • Framer Motion • Howler.js</p>
+      <p><a href="https://github.com/murasakijyuutann/self_introduction/blob/main/src/pages/Chinchiro.tsx">View Code →</a></p>
+    </td>
+    <td width="50%">
+      <h3>🌐 This Portfolio</h3>
+      <p><strong>Description:</strong> Modern portfolio website with responsive design, interactive sections, and professional presentation of skills and experience.</p>
+      <p><strong>Technologies:</strong> React • TypeScript • Styled Components • Vercel</p>
+      <p><a href="https://self-introduction-i11.vercel.app/">View Live Demo →</a></p>
+    </td>
+  </tr>
+</table>
 
 ---
 
