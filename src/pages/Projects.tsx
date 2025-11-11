@@ -103,15 +103,15 @@ export default function Projects() {
     },
     {
       title: '🎧 Vocaloid Shopping Mall',
-      desc: 'A full-stack e-commerce platform with user authentication, product catalog, shopping cart, and order processing integrated with Spring Boot REST API.',
-      tech: 'React · Styled-Components · TypeScript · Spring Boot · MySQL RDS',
-      link: 'https://github.com/murasakijyuutann/vocaloidshop-fullstack',
+      desc: 'A Java e-commerce platform with user authentication, product catalog, shopping cart, and order processing integrated in Spring Boot REST API.',
+      tech: 'Spring Boot · Thymeleaf · Bootstrap · MySQL · AWS RDS',
+      link: 'https://github.com/murasakijyuutann/vocaloid_store',
     },
     {
       title: '🚌 Public Transport Payment System',
       desc: 'A Spring Boot payment system API featuring card management, fare calculation, and transaction processing with Thymeleaf frontend and AWS MySQL.',
       tech: 'Spring Boot · Thymeleaf · Bootstrap · MySQL · AWS RDS',
-      link: 'https://github.com/murasakijyuutann/public-transport-system',
+      link: 'https://github.com/murasakijyuutann/transport_payment',
     },
     {
       title: '🧾 Self Intro Repository',
