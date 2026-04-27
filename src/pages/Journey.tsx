@@ -6,51 +6,57 @@ import { FaGraduationCap, FaBriefcase, FaCode, FaPlane, FaRocket, FaMapMarkerAlt
 const journeyData = [
   {
     year: '2015–2016',
-    title: 'Began My IT Journey in Australia',
+    title: 'Diploma of IT — UTS:INSEARCH',
     description:
-      'Completed a Diploma of IT at UTS:INSEARCH, gaining solid foundations in networking, databases, and programming.',
+      'Built foundations in networking, databases, Java, and Cisco. First exposure to systems thinking that would shape how I approach architecture later.',
     icon: FaGraduationCap,
     location: 'Sydney, Australia',
   },
   {
     year: '2017–2019',
-    title: 'Advanced to Bachelor Studies',
+    title: "Bachelor's in Systems Administration — Charles Sturt University",
     description:
-      'Majored in Systems Administration at Charles Sturt University in Sydney, deepening expertise in cloud infrastructure and IT management.',
+      'Specialised in cloud infrastructure, Linux, and network security. Completed a VoIP/SIP deployment on GCP that earned a Distinction — my first taste of real infrastructure work.',
     icon: FaGraduationCap,
     location: 'Sydney, Australia',
   },
   {
     year: '2020–2022',
-    title: 'Internship & Full-Time Developer Role',
+    title: 'Career Break & Self-Study',
     description:
-      'Worked first as an intern, then transitioned into a full-time role assisting full-stack teams — mainly testing, debugging, and improving backend Java systems.',
-    icon: FaBriefcase,
-    location: 'Sydney, Australia',
+      'Stepped back from formal work after returning from Australia. Used the time to revisit fundamentals and reflect on direction before committing to a full-stack career path.',
+    icon: FaPlane, location: 'Seoul, South Korea',
   },
   {
     year: '2023',
-    title: 'Returned to Korea & Java Bootcamp',
+    title: 'Back to Code — Full-Stack Bootcamp',
     description:
-      'Completed a 6-month Java developer bootcamp after returning from Australia. Strengthened full-stack fundamentals using Spring Boot, MyBatis, AWS, and React.',
-    icon: FaPlane,
-    location: 'Seoul, South Korea',
+      'Led a team of 4 to build a cafe kiosk system (Spring Boot + React + AWS) as capstone. Also independently built VocaloCart, an e-commerce platform with auth, cart, and order management — deployed to production via Docker and Railway.',
+    icon: FaPlane, location: 'Seoul, South Korea',
   },
   {
     year: '2024',
-    title: 'Expanding Technical Stack',
+    title: 'Independent Projects & Deepening the Stack',
     description:
-      'Built full-stack projects integrating OAuth, JWT, MyBatis, EC2 deployments, and Vite-based React frontends while improving UI/UX design practices.',
+      'Migrated VocaloCart to Next.js, built a transport payment API, and a movie review app. Focused on production-quality architecture: JWT, OAuth, CI/CD with GitHub Actions, and PostgreSQL.',
     icon: FaCode,
     location: 'Seoul, South Korea',
   },
   {
-    year: '2025',
-    title: 'Preparing for a Career in Japan',
+    year: 'Feb–Mar 2026',
+    title: 'Security Audit — Production HR System',
     description:
-      'Currently enrolled in a Japan-placement bootcamp, refining my portfolio to present three years of experience and preparing for interviews with Japanese IT companies.',
+      'Reverse-engineered a production HR system from a WAR file with no source access. Documented 70+ issues including 28 security vulnerabilities (IDOR, path traversal, hardcoded AES keys). The audit directly influenced a business decision to replace the system entirely.',
+    icon: FaBriefcase,
+    location: 'Osaka, Japan',
+  },
+  {
+    year: 'Mar 2026–',
+    title: 'Android Engineer — Yamaha Navigation System',
+    description:
+      'Embedded in a product team building a Bluetooth/GPS Android navigation system for Yamaha motorcycles. Working in Kotlin, Jetpack Compose, Dagger 2, and BLE — reading a production codebase and contributing to a greenfield rebuild.',
     icon: FaRocket,
-    location: 'Seoul, South Korea',
+    location: 'Osaka, Japan',
   },
 ]
 
