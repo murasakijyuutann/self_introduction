@@ -4,9 +4,10 @@ import { motion } from 'framer-motion'
 
 const Section = styled.section`
   ${animatedGradient};
+  min-height: 100vh;
   color: #fff;
   text-align: center;
-  padding: 9rem 1.5rem;
+  padding: 6rem 1.5rem;
   position: relative;
 `
 
