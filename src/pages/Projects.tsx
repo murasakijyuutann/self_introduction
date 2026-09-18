@@ -89,43 +89,37 @@ const fadeInUp = {
 
 export default function Projects() {
   const projects = [
-    {
-      title: '🎬 Movie Explorer',
-      desc: 'A TMDB-powered movie search application with infinite scroll, responsive design, and detailed movie information pages.',
-      tech: 'React · Tailwind CSS · TMDB API',
-      link: 'https://github.com/murasakijyuutann/movie-review-project',
-    },
-    {
-      title: '📋 Spring Boot Board',
-      desc: 'A token-authenticated backend system with DTOs, role-based access control, and Swagger API documentation.',
-      tech: 'Spring Boot · MyBatis · JWT · Swagger',
-      link: 'https://github.com/murasakijyuutann/spring_boot_board',
-    },
-    {
-      title: '🎧 Vocaloid Shopping Mall',
-      desc: 'A Java e-commerce platform with user authentication, product catalog, shopping cart, and order processing integrated in Spring Boot REST API.',
-      tech: 'Spring Boot · Thymeleaf · Bootstrap · MySQL · AWS RDS',
-      link: 'https://github.com/murasakijyuutann/vocaloid_store',
-    },
-    {
-      title: '🚌 Public Transport Payment System',
-      desc: 'A Spring Boot payment system API featuring card management, fare calculation, and transaction processing with Thymeleaf frontend and AWS MySQL.',
-      tech: 'Spring Boot · Thymeleaf · Bootstrap · MySQL · AWS RDS',
-      link: 'https://github.com/murasakijyuutann/transport_payment',
-    },
-    {
-      title: '🧾 Self Intro Repository',
-      desc: 'A modern portfolio website showcasing technical skills and projects with responsive design, smooth animations, and interactive features. Deployed on Vercel.',
-      tech: 'React · TypeScript · Styled-Components · Framer Motion · Vercel',
-      link: 'https://github.com/murasakijyuutann/self_introduction',
-    },
-    {
-      title: '🎲 Chinchirorin Game',
-      desc: 'A React mini-game recreating the traditional Japanese dice game with smooth animations and sound effects.',
-      tech: 'React · Framer Motion · Howler.js',
-      link: 'https://github.com/murasakijyuutann/self_introduction/blob/main/src/pages/Chinchiro.tsx',
-    },
-  ]
+  {
+    title: '🔍 HR System Audit & Rebuild',
+    desc: 'Inherited a production HR system with no source code or documentation, and reverse-engineered it from compiled .class files with CFR. Documented 70 backend issues, 28 security vulnerabilities and 28 database design problems, then rebuilt the core on Spring Boot 3 and Vue 3 (auth, employee management, timesheets, leave). The company later adopted commercial HR software, so the project was archived after Phase 3 of 7.',
+    tech: 'Java 21 · Spring Boot 3 · Spring Security · Flyway · Vue 3 · TypeScript · MySQL',
+    link: 'https://github.com/murasakijyuutann/hr_rebuild_project',
+  },
+  {
+    title: '📅 Interview Pipeline Tracker',
+    desc: 'A local-first desktop app for tracking job interviews, with list and calendar views, stage filters and a Rust background engine that fires native OS reminders before each event. All data stays in a local SQLite database, with no cloud account or server.',
+    tech: 'Tauri 2 · Rust · React 19 · TypeScript · Tailwind CSS · SQLite',
+    link: 'https://github.com/murasakijyuutann/interview-pipeline-tracker',
+  },
+  {
+  title: '🎧 VocaloCart',
+  desc: 'A full-stack Vocaloid merchandise store, migrated from a Spring Boot + Vite/React setup into a single Next.js monorepo. It covers authentication, product catalog, cart and checkout, with API route handlers, a Prisma-managed PostgreSQL schema, Stripe payments and transactional email.',
+  tech: 'Next.js 16 · TypeScript · Prisma · PostgreSQL · NextAuth v5 · Tailwind CSS · Stripe · Resend · Vercel Blob',
+  link: 'https://github.com/murasakijyuutann/vocaloidshop-fullstack',
+  },
+  {
+    title: '🚌 Public Transport Payment System',
+    desc: 'A Spring Boot payment system API featuring card management, fare calculation, and transaction processing with Thymeleaf frontend and AWS MySQL.',
+    tech: 'Spring Boot · Thymeleaf · Bootstrap · MySQL · AWS RDS',
+    link: 'https://github.com/murasakijyuutann/transport_payment',
+  },
+  {
+    title: '🧾 Self Intro Repository',
+    desc: 'A modern portfolio website showcasing technical skills and projects with responsive design, smooth animations, and interactive features. Deployed on Vercel.',
+    tech: 'React · TypeScript · Styled-Components · Framer Motion · Vercel',
+    link: 'https://github.com/murasakijyuutann/self_introduction',
+  },
+];
 
   return (
     <Section id="projects">
