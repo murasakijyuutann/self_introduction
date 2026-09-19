@@ -214,20 +214,21 @@ Work through the sub-phases below **in order** (2A → 2B → 2C); each builds o
 
 ### 2A. Short-term goals (do first — pure frontend, builds directly on Phase 1's tokens/components)
 
-- [ ] **Dark mode toggle**
-  - The `[data-theme="dark"]` token block already exists from Phase 1 §1.2 — just need: a small theme context/hook that toggles `document.documentElement.dataset.theme` and persists to `localStorage`; a mono toggle control in `Navbar.tsx` (sun/moon `lucide-react` icon, no emoji), placed next to the EN/JA toggle.
-  - Double-check the Tailwind `darkMode` selector config (set in Phase 1 to target `[data-theme="dark"]`) is actually wired correctly once real toggling is exercised — this was defined but inert in Phase 1.
-- [ ] **Project filtering by technology**
-  - `src/data/projects.ts` (from Phase 1) already has a `stack: string[]` per project — add a filter row above the case-study list using flat mono tag chips (same visual language as the Skills badges from §1.4), not a colored pill/`ToggleGroup` with default shadcn styling.
-  - Client-side filter by selected tag(s); no backend needed yet.
+- [x] **Dark mode toggle**
+  - `src/theme.ts` applies `document.documentElement.dataset.theme` (`dark` | removed for light) and persists to `localStorage` (`theme` key). Inline script in `index.html` applies stored dark theme before paint to reduce flash.
+  - `ThemeProvider` + `useTheme()` in `src/hooks/useTheme.tsx` wraps the app in `App.tsx`. `Navbar.tsx`: sun/moon `lucide-react` icon toggle beside EN/JA (desktop header + mobile drawer). `sonner` Toaster reads the same context (replaced unused `next-themes` import).
+  - Tailwind `@custom-variant dark (&:is([data-theme="dark"] *))` in `index.css` — verified when toggling.
+- [x] **Project filtering by technology**
+  - `getUniqueStackTags()` in `src/data/projects.ts`; filter row on `Projects.tsx` with flat mono tag chips (`border-rule`, selected = `border-accent text-accent`). Multi-select OR filter (project shown if its stack includes any selected tag). Clear filters + empty state + “showing X of Y” count.
 - [x] **Resume/CV download button**
-  - `Button variant="outline"` with `lucide-react` `Download` icon + mono label (`home.downloadResume`) on the Hero, next to the existing CTAs. Links to `/resume.pdf` with a `download` attribute.
-  - The button only renders once a real PDF exists at `public/resume.pdf` — gated by a `useFileExists()` hook (HEAD request + `Content-Type: application/pdf` check, since both Vite's dev server and the SPA rewrite in `vercel.json` otherwise return a `200 text/html` fallback for any unmatched path). **Action needed from user:** drop the actual résumé PDF at `public/resume.pdf` to activate the button — no further code changes required.
-  - `vercel.json`'s rewrite pattern was widened to exclude `resume.pdf` (previously only excluded `images/`), so the deployed PDF resolves correctly instead of falling back to `index.html`.
+  - Two Hero outline buttons via `src/data/downloads.ts`: 履歴書 + 職務経歴書 under `public/files/` (URL-encoded paths). Gated by `useFileExists()` (`Content-Type: application/pdf`). EN/JA labels: `home.downloadResume`, `home.downloadCv`.
+  - `vercel.json` rewrites exclude `files/` (and legacy `resume.pdf`).
 - [x] **Project screenshots in cards** — resolved per §0 option (a): optional lightbox trigger, text-forward card shape preserved.
   - Added `screenshot?: string` to the `Project` type in `src/data/projects.ts`, pre-wired to the expected path for all 5 projects (`/images/screenshots/<id>.png`).
   - `ProjectCaseStudyCard.tsx` renders a "View screenshot →" trigger (shadcn `Dialog`, flat/hairline styling — not default `rounded-xl`/shadow) in the footer row, next to the existing links.
   - The trigger only renders once a real image exists at that path — gated by a `useImageExists()` hook (probes via `new Image()`, so an HTML SPA-fallback response fails to decode and is correctly treated as "missing"). **Action needed from user:** drop screenshot files named to match each project id (`hr-audit-rebuild.png`, `vocalocart.png`, `interview-pipeline-tracker.png`, `transport-payment.png`, `self-intro-repository.png`) into `public/images/screenshots/` — no further code changes required.
+
+**Phase 2A status:** all four short-term roadmap items above are implemented. Screenshot lightbox links appear per project only after PNGs are added under `public/images/screenshots/`.
 
 ### 2B. Medium-term goals (backend-dependent — start once 2A ships)
 

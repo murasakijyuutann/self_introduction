@@ -11,7 +11,9 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "menuTitle": "Navigation menu",
-    "language": "Language"
+    "language": "Language",
+    "theme": "Theme",
+    "toggleTheme": "Toggle dark mode"
   },
   "footer": {
     "builtWith": "Built with React, Tailwind CSS & shadcn/ui.",
@@ -132,6 +134,10 @@
     "eyebrow": "Case Files No. 01–{{count}} — Selected Work",
     "heading": "Projects",
     "intro": "Each case file documents the problem going in, the role I actually played, and what shipped — ordered by how much forensic work they involved, not recency.",
+    "filterByTech": "Filter by technology",
+    "clearFilters": "Clear filters",
+    "showingCount": "Showing {{shown}} of {{total}} case files",
+    "noMatches": "No case files match the selected technologies.",
     "items": {
       "hr-audit-rebuild": {
         "title": "HR System Audit & Rebuild",

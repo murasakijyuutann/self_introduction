@@ -11,7 +11,9 @@
     "openMenu": "メニューを開く",
     "closeMenu": "メニューを閉じる",
     "menuTitle": "ナビゲーションメニュー",
-    "language": "言語"
+    "language": "言語",
+    "theme": "テーマ",
+    "toggleTheme": "ダークモードを切り替え"
   },
   "footer": {
     "builtWith": "React、Tailwind CSS、shadcn/ui で構築。",
@@ -132,6 +134,10 @@
     "eyebrow": "ケースファイル No.01〜{{count}} — 主要プロジェクト",
     "heading": "プロジェクト",
     "intro": "各ケースファイルには、着手時の課題、実際に担った役割、そして何をリリースしたかを記載——並び順は新しさではなく、調査・検証の深さによります。",
+    "filterByTech": "技術で絞り込み",
+    "clearFilters": "フィルターを解除",
+    "showingCount": "{{total}}件中{{shown}}件を表示",
+    "noMatches": "選択した技術に一致するケースファイルはありません。",
     "items": {
       "hr-audit-rebuild": {
         "title": "HRシステムの監査と再構築",

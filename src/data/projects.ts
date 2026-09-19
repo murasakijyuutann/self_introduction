@@ -98,3 +98,14 @@ export const projects: Project[] = [
     screenshot: '/images/screenshots/self-intro-repository.png',
   },
 ]
+
+/** Sorted unique stack labels across all projects (for filter chips on `/projects`). */
+export function getUniqueStackTags(projectList: Project[]): string[] {
+  const tags = new Set<string>()
+  for (const project of projectList) {
+    for (const item of project.stack) {
+      tags.add(item)
+    }
+  }
+  return [...tags].sort((a, b) => a.localeCompare(b))
+}

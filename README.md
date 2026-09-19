@@ -26,7 +26,7 @@ The site traces a path from Systems Administration studies in Australia, through
 
 The UI follows an **"Editorial Case File"** direction: Swiss/International typographic style combined with the Japanese concept of **間 (ma)** — the idea that empty space carries meaning rather than needing to be filled with decoration. In practice, that means:
 
-- **Warm off-white base, near-black text** — a light theme by default (`#FAF9F5` / `#141413`), with a dark-mode token set already defined for a future toggle.
+- **Warm off-white base, near-black text** — light theme by default (`#FAF9F5` / `#141413`), with an optional dark variant (`[data-theme="dark"]`) toggled from the header and persisted in `localStorage`.
 - **Sharp, consistent geometry** — a single small radius (4px) is used everywhere; the only intentional circle in the entire UI is a small accent-colored status dot in the header and on project status pills. No pill-shaped buttons, no circular avatars.
 - **Hairline structure, not shadows or gradients** — 1px `border-rule` dividers do the work that boxes, drop-shadows, and gradient backgrounds would otherwise do. No glassmorphism, no animated backgrounds, no blur effects.
 - **Type-led hierarchy** — headings and body copy are distinguished by size and weight, never by color. A monospaced type layer (JetBrains Mono) is reserved for metadata: navigation, eyebrows, labels, status text, and tech-stack lines.
@@ -54,6 +54,9 @@ The UI follows an **"Editorial Case File"** direction: Swiss/International typog
 - Self-hosted variable fonts (no runtime Google Fonts requests)
 - Scroll-entry motion via Framer Motion, gated by a shared `prefers-reduced-motion` hook
 - EmailJS-backed contact form with toast notifications (`sonner`)
+- Dark mode toggle (`ThemeProvider`, `data-theme` on `<html>`, sun/moon control in the header)
+- Project list filtering by stack tags on `/projects` (client-side, multi-select chips)
+- Hero résumé/CV downloads from `public/files/`; optional per-project screenshot lightboxes when assets exist
 - Responsive layout from mobile through desktop, using a shadcn `Sheet` for the mobile navigation drawer
 
 ---
@@ -267,11 +270,11 @@ The `vercel.json` file includes routing configuration to support React Router:
 
 ## Roadmap
 
-### Short-term Goals
-- [ ] Add dark mode toggle (tokens already defined; wiring the toggle is next)
-- [ ] Implement project filtering by technology
-- [ ] Add resume/CV download button
-- [ ] Include project screenshots in portfolio cards
+### Short-term Goals (Phase 2A — complete)
+- [x] Dark mode toggle — `data-theme="dark"` on `<html>`, persisted in `localStorage`; sun/moon control in the header
+- [x] Project filtering by technology — mono stack chips on `/projects` (multi-select, client-side)
+- [x] Resume/CV download — Hero buttons for PDFs in `public/files/` (履歴書 + 職務経歴書)
+- [x] Project screenshots in cards — optional “View screenshot →” lightbox per case file when `public/images/screenshots/<project-id>.png` exists
 
 ### Medium-term Goals
 - [ ] Integrate blog section with MDX support

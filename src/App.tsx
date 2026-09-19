@@ -9,9 +9,11 @@ import Journey from './pages/Journey'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
 import { Toaster } from './components/ui/sonner'
+import { ThemeProvider } from './hooks/useTheme'
 
 function App() {
   return (
+    <ThemeProvider>
     <div className="bg-bg text-fg">
       <Navbar />
       <main className="min-h-[calc(100vh-56px)]">
@@ -27,6 +29,7 @@ function App() {
       <Footer />
       <Toaster position="bottom-right" />
     </div>
+    </ThemeProvider>
   )
 }
 

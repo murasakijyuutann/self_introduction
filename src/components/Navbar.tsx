@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Menu } from 'lucide-react'
+import { Menu, Moon, Sun } from 'lucide-react'
+import { useTheme } from '@/hooks/useTheme'
 import { Button } from '@/components/ui/button'
 import {
   Sheet,
@@ -25,6 +26,23 @@ function navLinkClass(isActive: boolean) {
   return isActive
     ? 'text-accent underline underline-offset-4'
     : 'text-muted transition-colors hover:text-fg'
+}
+
+function ThemeToggle({ className = '' }: { className?: string }) {
+  const { t } = useTranslation()
+  const { isDark, toggleTheme } = useTheme()
+
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      className={`inline-flex items-center justify-center text-muted transition-colors hover:text-accent ${className}`}
+      aria-label={t('nav.toggleTheme')}
+      aria-pressed={isDark}
+    >
+      {isDark ? <Sun className="size-4" aria-hidden="true" /> : <Moon className="size-4" aria-hidden="true" />}
+    </button>
+  )
 }
 
 function LocaleToggle({
@@ -100,12 +118,14 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <LocaleToggle
-            locale={locale}
-            onChange={(l) => i18n.changeLanguage(l)}
-            label={t('nav.language')}
-            className="hidden md:flex"
-          />
+          <div className="hidden items-center gap-3 md:flex">
+            <ThemeToggle />
+            <LocaleToggle
+              locale={locale}
+              onChange={(l) => i18n.changeLanguage(l)}
+              label={t('nav.language')}
+            />
+          </div>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -160,7 +180,13 @@ export default function Navbar() {
                 })}
               </nav>
 
-              <div className="border-t border-rule px-6 py-4">
+              <div className="flex flex-col gap-4 border-t border-rule px-6 py-4">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.04em] text-muted">
+                    {t('nav.theme')}
+                  </span>
+                  <ThemeToggle />
+                </div>
                 <LocaleToggle
                   locale={locale}
                   onChange={(l) => i18n.changeLanguage(l)}
