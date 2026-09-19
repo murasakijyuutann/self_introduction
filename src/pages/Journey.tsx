@@ -44,10 +44,17 @@ const JOURNEY = [
     location: 'Osaka, Japan',
   },
   {
-    year: 'Mar 2026–',
-    title: 'Android Engineer — Yamaha Navigation System',
+    year: 'Mar-April 2026',
+    title: 'Android Engineer — BE Navigation System',
     description:
-      'Embedded in a product team building a Bluetooth/GPS Android navigation system for Yamaha motorcycles. Working in Kotlin, Jetpack Compose, Dagger 2, and BLE — reading a production codebase and contributing to a greenfield rebuild.',
+      'Embedded in a product team building a Bluetooth/GPS Android navigation system. Working in Kotlin, Jetpack Compose, Dagger 2, and BLE — reading a production codebase and contributing to a greenfield rebuild.',
+    location: 'Osaka, Japan',
+  },
+  {
+    year: 'July-August 2026',
+    title: 'VocaloCart Migration to full stack next.js',
+    description:
+       'Migrated the storefront from a split Vite/React + Spring Boot setup into a single Next.js full-stack app, consolidating auth, cart, and order management behind one API layer instead of two.',
     location: 'Osaka, Japan',
   },
 ]
