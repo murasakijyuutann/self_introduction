@@ -34,15 +34,15 @@ export default function Home() {
 
             <Reveal index={1}>
               <h1 className="mt-4 text-[40px] font-semibold leading-[1.1] tracking-[-0.02em] text-fg md:text-[64px] md:leading-[1.08]">
-                Farah Sinclair
+                Sunmyung Woo
               </h1>
             </Reveal>
 
             <Reveal index={2}>
               <p className="mt-5 max-w-[640px] text-base leading-[1.65] text-muted md:text-lg md:leading-[1.7]">
-                Full-stack &amp; Android engineer based in Osaka. I work forensically — from a
-                production system with no source and no documentation, to a shipped feature —
-                and write it up the way I&apos;d want to read it back.
+                Full-stack engineer with backend focus with network and sysad backgrond, based in Osaka.
+                I work forensically — from a production system with no source and no documentation,
+                to a shipped feature — and write it up the way I&apos;d want to read it back.
               </p>
             </Reveal>
 
