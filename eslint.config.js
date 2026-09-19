@@ -20,4 +20,14 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  {
+    // shadcn/ui generated components conventionally co-export variant
+    // helpers (e.g. `buttonVariants`) alongside the component, which trips
+    // react-refresh/only-export-components. This is the upstream pattern
+    // for every generated component in this folder, not a bug to fix here.
+    files: ['src/components/ui/**/*.{ts,tsx}'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 ])

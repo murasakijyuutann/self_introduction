@@ -1,13 +1,27 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
 
-@custom-variant dark (&:is(.dark *));
+/* Editorial Case File — self-hosted fonts (no runtime Google Fonts <link>) */
+@import "@fontsource-variable/inter";
+@import "@fontsource/noto-sans-jp/400.css";
+@import "@fontsource/noto-sans-jp/700.css";
+@import "@fontsource-variable/jetbrains-mono";
+
+/* Dark mode is toggled via `data-theme="dark"` on <html> (Phase 2A), not a `.dark` class */
+@custom-variant dark (&:is([data-theme="dark"] *));
 
 @theme inline {
     --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
+    --font-sans: 'Inter Variable', 'Noto Sans JP', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace;
+
+    /* Editorial Case File tokens, exposed directly as Tailwind utilities
+       (bg-bg, text-fg, text-muted, border-rule, text-accent/bg-accent) */
+    --color-bg: var(--bg);
+    --color-fg: var(--fg);
+    --color-rule: var(--rule);
+
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,73 +62,88 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/*
+  Editorial Case File design tokens (base/light theme).
+  These five variables are the single source of truth; every shadcn slot
+  below is expressed via var(--bg)/var(--fg)/etc so that overriding just
+  these five inside [data-theme="dark"] re-themes the whole app.
+*/
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
+    --bg: #FAF9F5;
+    --fg: #141413;
+    --muted: #6B6A66;
+    --rule: #E4E2DC;
+    --accent: #0E7C86;
+
+    --background: var(--bg);
+    --foreground: var(--fg);
+    --card: var(--bg);
+    --card-foreground: var(--fg);
+    --popover: var(--bg);
+    --popover-foreground: var(--fg);
+
+    /* Primary CTA = filled, bg-fg text-bg (per spec §3 Hero) */
+    --primary: var(--fg);
+    --primary-foreground: var(--bg);
+
+    --secondary: var(--rule);
+    --secondary-foreground: var(--fg);
+
+    /* NOTE: --muted doubles as both the shadcn "subtle background" slot and
+       the spec's "text-muted" secondary-text color. We intentionally set it
+       to the spec's muted gray (not a light tint) so `text-muted` renders
+       correctly everywhere it's used (body copy, mono labels, tech lines) —
+       the tradeoff is that stock shadcn `hover:bg-muted` (Button
+       outline/ghost) renders a stronger gray wash than shadcn's default
+       subtle tint. Contrast still holds (~5.9:1 fg-on-muted); spot-check
+       these hover states in Step 4 and swap to `--rule` there if it reads
+       too heavy in practice. */
+    --muted-text: #6B6A66;
+    --muted: var(--muted-text);
+    --muted-foreground: var(--fg);
+
+    /* --accent is both the shadcn interactive-state slot (hover/active
+       backgrounds, focus rings) and the spec's teal accent used for links,
+       focus states, and key numbers — same variable, no divergence needed. */
+    --accent-foreground: var(--bg);
+
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
+    --border: var(--rule);
+    --input: var(--rule);
+    --ring: var(--accent);
+
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+
+    /* Sharp edges: ~4px base radius (buttons render at --radius-lg = --radius) */
+    --radius: 0.25rem;
+
+    --sidebar: var(--bg);
+    --sidebar-foreground: var(--fg);
+    --sidebar-primary: var(--fg);
+    --sidebar-primary-foreground: var(--bg);
+    --sidebar-accent: var(--rule);
+    --sidebar-accent-foreground: var(--fg);
+    --sidebar-border: var(--rule);
+    --sidebar-ring: var(--accent);
 }
 
-.dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
+/*
+  Dark variant (Phase 2A wires the actual toggle) — only the five base
+  tokens are overridden; every slot above re-resolves automatically because
+  it was declared as var(--bg)/var(--fg)/etc rather than a literal value.
+*/
+[data-theme="dark"] {
+    --bg: #141413;
+    --fg: #FAF9F5;
+    --muted-text: #9B9A94;
+    --rule: #2A2A27;
+    --accent: #2DD4C7;
+
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
 }
 
 @layer base {
