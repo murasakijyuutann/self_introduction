@@ -12,9 +12,9 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <>
+    <div className="bg-bg text-fg">
       <Navbar />
-      <main style={{ minHeight: 'calc(100vh - 70px)' }}>
+      <main className="min-h-[calc(100vh-56px)]">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -26,7 +26,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 
