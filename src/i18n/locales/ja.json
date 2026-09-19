@@ -69,6 +69,12 @@
         "description": "オーストラリアから帰国後、一時的に正式な就労から離れる。基礎を見直し、フルスタックのキャリアに進む前に方向性を見つめ直す期間として活用。",
         "location": "ソウル、韓国"
       },
+      "java-bootcamp": {
+        "year": "2022–2023",
+        "title": "Javaブートキャンプ — Web開発、React/Androidの基礎",
+        "description": "JavaScript、jQuery、HTML、CSS、Ajax、JSP、Servlet、JSTL、JDBC、Oracle Developerを用いて、小規模なアパレル向けECサイトを構築。",
+        "location": "ソウル、韓国"
+      },
       "independent-projects": {
         "year": "2023-2024",
         "title": "個人プロジェクトとスタックの深化",

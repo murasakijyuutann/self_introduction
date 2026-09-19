@@ -5,6 +5,7 @@ const JOURNEY_IDS = [
   'diploma-it',
   'bachelor-sysadmin',
   'career-break',
+  'java-bootcamp',
   'independent-projects',
   'bootcamp',
   'hr-audit',
