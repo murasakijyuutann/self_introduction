@@ -1,101 +1,130 @@
-# 🌸 Developer Portfolio — Sunmyung Woo
+# Developer Portfolio — Sunmyung Woo
 
 <div align="center">
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Site-667eea?style=for-the-badge)](https://self-introduction-i11.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-0E7C86?style=for-the-badge)](https://self-introduction-i11.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-murasakijyuutann-181717?style=for-the-badge&logo=github)](https://github.com/murasakijyuutann)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sunmyung-woo-44b175221/)
 
-**A modern, full-stack developer portfolio showcasing 3+ years of experience in React, Spring Boot, and cloud technologies.**
+**A full-stack developer portfolio, presented as a set of editorial case files rather than a conventional "personal site."**
 
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Projects](#-featured-projects) • [Contact](#-contact)
+[Design Philosophy](#design-philosophy) • [Features](#features) • [Tech Stack](#tech-stack) • [Getting Started](#getting-started) • [Projects](#featured-projects) • [Contact](#contact)
 
 ---
 
 </div>
 
-## 📋 About
+## About
 
-This portfolio represents a **production-ready React application** built with modern web technologies, demonstrating expertise in:
+This portfolio is a production React application that documents 3+ years of full-stack experience across React, Spring Boot, Next.js, and cloud infrastructure — presented as a series of dated case files (Home, About, Journey, Skills, Projects, Contact) rather than a marketing-style landing page.
 
-- Frontend architecture with TypeScript and component-based design
-- Advanced UI/UX with animations and responsive layouts
-- Integration with third-party services (EmailJS)
-- Cloud deployment and CI/CD practices
-
-The site serves as both a **professional resume** and **technical showcase**, highlighting my journey from Systems Administration studies in Australia to full-stack development roles, and my current preparation for a software engineering career in Japan.
+The site traces a path from Systems Administration studies in Australia, through full-stack development work in Korea, to ongoing preparation for a software engineering career in Japan. Content is available in both English and Japanese, switchable at any time via the header toggle.
 
 ---
 
-## ✨ Features
+## Design Philosophy
 
-### 🎨 **Modern UI/UX**
-- Animated gradient backgrounds with glassmorphic design elements
-- Smooth page transitions using Framer Motion
-- Responsive layouts optimized for mobile, tablet, and desktop
-- Accessibility-friendly navigation with active link highlighting
+The UI follows an **"Editorial Case File"** direction: Swiss/International typographic style combined with the Japanese concept of **間 (ma)** — the idea that empty space carries meaning rather than needing to be filled with decoration. In practice, that means:
 
-### 🚀 **Interactive Sections**
-- **Hero Section**: Dynamic typewriter effect with social media integration
-- **Journey Timeline**: Alternating card layout showcasing career progression
-- **Skills Showcase**: Categorized technology grid with 80+ skills
-- **Project Portfolio**: Professional project cards with descriptions and links
-- **Contact Form**: EmailJS-powered contact system with validation
+- **Warm off-white base, near-black text** — a light theme by default (`#FAF9F5` / `#141413`), with a dark-mode token set already defined for a future toggle.
+- **Sharp, consistent geometry** — a single small radius (4px) is used everywhere; the only intentional circle in the entire UI is a small accent-colored status dot in the header and on project status pills. No pill-shaped buttons, no circular avatars.
+- **Hairline structure, not shadows or gradients** — 1px `border-rule` dividers do the work that boxes, drop-shadows, and gradient backgrounds would otherwise do. No glassmorphism, no animated backgrounds, no blur effects.
+- **Type-led hierarchy** — headings and body copy are distinguished by size and weight, never by color. A monospaced type layer (JetBrains Mono) is reserved for metadata: navigation, eyebrows, labels, status text, and tech-stack lines.
+- **Restrained motion** — a single shared fade + translate-Y entrance animation (200–300ms, ease-out) is used on scroll, and fully respects `prefers-reduced-motion`. No continuous/looping animation, no hover-scale effects.
+- **No emoji, anywhere** — not in headings, buttons, status text, or this document. Status and outcomes are communicated through short, direct copy instead.
+- **Forensic, text-forward case studies** — each project card states the Problem, the Role actually played, and the Outcome, plus only real and verifiable figures (never invented statistics). No inline screenshots by default, keeping the layout text-forward and consistent.
+- **Bilingual by design, not an afterthought** — every page (including project case files) is fully translated via `react-i18next`, not machine-translated at render time, and persists the visitor's language choice.
 
 ---
 
-## 🛠 Tech Stack
+## Features
 
-### **Frontend**
+### Editorial, case-file structure
+- Header with a mono "dossier" label, hairline bottom border, and a real EN/JA toggle (`aria-current`, not color-only)
+- Hero presented as a case file: mono eyebrow, static heading, left-aligned intro copy, and a metadata column (location, languages, focus, status)
+- Journey presented as a chronological, hairline-divided timeline rather than a graphic timeline widget
+- Skills grouped into hairline-bordered categories with flat monospaced tags (no gradient skill pills, no percentage bars)
+- Project case files with a Problem / Role / Outcome breakdown, real supporting figures where available, tech-stack line, and status indicator
+- Contact form built on accessible form primitives with toast-based submission feedback (no inline emoji status text)
+
+### Technical
+- Fully typed, component-based architecture (TypeScript throughout)
+- Tailwind CSS v4 (CSS-first configuration) + shadcn/ui component primitives on top of Radix
+- Full English/Japanese localization via `i18next`/`react-i18next`, persisted in `localStorage`
+- Self-hosted variable fonts (no runtime Google Fonts requests)
+- Scroll-entry motion via Framer Motion, gated by a shared `prefers-reduced-motion` hook
+- EmailJS-backed contact form with toast notifications (`sonner`)
+- Responsive layout from mobile through desktop, using a shadcn `Sheet` for the mobile navigation drawer
+
+---
+
+## Tech Stack
+
+### Frontend
 ![React](https://img.shields.io/badge/React_19-20232A?style=flat&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
-![Styled Components](https://img.shields.io/badge/Styled_Components-DB7093?style=flat&logo=styled-components&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=flat&logo=shadcnui&logoColor=white)
+![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=flat&logo=radixui&logoColor=white)
 
-### **Libraries & Tools**
+### Libraries & Tools
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat&logo=framer&logoColor=white)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat&logo=react-router&logoColor=white)
+![i18next](https://img.shields.io/badge/i18next-26A69A?style=flat&logo=i18next&logoColor=white)
 ![EmailJS](https://img.shields.io/badge/EmailJS-4285F4?style=flat&logo=gmail&logoColor=white)
 ![React Icons](https://img.shields.io/badge/React_Icons-E91E63?style=flat&logo=react&logoColor=white)
 
-### **Deployment & CI/CD**
+### Deployment & CI/CD
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
 
 ---
 
-## 🗂 Project Structure
+## Project Structure
 
 ```
 my/
 ├── public/
-│   └── images/              # Static assets (profile photos, project images)
+│   └── images/                    # Static assets
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.tsx       # Responsive navigation with hamburger menu
-│   │   └── Footer.tsx       # Social links and copyright
+│   │   ├── ui/                    # shadcn/ui primitives (Button, Input, Textarea, Sheet, Sonner)
+│   │   ├── Navbar.tsx              # Sticky header, EN/JA toggle, mobile nav drawer
+│   │   ├── Footer.tsx              # Social links and copyright
+│   │   ├── ProjectCaseStudyCard.tsx # Problem/Role/Outcome case-file card
+│   │   └── Reveal.tsx              # Shared scroll-entry motion wrapper (reduced-motion aware)
+│   ├── data/
+│   │   └── projects.ts             # Language-neutral project data (ids, stack, figures, links)
+│   ├── hooks/
+│   │   └── usePrefersReducedMotion.ts
+│   ├── i18n/
+│   │   ├── index.ts                 # i18next initialization, locale persistence
+│   │   └── locales/
+│   │       ├── en.json              # English copy
+│   │       └── ja.json              # Japanese copy
+│   ├── lib/
+│   │   └── utils.ts                 # `cn()` class-name helper
 │   ├── pages/
-│   │   ├── Home.tsx         # Hero section with stats and highlights
-│   │   ├── About.tsx        # Personal background and story
-│   │   ├── Journey.tsx      # Career timeline with icons and locations
-│   │   ├── Skills.tsx       # Technology grid with categories
-│   │   ├── Projects.tsx     # Portfolio showcase
-│   │   └── Contact.tsx      # EmailJS contact form
-│   ├── styles/
-│   │   └── AnimatedBackground.ts  # Shared gradient animations
-│   ├── App.tsx              # Main router and layout
-│   ├── main.tsx             # Application entry point
-│   └── index.css            # Global styles
+│   │   ├── Home.tsx                 # Hero case file
+│   │   ├── About.tsx                # Background
+│   │   ├── Journey.tsx              # Career timeline
+│   │   ├── Skills.tsx               # Toolkit, grouped by category
+│   │   ├── Projects.tsx             # Case-file list
+│   │   └── Contact.tsx              # Contact form
+│   ├── App.tsx                      # Router and layout shell
+│   ├── main.tsx                     # Application entry point
+│   └── index.css                    # Design tokens, Tailwind theme, base styles
 ├── package.json
 ├── tsconfig.json
 ├── vite.config.ts
-└── vercel.json              # Deployment configuration
+└── vercel.json                      # Deployment configuration
 ```
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - **Node.js** 18+ and **npm** 9+
@@ -114,9 +143,9 @@ cd self_introduction/my
 npm install
 ```
 
-**3. Configure environment variables** (optional, for contact form)
+**3. Configure environment variables** (optional, for the contact form)
 
-Create a `.env` file in the root directory:
+Create a `.env` file in the project root:
 ```env
 VITE_EMAILJS_SERVICE_ID=your_service_id
 VITE_EMAILJS_TEMPLATE_ID=your_template_id
@@ -125,73 +154,84 @@ VITE_EMAILJS_PUBLIC_KEY=your_public_key
 
 > Get your EmailJS credentials at [emailjs.com](https://www.emailjs.com/)
 
-**4. Run development server**
+**4. Run the development server**
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 **5. Build for production**
 ```bash
 npm run build
-npm run preview  # Preview production build locally
+npm run preview  # Preview the production build locally
 ```
 
 ---
 
-## 📦 Key Dependencies
+## Key Dependencies
 
 | Package | Version | Purpose |
 |---------|---------|---------|
 | `react` | ^19.1.1 | UI framework |
 | `typescript` | ~5.9.3 | Type safety |
 | `vite` | ^7.1.7 | Build tool and dev server |
-| `styled-components` | ^6.1.19 | CSS-in-JS styling |
-| `framer-motion` | ^12.23.24 | Animation library |
+| `tailwindcss` | ^4.3.3 | Utility-first styling, CSS-first design tokens |
+| `shadcn` | ^4.21.0 | Accessible component primitives (Button, Input, Sheet, etc.) |
+| `radix-ui` | ^1.6.7 | Headless UI primitives underlying shadcn/ui |
+| `class-variance-authority` | ^0.7.1 | Typed component style variants |
+| `cn` | ^0.3.0 | Tailwind-aware class-name merging |
+| `i18next` / `react-i18next` | ^26.4.2 / ^17.0.14 | English/Japanese localization |
+| `framer-motion` | ^12.23.24 | Scroll-entry animation |
 | `react-router-dom` | ^7.9.4 | Client-side routing |
 | `@emailjs/browser` | ^4.4.1 | Contact form backend |
-| `react-simple-typewriter` | ^5.0.1 | Typewriter effect |
-| `react-icons` | ^5.5.0 | Icon library |
+| `sonner` | ^2.0.8 | Toast notifications |
+| `lucide-react` | ^1.47.0 | Icon set for UI controls |
+| `react-icons` | ^5.5.0 | Social/brand icon set |
 
 ---
 
-## 🎯 Featured Projects
+## Featured Projects
 
 <table>
   <tr>
     <td width="50%">
-      <h3>🎬 Movie Explorer</h3>
-      <p><strong>Description:</strong> TMDB-powered search application with infinite scroll pagination and fully responsive design.</p>
-      <p><strong>Technologies:</strong> React • Tailwind CSS • TMDB API</p>
-      <p><a href="https://github.com/murasakijyuutann/movie-review-project">View Repository →</a></p>
+      <h3>HR System Audit & Rebuild</h3>
+      <p><strong>Problem:</strong> Inherited a production HR system with no source code, no documentation, and no schema — only a deployed WAR file.</p>
+      <p><strong>Outcome:</strong> Reverse-engineered 142 compiled classes with CFR, led a ground-up rebuild on Spring Boot 3 + Vue 3, and the audit findings informed a commercial build-vs-buy decision.</p>
+      <p><strong>Stack:</strong> Java 21 · Spring Boot 3 · Spring Security · Flyway · Vue 3 · TypeScript · MySQL</p>
+      <p><a href="https://github.com/murasakijyuutann/hr_rebuild_project">View Repository →</a></p>
     </td>
     <td width="50%">
-      <h3>📋 Spring Boot Board</h3>
-      <p><strong>Description:</strong> Token-authenticated backend system with role-based access control and Swagger API documentation.</p>
-      <p><strong>Technologies:</strong> Spring Boot • MyBatis • JWT • Swagger</p>
-      <p><a href="https://github.com/murasakijyuutann/spring_boot_board">View Repository →</a></p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3>🎧 Vocaloid Shopping Mall</h3>
-      <p><strong>Description:</strong> Full-stack e-commerce platform with user authentication, product catalog, shopping cart, and order processing.</p>
-      <p><strong>Technologies:</strong> React • TypeScript • Spring Boot • MySQL</p>
+      <h3>VocaloCart</h3>
+      <p><strong>Problem:</strong> Needed an online store for Vocaloid fan merchandise, originally split across Spring Boot and Vite/React.</p>
+      <p><strong>Outcome:</strong> Full-stack e-commerce build covering auth, catalog, cart, checkout, Stripe payments, and transactional email; migrating to a unified Next.js monorepo.</p>
+      <p><strong>Stack:</strong> Next.js 16 · TypeScript · Prisma · PostgreSQL · NextAuth v5 · Tailwind CSS · Stripe</p>
       <p><a href="https://github.com/murasakijyuutann/vocaloidshop-fullstack">View Repository →</a></p>
     </td>
-    <td width="50%">
-      <h3>🚌 Public Transport Payment System</h3>
-      <p><strong>Description:</strong> Payment system API featuring card management, fare calculation, and transaction processing with AWS infrastructure.</p>
-      <p><strong>Technologies:</strong> Spring Boot • Thymeleaf • Bootstrap • AWS RDS</p>
-      <p><a href="https://github.com/murasakijyuutann/public-transport-system">View Repository →</a></p>
-    </td>
   </tr>
   <tr>
     <td width="50%">
-      <h3>🌐 This Portfolio</h3>
-      <p><strong>Description:</strong> Modern portfolio website with responsive design, interactive sections, and professional presentation of skills and experience.</p>
-      <p><strong>Technologies:</strong> React • TypeScript • Tailwind CSS • shadcn/ui • Vercel</p>
+      <h3>Interview Pipeline Tracker</h3>
+      <p><strong>Problem:</strong> Needed a fully local way to track interview pipelines with reminders — no cloud account or server.</p>
+      <p><strong>Outcome:</strong> Local-first desktop app with list/calendar views, stage filters, and a Rust background engine for native OS reminders. Shipped as an installer and in daily personal use.</p>
+      <p><strong>Stack:</strong> Tauri 2 · Rust · React 19 · TypeScript · Tailwind CSS · SQLite</p>
+      <p><a href="https://github.com/murasakijyuutann/interview-pipeline-tracker">View Repository →</a></p>
+    </td>
+    <td width="50%">
+      <h3>Public Transport Payment System</h3>
+      <p><strong>Problem:</strong> Fare and payment processing needed a reliable card-to-transaction flow.</p>
+      <p><strong>Outcome:</strong> Spring Boot payment API with card management, fare calculation, and transaction processing, shipped with a Thymeleaf frontend on AWS RDS.</p>
+      <p><strong>Stack:</strong> Spring Boot · Thymeleaf · Bootstrap · MySQL · AWS RDS</p>
+      <p><a href="https://github.com/murasakijyuutann/transport_payment">View Repository →</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" colspan="2">
+      <h3>Self Intro Repository (this site)</h3>
+      <p><strong>Problem:</strong> Needed a single, up-to-date home for projects, skills, and story.</p>
+      <p><strong>Outcome:</strong> This portfolio — an "Editorial Case File" redesign, fully bilingual (EN/JA), continuously iterated on.</p>
+      <p><strong>Stack:</strong> React · TypeScript · Tailwind CSS · shadcn/ui · Framer Motion · i18next · Vercel</p>
       <p><a href="https://self-introduction-i11.vercel.app/">View Live Demo →</a></p>
     </td>
   </tr>
@@ -199,9 +239,9 @@ npm run preview  # Preview production build locally
 
 ---
 
-## 🌍 Deployment
+## Deployment
 
-This project is deployed on **Vercel** with automatic deployments from the main branch.
+This project is deployed on **Vercel** with automatic deployments from the `main` branch.
 
 ### Manual Deployment
 ```bash
@@ -225,10 +265,10 @@ The `vercel.json` file includes routing configuration to support React Router:
 
 ---
 
-## 🗺 Roadmap
+## Roadmap
 
 ### Short-term Goals
-- [ ] Add dark mode toggle
+- [ ] Add dark mode toggle (tokens already defined; wiring the toggle is next)
 - [ ] Implement project filtering by technology
 - [ ] Add resume/CV download button
 - [ ] Include project screenshots in portfolio cards
@@ -247,36 +287,36 @@ The `vercel.json` file includes routing configuration to support React Router:
 
 ---
 
-## 📫 Contact
+## Contact
 
 **Sunmyung Woo** — Full-Stack Developer
 
-- 📧 Email: [neneke.emu@gmail.com](mailto:neneke.emu@gmail.com)
-- 💼 LinkedIn: [linkedin.com/in/sunmyung-woo-44b175221](https://www.linkedin.com/in/sunmyung-woo-44b175221/)
-- 🐙 GitHub: [github.com/murasakijyuutann](https://github.com/murasakijyuutann)
-- 📝 Qiita: [qiita.com/murasakijyuutann](https://qiita.com/murasakijyuutann)
+- Email: [neneke.emu@gmail.com](mailto:neneke.emu@gmail.com)
+- LinkedIn: [linkedin.com/in/sunmyung-woo-44b175221](https://www.linkedin.com/in/sunmyung-woo-44b175221/)
+- GitHub: [github.com/murasakijyuutann](https://github.com/murasakijyuutann)
+- Qiita: [qiita.com/murasakijyuutann](https://qiita.com/murasakijyuutann)
 
 ---
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- Design inspiration from modern portfolio trends
-- Gradient animations inspired by glassmorphism design principles
-- Icons provided by [React Icons](https://react-icons.github.io/react-icons/)
+- Design direction: Swiss/International typographic style, combined with the Japanese concept of 間 (ma)
+- Icons provided by [React Icons](https://react-icons.github.io/react-icons/) and [Lucide](https://lucide.dev/)
+- Component primitives by [shadcn/ui](https://ui.shadcn.com/) and [Radix UI](https://www.radix-ui.com/)
 - Deployment powered by [Vercel](https://vercel.com/)
 
 ---
 
 <div align="center">
 
-**⭐ If you find this portfolio helpful, please consider giving it a star!**
+If you find this portfolio useful as a reference, consider starring the repository.
 
-Made with ❤️ by Sunmyung Woo | 2025
+© 2026 Sunmyung Woo
 
 </div>
