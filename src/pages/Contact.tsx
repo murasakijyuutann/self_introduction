@@ -2,12 +2,14 @@ import type { FormEvent } from 'react'
 import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import { toast } from 'sonner'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Reveal } from '@/components/Reveal'
 
 export default function Contact() {
+  const { t } = useTranslation()
   const form = useRef<HTMLFormElement>(null)
 
   const sendEmail = async (event: FormEvent<HTMLFormElement>) => {
@@ -21,11 +23,11 @@ export default function Contact() {
         form.current,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
       )
-      toast.success("Thanks for reaching out — I'll get back to you soon.")
+      toast.success(t('contact.toast.success'))
       form.current?.reset()
     } catch (error) {
       console.error('Email send failed:', error)
-      toast.error('Something went wrong. Please try again later.')
+      toast.error(t('contact.toast.error'))
     }
   }
 
@@ -34,20 +36,19 @@ export default function Contact() {
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-16 md:py-24">
         <Reveal index={0}>
           <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-accent md:text-[13px]">
-            Case File No. 05 — Contact
+            {t('contact.eyebrow')}
           </p>
         </Reveal>
 
         <Reveal index={1}>
           <h1 className="mt-4 text-[32px] font-semibold leading-[1.15] tracking-[-0.01em] text-fg md:text-[48px]">
-            Get in touch
+            {t('contact.heading')}
           </h1>
         </Reveal>
 
         <Reveal index={2}>
           <p className="mt-4 max-w-[640px] text-base leading-[1.65] text-muted">
-            Have a role, a project, or just a question? Send a message and I&apos;ll reply
-            directly.
+            {t('contact.intro')}
           </p>
         </Reveal>
 
@@ -56,26 +57,26 @@ export default function Contact() {
             <Input
               type="text"
               name="user_name"
-              placeholder="Your name"
+              placeholder={t('contact.form.name')}
               required
               className="h-11 rounded-[4px] border-rule px-3"
             />
             <Input
               type="email"
               name="user_email"
-              placeholder="Your email"
+              placeholder={t('contact.form.email')}
               required
               className="h-11 rounded-[4px] border-rule px-3"
             />
             <Input
               type="text"
               name="user_phone"
-              placeholder="Your phone (optional)"
+              placeholder={t('contact.form.phone')}
               className="h-11 rounded-[4px] border-rule px-3"
             />
             <Textarea
               name="message"
-              placeholder="Write your message here..."
+              placeholder={t('contact.form.message')}
               required
               rows={6}
               className="rounded-[4px] border-rule px-3 py-2"
@@ -84,7 +85,7 @@ export default function Contact() {
               type="submit"
               className="mt-2 self-start rounded-[4px] font-mono text-xs uppercase tracking-[0.04em]"
             >
-              Send message
+              {t('contact.form.submit')}
             </Button>
           </form>
         </Reveal>

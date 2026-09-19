@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "brand": "Portfolio / Dossier — 2026",
+    "home": "Home",
+    "about": "About",
+    "journey": "Journey",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menuTitle": "Navigation menu",
+    "language": "Language"
+  },
+  "footer": {
+    "builtWith": "Built with React, Tailwind CSS & shadcn/ui.",
+    "copyright": "© {{year}} Farah Sinclair (Fishyboyxx). All rights reserved.",
+    "sendEmail": "Send Email"
+  },
+  "home": {
+    "eyebrow": "Case File No. 01 — Software Engineer",
+    "name": "Sunmyung Woo",
+    "intro": "Full-stack engineer with backend focus with network and sysad backgrond, based in Osaka. I work forensically — from a production system with no source and no documentation, to a shipped feature — and write it up the way I'd want to read it back.",
+    "viewCaseStudies": "View case studies →",
+    "getInTouch": "Get in touch",
+    "meta": {
+      "location": "Location",
+      "locationValue": "Osaka, JP",
+      "languages": "Languages",
+      "languagesValue": "KO / JA / EN",
+      "focus": "Focus",
+      "focusValue": "TypeScript · React",
+      "status": "Status",
+      "statusValue": "Open to opportunities"
+    },
+    "selectedWork": "Selected Work"
+  },
+  "about": {
+    "eyebrow": "Case File No. 02 — Background",
+    "heading": "About",
+    "paragraphs": [
+      "Full-stack developer with 3+ years of hands-on experience building modern web applications using React, Spring Boot, and cloud infrastructure.",
+      "From systems administration to full-stack development — I specialize in creating scalable backends, responsive frontends, and deploying production-ready apps on AWS EC2.",
+      "Trilingual engineer (English, Japanese N1, Korean Native) seeking to join Japanese tech teams where I can bridge cultures and build impactful software."
+    ],
+    "quote": "“Code is my language. Culture is my bridge.”"
+  },
+  "journey": {
+    "eyebrow": "Case File No. 03 — Timeline",
+    "heading": "Journey",
+    "intro": "From Australia to Korea, building toward a career in Japan.",
+    "items": {
+      "diploma-it": {
+        "year": "2015–2016",
+        "title": "Diploma of IT — UTS:INSEARCH",
+        "description": "Built foundations in networking, databases, Java, and Cisco. First exposure to systems thinking that would shape how I approach architecture later.",
+        "location": "Sydney, Australia"
+      },
+      "bachelor-sysadmin": {
+        "year": "2017–2019",
+        "title": "Bachelor's in Systems Administration — Charles Sturt University",
+        "description": "Specialised in cloud infrastructure, Linux, and network security. Completed a VoIP/SIP deployment on GCP that earned a Distinction — my first taste of real infrastructure work.",
+        "location": "Sydney, Australia"
+      },
+      "career-break": {
+        "year": "2020–2022",
+        "title": "Career Break & Self-Study",
+        "description": "Stepped back from formal work after returning from Australia. Used the time to revisit fundamentals and reflect on direction before committing to a full-stack career path.",
+        "location": "Seoul, South Korea"
+      },
+      "bootcamp": {
+        "year": "2023",
+        "title": "Back to Code — Full-Stack Bootcamp",
+        "description": "Led a team of 4 to build a cafe kiosk system (Spring Boot + React + AWS) as capstone. Also independently built VocaloCart, an e-commerce platform with auth, cart, and order management — deployed to production via Docker and Railway.",
+        "location": "Seoul, South Korea"
+      },
+      "independent-projects": {
+        "year": "2024",
+        "title": "Independent Projects & Deepening the Stack",
+        "description": "Migrated VocaloCart to Next.js, built a transport payment API, and a movie review app. Focused on production-quality architecture: JWT, OAuth, CI/CD with GitHub Actions, and PostgreSQL.",
+        "location": "Seoul, South Korea"
+      },
+      "hr-audit": {
+        "year": "Feb–Mar 2026",
+        "title": "Security Audit — Production HR System",
+        "description": "Reverse-engineered a production HR system from a WAR file with no source access. Documented 70+ issues including 28 security vulnerabilities (IDOR, path traversal, hardcoded AES keys). The audit directly influenced a business decision to replace the system entirely.",
+        "location": "Osaka, Japan"
+      },
+      "android-nav": {
+        "year": "Mar–Apr 2026",
+        "title": "Android Engineer — BE Navigation System",
+        "description": "Embedded in a product team building a Bluetooth/GPS Android navigation system. Working in Kotlin, Jetpack Compose, Dagger 2, and BLE — reading a production codebase and contributing to a greenfield rebuild.",
+        "location": "Osaka, Japan"
+      },
+      "vocalocart-nextjs": {
+        "year": "Jul–Aug 2026",
+        "title": "VocaloCart Migration to full stack Next.js",
+        "description": "Migrated the storefront from a split Vite/React + Spring Boot setup into a single Next.js full-stack app, consolidating auth, cart, and order management behind one API layer instead of two.",
+        "location": "Osaka, Japan"
+      }
+    }
+  },
+  "skills": {
+    "eyebrow": "Case File No. 04 — Toolkit",
+    "heading": "Skills",
+    "intro": "A working toolkit, built through shipped projects rather than tutorials.",
+    "categories": {
+      "languages": "Programming Languages",
+      "frontend": "Frontend Development",
+      "backend": "Backend & Frameworks",
+      "auth-security": "Authentication & Security",
+      "database": "Database & Data",
+      "devops": "DevOps & Deployment",
+      "architecture": "Architecture & Patterns",
+      "dev-tools": "Development Tools",
+      "testing": "Testing & Quality",
+      "soft-skills": "Soft Skills & Languages",
+      "learning": "Currently Learning",
+      "certifications": "Certifications"
+    }
+  },
+  "projects": {
+    "eyebrow": "Case Files No. 01–{{count}} — Selected Work",
+    "heading": "Projects",
+    "intro": "Each case file documents the problem going in, the role I actually played, and what shipped — ordered by how much forensic work they involved, not recency.",
+    "items": {
+      "hr-audit-rebuild": {
+        "title": "HR System Audit & Rebuild",
+        "description": "Inherited a production HR system with no source code or documentation and reverse-engineered it from 142 compiled .class files with CFR, then led a ground-up rebuild on Spring Boot 3 and Vue 3 before the audit findings informed a build-vs-buy decision.",
+        "problem": "No source, no docs, no schema — only a deployed WAR",
+        "role": "Independently initiated audit and rebuild lead",
+        "outcome": "Findings informed a commercial build-vs-buy decision",
+        "status": "Archived — Phase 3 of 7",
+        "figures": {
+          "backendIssues": "Backend Issues",
+          "securityVulns": "Security Vulns",
+          "schemaIssues": "Schema Issues",
+          "filesDecompiled": "Files Decompiled"
+        }
+      },
+      "vocalocart": {
+        "title": "VocaloCart",
+        "description": "A full-stack Vocaloid merchandise store, built into vite/React + Spring Boot covering auth, catalog, cart, checkout, Stripe payments and transactional email.",
+        "problem": "Spring Boot + Vite/React split slowing iteration",
+        "role": "Solo migration to a unified Next.js monorepo",
+        "outcome": "Backend/architecture solid; frontend redesign in progress",
+        "status": "In progress — frontend redesign"
+      },
+      "interview-pipeline-tracker": {
+        "title": "Interview Pipeline Tracker",
+        "description": "A local-first desktop app for tracking job interviews, with list and calendar views, stage filters, and a Rust background engine that fires native OS reminders before each event — no cloud account or server.",
+        "problem": "Needed a fully local way to track interview pipelines with reminders",
+        "role": "Solo build — Rust backend, React frontend",
+        "outcome": "Shipped installers (NSIS/MSI); in daily personal use",
+        "status": "Live (personal tool)",
+        "figures": {
+          "pollInterval": "Poll Interval",
+          "cloudDependencies": "Cloud Dependencies"
+        }
+      },
+      "transport-payment": {
+        "title": "Public Transport Payment System",
+        "description": "A Spring Boot payment system API featuring card management, fare calculation and transaction processing, with a Thymeleaf frontend and AWS-hosted MySQL.",
+        "problem": "Fare and payment processing needed a reliable card-to-transaction flow",
+        "role": "Backend-focused build — Spring Boot API and Thymeleaf frontend",
+        "outcome": "Shipped card management, fare calculation and transaction processing on AWS RDS",
+        "status": "Archived"
+      },
+      "self-intro-repository": {
+        "title": "Self Intro Repository",
+        "description": "This portfolio itself — a continuously-iterated site currently mid-redesign into the Editorial Case File look you're reading right now.",
+        "problem": "Needed a single, up-to-date home for projects, skills and story",
+        "role": "Solo build and ongoing redesign — React, TypeScript, Tailwind CSS, shadcn/ui",
+        "outcome": "Live and iterating; currently rebuilding the UI you're looking at",
+        "status": "In progress — UI overhaul"
+      }
+    }
+  },
+  "projectCard": {
+    "selectedWork": "Selected Work",
+    "problem": "Problem",
+    "role": "Role",
+    "outcome": "Outcome",
+    "viewLive": "View Live →",
+    "source": "Source →",
+    "readCaseFile": "Read Case File →"
+  },
+  "contact": {
+    "eyebrow": "Case File No. 05 — Contact",
+    "heading": "Get in touch",
+    "intro": "Have a role, a project, or just a question? Send a message and I'll reply directly.",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "phone": "Your phone (optional)",
+      "message": "Write your message here...",
+      "submit": "Send message"
+    },
+    "toast": {
+      "success": "Thanks for reaching out — I'll get back to you soon.",
+      "error": "Something went wrong. Please try again later."
+    }
+  }
+}

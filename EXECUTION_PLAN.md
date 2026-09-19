@@ -90,7 +90,7 @@ Two open decisions flagged for the user before/while executing (not blocking the
 - [ ] `fontFamily.mono`: `['"JetBrains Mono"', 'ui-monospace', '"SF Mono"', 'Menlo', 'monospace']`.
 - [ ] Scale (implement as Tailwind utility combinations, not ad hoc inline styles): H1 `text-[64px] font-semibold tracking-[-0.02em] leading-[1.08]`; H2 `text-[30px] font-semibold tracking-[-0.01em]`; body `text-base md:text-lg leading-[1.65] text-muted`; mono labels `text-[11px] md:text-[13px] uppercase tracking-[0.04em] font-mono`.
 - [ ] Hierarchy via size/weight only — never color, except mono labels which may use `text-accent` or `text-muted`.
-- [ ] Japanese text (if/when Phase 2B's JA toggle lands) uses the same `font-sans` stack (Noto Sans JP is in the fallback chain) with `leading-[1.8]` and a single weight — don't mix many weights in JA copy.
+- [x] Japanese text (JA toggle landed ahead of schedule — see §2B) uses the same `font-sans` stack (Noto Sans JP is in the fallback chain) with `leading-[1.8]` and a single weight — don't mix many weights in JA copy.
 
 **Spacing**:
 
@@ -118,7 +118,7 @@ Two open decisions flagged for the user before/while executing (not blocking the
 **Header / `Navbar.tsx`** (rebuild):
 - [ ] Sticky, `border-b border-rule` (1px hairline, no shadow).
 - [ ] Left: small `bg-accent` dot (`size-1.5 rounded-full`, the one intentional circle in the whole system — a status/eyebrow dot, not a shape motif) + mono label, e.g. `PORTFOLIO / DOSSIER — 2026`.
-- [ ] Right: `EN / JA` toggle — mono text, active = `underline text-accent` + `aria-current="page"` (or `true`), inactive = `text-muted`. Implement as a plain accessible toggle now (2 buttons/links); actual locale switching is a Phase 2B item (`react-i18next`) — for Phase 1 it can be a static/non-functional or single-locale-only control, but must already be a real `<button>`/`<a>` pair, not a styled `<div>`.
+- [x] Right: `EN / JA` toggle — mono text, active = `underline text-accent` + `aria-current="page"` (or `true`), inactive = `text-muted`. Built as a real `<button>` pair in Phase 1; actual locale switching (`react-i18next`) landed ahead of schedule — see §2B.
 - [ ] Mobile: reuse the same hairline/mono language; a shadcn `Sheet` is acceptable for the nav-links drawer, but keep it flat (no rounded pill dropdown like today's).
 
 **Hero / `Home.tsx`** (full rebuild, replacing the gradient/typewriter/circular-avatar hero):
@@ -232,9 +232,11 @@ Work through the sub-phases below **in order** (2A → 2B → 2C); each builds o
 - [ ] **Blog section with MDX**
   - New `/blog` and `/blog/:slug` routes; render MDX via `@mdx-js/rollup` (Vite plugin) or fetch from the new backend.
   - Reuse the Phase 1 hairline-card list pattern for the index, and `@tailwindcss/typography` (with radius/spacing overrides to match the 4px/rule tokens) for post bodies.
-- [ ] **Japanese language toggle (日本語版)**
-  - `react-i18next` (or a lightweight custom dictionary) wired into the already-present `Navbar.tsx` EN/JA control from Phase 1 (built as a real toggle then, functional now).
-  - Extract all page copy into translation keys — largest content-migration item in this phase. JA copy uses the same `font-sans` stack (Noto Sans JP fallback) with `leading-[1.8]`, one weight, per Phase 1 typography tokens.
+- [x] **Japanese language toggle (日本語版)** — delivered ahead of schedule (pulled forward from Phase 2B, before the rest of Phase 2 started):
+  - `i18next` + `react-i18next`, initialized in `src/i18n/index.ts`; resources in `src/i18n/locales/{en,ja}.json`; persisted to `localStorage` (`locale` key) and falls back to the browser's language on first visit.
+  - `Navbar.tsx`'s `EN / JA` control (built as a real `<button>` pair in Phase 1) now calls `i18n.changeLanguage`, wired to `i18n.language` for active state — no more static placeholder.
+  - All page copy (Home, About, Journey, Skills, Projects, Contact, Navbar, Footer) extracted into translation keys. `src/data/projects.ts` and the `JOURNEY_IDS`/`SKILL_CATEGORIES` arrays in `Journey.tsx`/`Skills.tsx` now hold only language-neutral structural data (ids, stack names, dates-as-ids, figures' numeric values); all translatable strings resolved dynamically via `t(`namespace.items.${id}.field`)`.
+  - JA copy uses the same `font-sans` stack (Noto Sans JP fallback), matching Phase 1 typography tokens — no separate JA-only styling needed.
 - [ ] **Admin panel for project management**
   - Minimal authenticated UI (flat hairline tables/forms matching the design system, not shadcn defaults) against the backend's CRUD endpoints.
   - Needs an auth decision (simple single-admin JWT vs. an identity provider) — flag for a decision before implementation.

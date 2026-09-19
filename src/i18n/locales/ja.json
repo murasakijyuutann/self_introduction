@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "brand": "ポートフォリオ／経歴ファイル — 2026",
+    "home": "ホーム",
+    "about": "自己紹介",
+    "journey": "経歴",
+    "skills": "スキル",
+    "projects": "プロジェクト",
+    "contact": "お問い合わせ",
+    "menu": "メニュー",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "menuTitle": "ナビゲーションメニュー",
+    "language": "言語"
+  },
+  "footer": {
+    "builtWith": "React、Tailwind CSS、shadcn/ui で構築。",
+    "copyright": "© {{year}} Farah Sinclair (Fishyboyxx). 無断複写・転載を禁じます。",
+    "sendEmail": "メールを送る"
+  },
+  "home": {
+    "eyebrow": "ケースファイル No.01 — ソフトウェアエンジニア",
+    "name": "禹 善明",
+    "intro": "大阪を拠点に、ネットワーク・システム管理の経験を持つバックエンド志向のフルスタックエンジニア。ソースもドキュメントもない本番システムの解析から、機能のリリースまでを一貫して担当し、後から自分自身が読み返したいと思える形で記録に残しています。",
+    "viewCaseStudies": "ケーススタディを見る →",
+    "getInTouch": "お問い合わせ",
+    "meta": {
+      "location": "所在地",
+      "locationValue": "大阪、日本",
+      "languages": "言語",
+      "languagesValue": "韓国語 / 日本語 / 英語",
+      "focus": "得意分野",
+      "focusValue": "TypeScript・React",
+      "status": "ステータス",
+      "statusValue": "転職活動中"
+    },
+    "selectedWork": "主要プロジェクト"
+  },
+  "about": {
+    "eyebrow": "ケースファイル No.02 — 背景",
+    "heading": "自己紹介",
+    "paragraphs": [
+      "React、Spring Boot、クラウド基盤を用いたモダンWebアプリケーション開発において3年以上の実務経験を持つフルスタックエンジニアです。",
+      "システム管理からフルスタック開発へ——スケーラブルなバックエンド、レスポンシブなフロントエンドの構築、そしてAWS EC2への本番デプロイを専門としています。",
+      "3か国語対応(英語・日本語N1・韓国語ネイティブ)のエンジニアとして、文化の橋渡しをしながらインパクトのあるソフトウェアを作れる日本のテックチームに加わりたいと考えています。"
+    ],
+    "quote": "「コードは私の言語。文化は私の架け橋。」"
+  },
+  "journey": {
+    "eyebrow": "ケースファイル No.03 — 経歴",
+    "heading": "経歴",
+    "intro": "オーストラリアから韓国へ、そして日本でのキャリアを目指して。",
+    "items": {
+      "diploma-it": {
+        "year": "2015–2016",
+        "title": "IT ディプロマ — UTS:INSEARCH",
+        "description": "ネットワーク、データベース、Java、Ciscoの基礎を習得。後にアーキテクチャ設計への取り組み方につながる、システム思考との最初の出会い。",
+        "location": "シドニー、オーストラリア"
+      },
+      "bachelor-sysadmin": {
+        "year": "2017–2019",
+        "title": "システム管理学 学士 — Charles Sturt University",
+        "description": "クラウド基盤、Linux、ネットワークセキュリティを専攻。GCP上でのVoIP/SIP構築で優秀評価(Distinction)を獲得し、実務レベルのインフラ経験を初めて積む。",
+        "location": "シドニー、オーストラリア"
+      },
+      "career-break": {
+        "year": "2020–2022",
+        "title": "キャリアブレイク・自己学習",
+        "description": "オーストラリアから帰国後、一時的に正式な就労から離れる。基礎を見直し、フルスタックのキャリアに進む前に方向性を見つめ直す期間として活用。",
+        "location": "ソウル、韓国"
+      },
+      "bootcamp": {
+        "year": "2023",
+        "title": "エンジニアへの復帰 — フルスタックブートキャンプ",
+        "description": "4人チームを率いてカフェ向けキオスクシステム(Spring Boot + React + AWS)を卒業制作として開発。個人でも認証・カート・注文管理を備えたECプラットフォーム「VocaloCart」を構築し、DockerとRailwayで本番運用。",
+        "location": "ソウル、韓国"
+      },
+      "independent-projects": {
+        "year": "2024",
+        "title": "個人プロジェクトとスタックの深化",
+        "description": "VocaloCartを実装し、交通決済APIと映画レビューアプリを開発。JWT、OAuth、GitHub ActionsによるCI/CD、PostgreSQLを用いた本番品質のアーキテクチャに注力。",
+        "location": "ソウル、韓国"
+      },
+      "hr-audit": {
+        "year": "2026年2〜3月",
+        "title": "セキュリティ監査 — 本番HRシステム",
+        "description": "ソースコードへのアクセスが一切ない本番HRシステムをWARファイルからリバースエンジニアリング。IDOR、パストラバーサル、AESキーのハードコーディングを含む28件のセキュリティ脆弱性を含む70件以上の課題を文書化。この監査結果が、システムを全面的に入れ替えるという事業判断に直接つながった。",
+        "location": "大阪、日本"
+      },
+      "android-nav": {
+        "year": "2026年3〜4月",
+        "title": "Androidエンジニア — BEナビゲーションシステム",
+        "description": "Bluetooth/GPS対応のAndroidナビゲーションシステムを開発するプロダクトチームに参画。Kotlin、Jetpack Compose、Dagger 2、BLEを用い、既存の本番コードベースを読み解きながら新規リビルドに貢献。",
+        "location": "大阪、日本"
+      },
+      "vocalocart-nextjs": {
+        "year": "2026年7〜8月",
+        "title": "VocaloCart のフルスタックNext.js移行",
+        "description": "Vite/React + Spring Bootに分かれていたストアフロントを、単一のNext.jsフルスタックアプリへ移行。認証・カート・注文管理を、2つのAPI層から1つに統合。",
+        "location": "大阪、日本"
+      }
+    }
+  },
+  "skills": {
+    "eyebrow": "ケースファイル No.04 — ツールキット",
+    "heading": "スキル",
+    "intro": "チュートリアルではなく、実際にリリースしたプロジェクトを通じて培った実践的なツールキット。",
+    "categories": {
+      "languages": "プログラミング言語",
+      "frontend": "フロントエンド開発",
+      "backend": "バックエンド・フレームワーク",
+      "auth-security": "認証・セキュリティ",
+      "database": "データベース・データ",
+      "devops": "DevOps・デプロイ",
+      "architecture": "アーキテクチャ・設計パターン",
+      "dev-tools": "開発ツール",
+      "testing": "テスト・品質管理",
+      "soft-skills": "ソフトスキル・言語",
+      "learning": "現在学習中",
+      "certifications": "資格"
+    }
+  },
+  "projects": {
+    "eyebrow": "ケースファイル No.01〜{{count}} — 主要プロジェクト",
+    "heading": "プロジェクト",
+    "intro": "各ケースファイルには、着手時の課題、実際に担った役割、そして何をリリースしたかを記載——並び順は新しさではなく、調査・検証の深さによります。",
+    "items": {
+      "hr-audit-rebuild": {
+        "title": "HRシステムの監査と再構築",
+        "description": "ソースコードもドキュメントも存在しない本番HRシステムを引き継ぎ、142個のコンパイル済み.classファイルをCFRでリバースエンジニアリング。その後、Spring Boot 3とVue 3によるゼロベースの再構築をリードし、監査結果が自社開発か外部購入かの意思決定に活用された。",
+        "problem": "ソースなし、ドキュメントなし、スキーマなし——あるのはデプロイ済みのWARファイルのみ",
+        "role": "監査を独自に立ち上げ、再構築をリード",
+        "outcome": "監査結果が商用の自社開発／購入判断に活用された",
+        "status": "アーカイブ済み — 全7段階中フェーズ3",
+        "figures": {
+          "backendIssues": "バックエンドの課題数",
+          "securityVulns": "セキュリティ脆弱性",
+          "schemaIssues": "スキーマの課題数",
+          "filesDecompiled": "デコンパイルしたファイル数"
+        }
+      },
+      "vocalocart": {
+        "title": "VocaloCart",
+        "description": "Vocaloid関連グッズを扱うフルスタックECサイト。Spring Boot + Vite/Reactに分かれていた構成から、単一のNext.jsモノレポへ移行。認証、カタログ、カート、決済(Stripe)、トランザクションメールまでを一体的にカバー。",
+        "problem": "Spring Boot + Vite/Reactの分離構成が開発速度を鈍化させていた",
+        "role": "単一のNext.jsモノレポへの移行を単独で担当",
+        "outcome": "バックエンド・アーキテクチャは安定稼働中。フロントエンドの再設計は進行中",
+        "status": "進行中 — フロントエンド再設計"
+      },
+      "interview-pipeline-tracker": {
+        "title": "面接パイプライントラッカー",
+        "description": "転職活動における面接管理のためのローカルファーストなデスクトップアプリ。リスト表示とカレンダー表示、選考ステージでの絞り込み、そしてRust製バックグラウンドエンジンによるOSネイティブのリマインダー通知を搭載——クラウドアカウントもサーバーも不要。",
+        "problem": "クラウドを介さず、リマインダー付きで面接進行を管理する手段が必要だった",
+        "role": "単独開発 — Rustバックエンド、Reactフロントエンド",
+        "outcome": "インストーラー(NSIS/MSI)をリリース済み。日常的に自身で利用中",
+        "status": "稼働中(個人用ツール)",
+        "figures": {
+          "pollInterval": "ポーリング間隔",
+          "cloudDependencies": "クラウド依存"
+        }
+      },
+      "transport-payment": {
+        "title": "公共交通決済システム",
+        "description": "カード管理、運賃計算、トランザクション処理を備えたSpring Boot製の決済システムAPI。ThymeleafフロントエンドとAWSホスティングのMySQLを使用。",
+        "problem": "運賃・決済処理には、カードからトランザクションまでの信頼性ある一連の流れが必要だった",
+        "role": "バックエンド中心の開発 — Spring Boot APIとThymeleafフロントエンド",
+        "outcome": "AWS RDS上でカード管理、運賃計算、トランザクション処理をリリース",
+        "status": "アーカイブ済み"
+      },
+      "self-intro-repository": {
+        "title": "自己紹介リポジトリ",
+        "description": "このポートフォリオ自体——今まさに読んでいる「Editorial Case File」のデザインへ、継続的に改善を重ねているサイト。",
+        "problem": "プロジェクト、スキル、経歴を一つにまとめた、常に最新の情報源が必要だった",
+        "role": "単独開発・継続的なリデザイン — React、TypeScript、Tailwind CSS、shadcn/ui",
+        "outcome": "現在も稼働・改善中。今ご覧になっているUIもリビルドの最中",
+        "status": "進行中 — UI全面改修"
+      }
+    }
+  },
+  "projectCard": {
+    "selectedWork": "主要プロジェクト",
+    "problem": "課題",
+    "role": "役割",
+    "outcome": "成果",
+    "viewLive": "サイトを見る →",
+    "source": "ソースコード →",
+    "readCaseFile": "ケースファイルを読む →"
+  },
+  "contact": {
+    "eyebrow": "ケースファイル No.05 — お問い合わせ",
+    "heading": "お問い合わせ",
+    "intro": "案件のご相談、プロジェクトのご依頼、ちょっとした質問でも——メッセージをお送りいただければ、直接ご返信します。",
+    "form": {
+      "name": "お名前",
+      "email": "メールアドレス",
+      "phone": "電話番号(任意)",
+      "message": "メッセージを入力してください...",
+      "submit": "送信する"
+    },
+    "toast": {
+      "success": "ご連絡ありがとうございます。近日中にご返信いたします。",
+      "error": "送信に失敗しました。しばらくしてから再度お試しください。"
+    }
+  }
+}

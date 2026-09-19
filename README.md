@@ -235,7 +235,7 @@ The `vercel.json` file includes routing configuration to support React Router:
 
 ### Medium-term Goals
 - [ ] Integrate blog section with MDX support
-- [ ] Add Japanese language toggle (日本語版)
+- [x] Add Japanese language toggle (日本語版) — delivered ahead of schedule via `react-i18next`; full EN/JA content switching across every page, persisted in `localStorage`.
 - [ ] Implement Spring Boot backend for dynamic content
 - [ ] Create admin panel for project management
 

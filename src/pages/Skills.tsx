@@ -1,12 +1,13 @@
+import { useTranslation } from 'react-i18next'
 import { Reveal } from '@/components/Reveal'
 
 const SKILL_CATEGORIES = [
   {
-    title: 'Programming Languages',
+    id: 'languages',
     items: ['Java', 'JavaScript', 'TypeScript', 'Python', 'C', 'SQL'],
   },
   {
-    title: 'Frontend Development',
+    id: 'frontend',
     items: [
       'React',
       'React Router',
@@ -20,11 +21,11 @@ const SKILL_CATEGORIES = [
     ],
   },
   {
-    title: 'Backend & Frameworks',
+    id: 'backend',
     items: ['Spring Boot', 'MyBatis', 'Node.js', 'Express', 'NestJS', 'Prisma', 'Axios', 'REST API', 'JSP/Servlets'],
   },
   {
-    title: 'Authentication & Security',
+    id: 'auth-security',
     items: [
       'JWT Authentication',
       'Session Management',
@@ -36,15 +37,15 @@ const SKILL_CATEGORIES = [
     ],
   },
   {
-    title: 'Database & Data',
+    id: 'database',
     items: ['MySQL', 'PostgreSQL', 'Supabase', 'Database Design', 'SQL Optimization', 'DBeaver', 'Data Modeling'],
   },
   {
-    title: 'DevOps & Deployment',
+    id: 'devops',
     items: ['AWS EC2', 'Vercel', 'Docker', 'Linux/Unix', 'SSH', 'Tomcat', 'VMWare', 'CI/CD Basics'],
   },
   {
-    title: 'Architecture & Patterns',
+    id: 'architecture',
     items: [
       'MVC Architecture',
       'DTO Pattern',
@@ -56,15 +57,15 @@ const SKILL_CATEGORIES = [
     ],
   },
   {
-    title: 'Development Tools',
+    id: 'dev-tools',
     items: ['Git & GitHub', 'VS Code', 'IntelliJ IDEA', 'Postman', 'Swagger', 'npm/yarn', 'Maven', 'Chrome DevTools'],
   },
   {
-    title: 'Testing & Quality',
+    id: 'testing',
     items: ['Unit Testing', 'API Testing', 'Debugging', 'Code Review', 'Performance Optimization', 'Error Handling'],
   },
   {
-    title: 'Soft Skills & Languages',
+    id: 'soft-skills',
     items: [
       'English (Fluent)',
       'Japanese (JLPT N1)',
@@ -77,42 +78,44 @@ const SKILL_CATEGORIES = [
     ],
   },
   {
-    title: 'Currently Learning',
+    id: 'learning',
     items: ['Kubernetes', 'Redis', 'GraphQL', 'Microservices', 'TypeScript Advanced', 'Cloud Architecture'],
   },
   {
-    title: 'Certifications',
+    id: 'certifications',
     items: ['JLPT N1 (2024.07)', 'IELTS 7.5 (2019.11)'],
   },
-]
+] as const
 
 export default function Skills() {
+  const { t } = useTranslation()
+
   return (
     <div className="bg-bg">
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-16 md:py-24">
         <Reveal index={0}>
           <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-accent md:text-[13px]">
-            Case File No. 04 — Toolkit
+            {t('skills.eyebrow')}
           </p>
         </Reveal>
 
         <Reveal index={1}>
           <h1 className="mt-4 text-[32px] font-semibold leading-[1.15] tracking-[-0.01em] text-fg md:text-[48px]">
-            Skills
+            {t('skills.heading')}
           </h1>
         </Reveal>
 
         <Reveal index={2}>
           <p className="mt-4 max-w-[640px] text-base leading-[1.65] text-muted">
-            A working toolkit, built through shipped projects rather than tutorials.
+            {t('skills.intro')}
           </p>
         </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-px border border-rule bg-rule md:mt-16 md:grid-cols-2">
           {SKILL_CATEGORIES.map((category, i) => (
-            <Reveal key={category.title} index={i} className="bg-bg p-6">
+            <Reveal key={category.id} index={i} className="bg-bg p-6">
               <p className="font-mono text-[11px] uppercase tracking-[0.04em] text-accent">
-                {category.title}
+                {t(`skills.categories.${category.id}`)}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {category.items.map((item) => (

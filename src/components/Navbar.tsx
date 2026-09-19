@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -9,17 +10,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
+import type { SupportedLocale } from '@/i18n'
 
 const NAV_LINKS = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/journey', label: 'Journey' },
-  { to: '/skills', label: 'Skills' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/', key: 'home' },
+  { to: '/about', key: 'about' },
+  { to: '/journey', key: 'journey' },
+  { to: '/skills', key: 'skills' },
+  { to: '/projects', key: 'projects' },
+  { to: '/contact', key: 'contact' },
 ] as const
-
-type Locale = 'en' | 'ja'
 
 function navLinkClass(isActive: boolean) {
   return isActive
@@ -30,17 +30,19 @@ function navLinkClass(isActive: boolean) {
 function LocaleToggle({
   locale,
   onChange,
+  label,
   className = '',
 }: {
-  locale: Locale
-  onChange: (locale: Locale) => void
+  locale: SupportedLocale
+  onChange: (locale: SupportedLocale) => void
+  label: string
   className?: string
 }) {
   return (
     <div
       className={`flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.04em] ${className}`}
       role="group"
-      aria-label="Language"
+      aria-label={label}
     >
       <button
         type="button"
@@ -67,8 +69,8 @@ function LocaleToggle({
 
 export default function Navbar() {
   const { pathname } = useLocation()
-  // Static toggle for now — real EN/JA content switching lands in Phase 2B (react-i18next).
-  const [locale, setLocale] = useState<Locale>('en')
+  const { t, i18n } = useTranslation()
+  const locale = (i18n.language === 'ja' ? 'ja' : 'en') as SupportedLocale
   const [open, setOpen] = useState(false)
 
   return (
@@ -77,7 +79,7 @@ export default function Navbar() {
         <Link to="/" className="flex min-w-0 shrink-0 items-center gap-2">
           <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
           <span className="truncate font-mono text-[11px] uppercase tracking-[0.06em] text-fg md:text-[13px]">
-            Portfolio / Dossier — 2026
+            {t('nav.brand')}
           </span>
         </Link>
 
@@ -91,14 +93,19 @@ export default function Navbar() {
                 aria-current={isActive ? 'page' : undefined}
                 className={`font-mono text-[11px] uppercase tracking-[0.04em] md:text-[12px] ${navLinkClass(isActive)}`}
               >
-                {link.label}
+                {t(`nav.${link.key}`)}
               </Link>
             )
           })}
         </nav>
 
         <div className="flex items-center gap-4">
-          <LocaleToggle locale={locale} onChange={setLocale} className="hidden md:flex" />
+          <LocaleToggle
+            locale={locale}
+            onChange={(l) => i18n.changeLanguage(l)}
+            label={t('nav.language')}
+            className="hidden md:flex"
+          />
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -106,7 +113,7 @@ export default function Navbar() {
                 variant="outline"
                 size="icon"
                 className="rounded-[4px] md:hidden"
-                aria-label="Open menu"
+                aria-label={t('nav.openMenu')}
               >
                 <Menu className="size-4" />
               </Button>
@@ -116,14 +123,19 @@ export default function Navbar() {
               showCloseButton={false}
               className="w-72 gap-0 rounded-none border-l border-rule bg-bg p-0 shadow-none"
             >
-              <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+              <SheetTitle className="sr-only">{t('nav.menuTitle')}</SheetTitle>
 
               <div className="flex items-center justify-between border-b border-rule px-6 py-4">
                 <span className="font-mono text-[11px] uppercase tracking-[0.06em] text-muted">
-                  Menu
+                  {t('nav.menu')}
                 </span>
                 <SheetClose asChild>
-                  <Button variant="ghost" size="icon-sm" className="rounded-[4px]" aria-label="Close menu">
+                  <Button
+                    variant="ghost"
+                    size="icon-sm"
+                    className="rounded-[4px]"
+                    aria-label={t('nav.closeMenu')}
+                  >
                     <span aria-hidden="true" className="font-mono text-xs">
                       ×
                     </span>
@@ -141,7 +153,7 @@ export default function Navbar() {
                         aria-current={isActive ? 'page' : undefined}
                         className={`font-mono text-sm uppercase tracking-[0.04em] ${navLinkClass(isActive)}`}
                       >
-                        {link.label}
+                        {t(`nav.${link.key}`)}
                       </Link>
                     </SheetClose>
                   )
@@ -149,7 +161,11 @@ export default function Navbar() {
               </nav>
 
               <div className="border-t border-rule px-6 py-4">
-                <LocaleToggle locale={locale} onChange={setLocale} />
+                <LocaleToggle
+                  locale={locale}
+                  onChange={(l) => i18n.changeLanguage(l)}
+                  label={t('nav.language')}
+                />
               </div>
             </SheetContent>
           </Sheet>
