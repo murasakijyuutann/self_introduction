@@ -9,6 +9,7 @@ import Journey from './pages/Journey'
 import { ChinchiroGame } from './pages/Chinchiro'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
+import { Toaster } from './components/ui/sonner'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <Toaster position="bottom-right" />
     </div>
   )
 }

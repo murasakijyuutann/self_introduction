@@ -1,15 +1,11 @@
-import styled from 'styled-components'
-import { animatedGradient } from '../styles/AnimatedBackground'
-import { motion } from 'framer-motion'
-import { FaGraduationCap, FaBriefcase, FaCode, FaPlane, FaRocket, FaMapMarkerAlt } from 'react-icons/fa'
+import { Reveal } from '@/components/Reveal'
 
-const journeyData = [
+const JOURNEY = [
   {
     year: '2015–2016',
     title: 'Diploma of IT — UTS:INSEARCH',
     description:
       'Built foundations in networking, databases, Java, and Cisco. First exposure to systems thinking that would shape how I approach architecture later.',
-    icon: FaGraduationCap,
     location: 'Sydney, Australia',
   },
   {
@@ -17,7 +13,6 @@ const journeyData = [
     title: "Bachelor's in Systems Administration — Charles Sturt University",
     description:
       'Specialised in cloud infrastructure, Linux, and network security. Completed a VoIP/SIP deployment on GCP that earned a Distinction — my first taste of real infrastructure work.',
-    icon: FaGraduationCap,
     location: 'Sydney, Australia',
   },
   {
@@ -25,21 +20,20 @@ const journeyData = [
     title: 'Career Break & Self-Study',
     description:
       'Stepped back from formal work after returning from Australia. Used the time to revisit fundamentals and reflect on direction before committing to a full-stack career path.',
-    icon: FaPlane, location: 'Seoul, South Korea',
+    location: 'Seoul, South Korea',
   },
   {
     year: '2023',
     title: 'Back to Code — Full-Stack Bootcamp',
     description:
       'Led a team of 4 to build a cafe kiosk system (Spring Boot + React + AWS) as capstone. Also independently built VocaloCart, an e-commerce platform with auth, cart, and order management — deployed to production via Docker and Railway.',
-    icon: FaPlane, location: 'Seoul, South Korea',
+    location: 'Seoul, South Korea',
   },
   {
     year: '2024',
     title: 'Independent Projects & Deepening the Stack',
     description:
       'Migrated VocaloCart to Next.js, built a transport payment API, and a movie review app. Focused on production-quality architecture: JWT, OAuth, CI/CD with GitHub Actions, and PostgreSQL.',
-    icon: FaCode,
     location: 'Seoul, South Korea',
   },
   {
@@ -47,7 +41,6 @@ const journeyData = [
     title: 'Security Audit — Production HR System',
     description:
       'Reverse-engineered a production HR system from a WAR file with no source access. Documented 70+ issues including 28 security vulnerabilities (IDOR, path traversal, hardcoded AES keys). The audit directly influenced a business decision to replace the system entirely.',
-    icon: FaBriefcase,
     location: 'Osaka, Japan',
   },
   {
@@ -55,203 +48,59 @@ const journeyData = [
     title: 'Android Engineer — Yamaha Navigation System',
     description:
       'Embedded in a product team building a Bluetooth/GPS Android navigation system for Yamaha motorcycles. Working in Kotlin, Jetpack Compose, Dagger 2, and BLE — reading a production codebase and contributing to a greenfield rebuild.',
-    icon: FaRocket,
     location: 'Osaka, Japan',
   },
 ]
 
-const Section = styled.section`
-  ${animatedGradient};
-  padding: 6rem 1.5rem;
-  color: #fff;
-  text-align: center;
-  min-height: 100vh;
-`
-
-const Container = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
-`
-
-const Title = styled.h2`
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.3);
-  
-  @media (max-width: 768px) {
-    font-size: 2.2rem;
-  }
-`
-
-const Subtitle = styled.p`
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 4rem;
-  
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`
-
-const Timeline = styled.div`
-  position: relative;
-  padding: 2rem 0;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(180deg, 
-      rgba(255, 255, 255, 0.1) 0%, 
-      rgba(255, 255, 255, 0.4) 50%, 
-      rgba(255, 255, 255, 0.1) 100%
-    );
-  }
-  
-  @media (max-width: 768px) {
-    &::before {
-      left: 30px;
-    }
-  }
-`
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-}
-
-const Event = styled(motion.div)<{ $isEven: boolean }>`
-  position: relative;
-  display: flex;
-  justify-content: ${props => props.$isEven ? 'flex-end' : 'flex-start'};
-  margin-bottom: 4rem;
-  
-  @media (max-width: 768px) {
-    justify-content: flex-start;
-    padding-left: 60px;
-  }
-`
-
-const EventCard = styled.div`
-  width: 45%;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 1.8rem;
-  text-align: left;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.18);
-  }
-  
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`
-
-const IconWrapper = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
-  border: 4px solid rgba(255, 255, 255, 0.2);
-  z-index: 2;
-  
-  @media (max-width: 768px) {
-    left: 30px;
-  }
-`
-
-const Year = styled.div`
-  display: inline-block;
-  font-size: 0.95rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  margin-bottom: 0.8rem;
-  letter-spacing: 0.5px;
-`
-
-const EventTitle = styled.h3`
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
-  color: #fff;
-`
-
-const Description = styled.p`
-  font-size: 0.98rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 0.8rem;
-`
-
-const Location = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-style: italic;
-  margin-top: 0.5rem;
-`
-
 export default function Journey() {
   return (
-    <Section id="journey">
-      <Container>
-        <Title>My Developer Journey</Title>
-        <Subtitle>
-          From Australia to Korea, building towards a career in Japan 🌏
-        </Subtitle>
-        <Timeline>
-          {journeyData.map((item, idx) => {
-            const Icon = item.icon
-            return (
-              <Event
-                key={idx}
-                $isEven={idx % 2 === 0}
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <IconWrapper>
-                  <Icon />
-                </IconWrapper>
-                <EventCard>
-                  <Year>{item.year}</Year>
-                  <EventTitle>{item.title}</EventTitle>
-                  <Description>{item.description}</Description>
-                  <Location>
-                    <FaMapMarkerAlt />
-                    {item.location}
-                  </Location>
-                </EventCard>
-              </Event>
-            )
-          })}
-        </Timeline>
-      </Container>
-    </Section>
+    <div className="bg-bg">
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-16 md:py-24">
+        <Reveal index={0}>
+          <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-accent md:text-[13px]">
+            Case File No. 03 — Timeline
+          </p>
+        </Reveal>
+
+        <Reveal index={1}>
+          <h1 className="mt-4 text-[32px] font-semibold leading-[1.15] tracking-[-0.01em] text-fg md:text-[48px]">
+            Journey
+          </h1>
+        </Reveal>
+
+        <Reveal index={2}>
+          <p className="mt-4 max-w-[640px] text-base leading-[1.65] text-muted">
+            From Australia to Korea, building toward a career in Japan.
+          </p>
+        </Reveal>
+
+        <div className="mt-12 flex flex-col md:mt-16">
+          {JOURNEY.map((item, i) => (
+            <Reveal
+              key={item.year}
+              index={i + 3}
+              className="grid grid-cols-1 gap-2 border-t border-rule py-6 first:border-t-0 md:grid-cols-12 md:gap-6 md:py-8"
+            >
+              <div className="md:col-span-3">
+                <p className="font-mono text-[12px] uppercase tracking-[0.04em] text-accent">
+                  {item.year}
+                </p>
+                <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.04em] text-muted">
+                  {item.location}
+                </p>
+              </div>
+              <div className="md:col-span-9">
+                <h3 className="text-[19px] font-semibold leading-[1.3] tracking-[-0.01em] text-fg md:text-[22px]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 max-w-[680px] text-[15px] leading-[1.65] text-muted md:text-base">
+                  {item.description}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+    </div>
   )
 }
