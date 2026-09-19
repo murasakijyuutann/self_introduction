@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/((?!images/).*)",
+      "source": "/((?!images/|files/|resume\\.pdf).*)",
       "destination": "/index.html"
     }
   ]

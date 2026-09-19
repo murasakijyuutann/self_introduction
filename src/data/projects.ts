@@ -16,6 +16,13 @@ export interface Project {
   index: number
   /** Only real, verifiable numbers — omit rather than pad with invented stats. */
   figures?: ProjectFigure[]
+  /**
+   * Optional screenshot shown via a "View screenshot" lightbox trigger in the
+   * card footer (per EXECUTION_PLAN.md §0/§2A — kept out of the default card
+   * body to stay text-forward). Path is the expected static asset location;
+   * drop the actual image at `public${screenshot}` to activate the trigger.
+   */
+  screenshot?: string
   stack: string[]
   status: {
     kind: ProjectStatusKind
@@ -39,10 +46,12 @@ export const projects: Project[] = [
     stack: ['Java 21', 'Spring Boot 3', 'Spring Security', 'Flyway', 'Vue 3', 'TypeScript', 'MySQL'],
     status: { kind: 'archived' },
     links: { source: 'https://github.com/murasakijyuutann/hr_rebuild_project' },
+    screenshot: '/images/screenshots/hr-audit-rebuild.png',
   },
   {
     id: 'vocalocart',
     index: 2,
+    screenshot: '/images/screenshots/vocalocart.png',
     stack: [
       'Next.js 16',
       'TypeScript',
@@ -67,6 +76,7 @@ export const projects: Project[] = [
     stack: ['Tauri 2', 'Rust', 'React 19', 'TypeScript', 'Tailwind CSS', 'SQLite'],
     status: { kind: 'live' },
     links: { source: 'https://github.com/murasakijyuutann/interview-pipeline-tracker' },
+    screenshot: '/images/screenshots/interview-pipeline-tracker.png',
   },
   {
     id: 'transport-payment',
@@ -74,6 +84,7 @@ export const projects: Project[] = [
     stack: ['Spring Boot', 'Thymeleaf', 'Bootstrap', 'MySQL', 'AWS RDS'],
     status: { kind: 'archived' },
     links: { source: 'https://github.com/murasakijyuutann/transport_payment' },
+    screenshot: '/images/screenshots/transport-payment.png',
   },
   {
     id: 'self-intro-repository',
@@ -84,5 +95,6 @@ export const projects: Project[] = [
       source: 'https://github.com/murasakijyuutann/self_introduction',
       live: 'https://self-introduction-i11.vercel.app/',
     },
+    screenshot: '/images/screenshots/self-intro-repository.png',
   },
 ]

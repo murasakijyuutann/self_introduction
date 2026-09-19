@@ -24,6 +24,8 @@
     "intro": "大阪を拠点に、ネットワーク・システム管理の経験を持つバックエンド志向のフルスタックエンジニア。ソースもドキュメントもない本番システムの解析から、機能のリリースまでを一貫して担当し、後から自分自身が読み返したいと思える形で記録に残しています。",
     "viewCaseStudies": "ケーススタディを見る →",
     "getInTouch": "お問い合わせ",
+    "downloadResume": "履歴書をダウンロード",
+    "downloadCv": "職務経歴書をダウンロード",
     "meta": {
       "location": "所在地",
       "locationValue": "大阪、日本",
@@ -190,7 +192,9 @@
     "outcome": "成果",
     "viewLive": "サイトを見る →",
     "source": "ソースコード →",
-    "readCaseFile": "ケースファイルを読む →"
+    "readCaseFile": "ケースファイルを読む →",
+    "viewScreenshot": "スクリーンショットを見る →",
+    "screenshotAlt": "{{title}} のスクリーンショット"
   },
   "contact": {
     "eyebrow": "ケースファイル No.05 — お問い合わせ",

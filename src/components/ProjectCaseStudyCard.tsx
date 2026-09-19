@@ -1,5 +1,12 @@
 import { useTranslation } from 'react-i18next'
 import type { Project, ProjectStatusKind } from '@/data/projects'
+import { useImageExists } from '@/hooks/useImageExists'
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 
 const STATUS_DOT_CLASS: Record<ProjectStatusKind, string> = {
   archived: 'bg-muted',
@@ -22,6 +29,7 @@ export function ProjectCaseStudyCard({ project }: { project: Project }) {
   const hasFigures = !!project.figures && project.figures.length > 0
   const hasLiveLink = !!project.links.live
   const hasSourceLink = !!project.links.source
+  const hasScreenshot = useImageExists(project.screenshot)
 
   return (
     <article className="rounded-md border border-rule">
@@ -81,6 +89,24 @@ export function ProjectCaseStudyCard({ project }: { project: Project }) {
           {project.stack.join(' · ')}
         </p>
         <div className="flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.04em]">
+          {hasScreenshot && (
+            <Dialog>
+              <DialogTrigger className="text-accent underline underline-offset-4 hover:text-fg">
+                {t('projectCard.viewScreenshot')}
+              </DialogTrigger>
+              <DialogContent
+                showCloseButton
+                className="max-w-3xl rounded-md border border-rule bg-bg p-0 ring-0 sm:max-w-3xl"
+              >
+                <DialogTitle className="sr-only">{t(`${base}.title`)}</DialogTitle>
+                <img
+                  src={project.screenshot}
+                  alt={t('projectCard.screenshotAlt', { title: t(`${base}.title`) })}
+                  className="block w-full rounded-md"
+                />
+              </DialogContent>
+            </Dialog>
+          )}
           {hasLiveLink && (
             <a
               href={project.links.live}

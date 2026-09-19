@@ -24,6 +24,8 @@
     "intro": "Full-stack engineer with backend focus with network and sysad backgrond, based in Osaka. I work forensically — from a production system with no source and no documentation, to a shipped feature — and write it up the way I'd want to read it back.",
     "viewCaseStudies": "View case studies →",
     "getInTouch": "Get in touch",
+    "downloadResume": "Download résumé",
+    "downloadCv": "Download CV",
     "meta": {
       "location": "Location",
       "locationValue": "Osaka, JP",
@@ -190,7 +192,9 @@
     "outcome": "Outcome",
     "viewLive": "View Live →",
     "source": "Source →",
-    "readCaseFile": "Read Case File →"
+    "readCaseFile": "Read Case File →",
+    "viewScreenshot": "View screenshot →",
+    "screenshotAlt": "Screenshot of {{title}}"
   },
   "contact": {
     "eyebrow": "Case File No. 05 — Contact",

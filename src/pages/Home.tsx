@@ -1,10 +1,33 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Reveal } from '@/components/Reveal'
 import { projects } from '@/data/projects'
+import { RESUME_DOWNLOADS } from '@/data/downloads'
+import { useFileExists } from '@/hooks/useFileExists'
 
 const META_KEYS = ['location', 'languages', 'focus', 'status'] as const
+
+function ResumeDownloadButton({ href, labelKey }: { href: string; labelKey: string }) {
+  const { t } = useTranslation()
+  const exists = useFileExists(href)
+
+  if (!exists) return null
+
+  return (
+    <Button
+      asChild
+      variant="outline"
+      className="rounded-[4px] border-rule font-mono text-xs uppercase tracking-[0.04em]"
+    >
+      <a href={href} download>
+        <Download className="size-3.5" aria-hidden="true" />
+        {t(labelKey)}
+      </a>
+    </Button>
+  )
+}
 
 export default function Home() {
   const { t, i18n } = useTranslation()
@@ -59,6 +82,9 @@ export default function Home() {
                 >
                   <Link to="/contact">{t('home.getInTouch')}</Link>
                 </Button>
+                {RESUME_DOWNLOADS.map((file) => (
+                  <ResumeDownloadButton key={file.id} href={file.href} labelKey={file.labelKey} />
+                ))}
               </div>
             </Reveal>
           </div>
