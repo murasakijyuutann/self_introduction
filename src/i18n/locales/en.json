@@ -69,16 +69,22 @@
         "description": "Stepped back from formal work after returning from Australia. Used the time to revisit fundamentals and reflect on direction before committing to a full-stack career path.",
         "location": "Seoul, South Korea"
       },
-      "bootcamp": {
-        "year": "2023",
-        "title": "Back to Code — Full-Stack Bootcamp",
-        "description": "Led a team of 4 to build a cafe kiosk system (Spring Boot + React + AWS) as capstone. Also independently built VocaloCart, an e-commerce platform with auth, cart, and order management — deployed to production via Docker and Railway.",
-        "location": "Seoul, South Korea"
+      "java-bootcamp": {
+        "year": "2022-2023",
+        "title": "Java Bootcamp with focus on Java and web development, basics of react/android development",
+        "description": "Built a small clothes EC site with JavaScript, JQuery, HTML, CSS, Ajax, JSP, Servlet, JSTL, JDBC, and Oracle Developer.",
+        "location":"Seoul, South Korea"
       },
       "independent-projects": {
-        "year": "2024",
+        "year": "2023–2024",
         "title": "Independent Projects & Deepening the Stack",
-        "description": "Migrated VocaloCart to Next.js, built a transport payment API, and a movie review app. Focused on production-quality architecture: JWT, OAuth, CI/CD with GitHub Actions, and PostgreSQL.",
+        "description": "Built VocaloCart project with vite/React + Spring Boot, built a transport payment API, and a movie review app. Focused on production-quality architecture: JWT, OAuth, CI/CD with GitHub Actions, and PostgreSQL.",
+        "location": "Seoul, South Korea"
+      },
+      "bootcamp": {
+        "year": "Aug–Nov 2025",
+        "title": "Back to Code — Full-Stack Bootcamp",
+        "description": "Led a team of 4 to build a cafe kiosk system (Spring Boot + React + AWS) as capstone including with auth, cart, and order management — deployed to production via AWS EC2 and RDS, S3 buckets",
         "location": "Seoul, South Korea"
       },
       "hr-audit": {

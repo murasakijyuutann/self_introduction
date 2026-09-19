@@ -69,16 +69,16 @@
         "description": "オーストラリアから帰国後、一時的に正式な就労から離れる。基礎を見直し、フルスタックのキャリアに進む前に方向性を見つめ直す期間として活用。",
         "location": "ソウル、韓国"
       },
-      "bootcamp": {
-        "year": "2023",
-        "title": "エンジニアへの復帰 — フルスタックブートキャンプ",
-        "description": "4人チームを率いてカフェ向けキオスクシステム(Spring Boot + React + AWS)を卒業制作として開発。個人でも認証・カート・注文管理を備えたECプラットフォーム「VocaloCart」を構築し、DockerとRailwayで本番運用。",
-        "location": "ソウル、韓国"
-      },
       "independent-projects": {
-        "year": "2024",
+        "year": "2023-2024",
         "title": "個人プロジェクトとスタックの深化",
         "description": "VocaloCartを実装し、交通決済APIと映画レビューアプリを開発。JWT、OAuth、GitHub ActionsによるCI/CD、PostgreSQLを用いた本番品質のアーキテクチャに注力。",
+        "location": "ソウル、韓国"
+      },
+      "bootcamp": {
+        "year": "2025年8月~11月",
+        "title": "エンジニアへの復帰 — フルスタックブートキャンプ",
+        "description": "4人チームを率いてカフェ向けキオスクシステム(Spring Boot + React + AWS)を卒業制作として開発。個人でも認証・カート・注文管理を備えたECプラットフォーム「VocaloCart」を構築し、DockerとRailwayで本番運用。",
         "location": "ソウル、韓国"
       },
       "hr-audit": {
