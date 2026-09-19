@@ -15,7 +15,7 @@
   },
   "footer": {
     "builtWith": "React、Tailwind CSS、shadcn/ui で構築。",
-    "copyright": "© {{year}} Farah Sinclair (Fishyboyxx). 無断複写・転載を禁じます。",
+    "copyright": "© {{year}} Sunmyung Woo. All rights reserved.",
     "sendEmail": "メールを送る"
   },
   "home": {

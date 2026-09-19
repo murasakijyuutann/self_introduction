@@ -15,7 +15,7 @@
   },
   "footer": {
     "builtWith": "Built with React, Tailwind CSS & shadcn/ui.",
-    "copyright": "© {{year}} Farah Sinclair (Fishyboyxx). All rights reserved.",
+    "copyright": "© {{year}} Sunmyung Woo. All rights reserved.",
     "sendEmail": "Send Email"
   },
   "home": {
