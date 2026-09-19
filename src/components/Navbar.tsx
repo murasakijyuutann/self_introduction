@@ -1,187 +1,161 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import styled, { css } from 'styled-components'
+import { Menu } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 
-// ========== Styled Components ==========
+const NAV_LINKS = [
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/journey', label: 'Journey' },
+  { to: '/skills', label: 'Skills' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/chinchiro', label: 'Chinchiro' },
+  { to: '/contact', label: 'Contact' },
+] as const
 
-const NavbarContainer = styled.nav`
-  width: 100%;
-  padding: 1rem 2rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-sizing: border-box;
-`
+type Locale = 'en' | 'ja'
 
-const Logo = styled(Link)`
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #222;
-  text-decoration: none;
-  letter-spacing: 0.5px;
-  transition: color 0.3s;
-  &:hover {
-    color: #39c5bb; /* Miku teal accent */
-  }
-`
+function navLinkClass(isActive: boolean) {
+  return isActive
+    ? 'text-accent underline underline-offset-4'
+    : 'text-muted transition-colors hover:text-fg'
+}
 
-const NavLinks = styled.div<{ isOpen: boolean }>`
-  display: flex;
-  gap: 1.5rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 2rem;
-    background: #fff;
-    padding: 1.2rem 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-    transform: ${({ isOpen }) =>
-      isOpen ? 'translateY(0)' : 'translateY(-10px)'};
-    pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 999;
-    min-width: 160px;
-  }
-`
-
-const NavLink = styled(Link)<{ active?: boolean }>`
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-  color: ${({ active }) => (active ? '#39c5bb' : '#333')};
-  transition: color 0.3s;
-
-  &:hover {
-    color: #39c5bb;
-  }
-
-  ${({ active }) =>
-    active &&
-    css`
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, #39c5bb, #ff66cc);
-        border-radius: 2px;
-        transition: all 0.3s;
-      }
-    `}
-`
-
-const Hamburger = styled.button<{ isOpen: boolean }>`
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 28px;
-  height: 28px;
-  z-index: 1001;
-  padding: 0;
-  position: relative;
-
-  @media (max-width: 768px) {
-    display: flex;
-  }
-
-  span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background-color: #333;
-    margin: 3px 0;
-    border-radius: 2px;
-    transition: 0.3s all ease-in-out;
-    transform-origin: center;
-  }
-
-  ${({ isOpen }) =>
-    isOpen &&
-    css`
-      span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      span:nth-child(2) {
-        opacity: 0;
-      }
-      span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-      }
-    `}
-`
-
-// ========== Component ==========
+function LocaleToggle({
+  locale,
+  onChange,
+  className = '',
+}: {
+  locale: Locale
+  onChange: (locale: Locale) => void
+  className?: string
+}) {
+  return (
+    <div
+      className={`flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.04em] ${className}`}
+      role="group"
+      aria-label="Language"
+    >
+      <button
+        type="button"
+        aria-current={locale === 'en' ? 'true' : undefined}
+        onClick={() => onChange('en')}
+        className={navLinkClass(locale === 'en')}
+      >
+        EN
+      </button>
+      <span aria-hidden="true" className="text-rule">
+        /
+      </span>
+      <button
+        type="button"
+        aria-current={locale === 'ja' ? 'true' : undefined}
+        onClick={() => onChange('ja')}
+        className={navLinkClass(locale === 'ja')}
+      >
+        JA
+      </button>
+    </div>
+  )
+}
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const navRef = useRef<HTMLElement>(null)
-  const location = useLocation()
-
-  const toggleMenu = () => setIsOpen(!isOpen)
-  const closeMenu = () => setIsOpen(false)
-
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
-      }
-    }
-    if (isOpen) document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [isOpen])
-
-  const links = [
-    { to: '/', label: 'Home' },
-    { to: '/about', label: 'About' },
-    { to: '/journey', label: 'Journey' },
-    { to: '/chinchiro', label: 'Chinchiro' },
-    { to: '/skills', label: 'Skills' },
-    { to: '/projects', label: 'Projects' },
-    { to: '/contact', label: 'Contact' },
-  ]
+  const { pathname } = useLocation()
+  // Static toggle for now — real EN/JA content switching lands in Phase 2B (react-i18next).
+  const [locale, setLocale] = useState<Locale>('en')
+  const [open, setOpen] = useState(false)
 
   return (
-    <NavbarContainer ref={navRef}>
-      <Logo to="/">Fishyboyxx</Logo>
+    <header className="sticky top-0 z-50 border-b border-rule bg-bg">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-5 md:px-16">
+        <Link to="/" className="flex min-w-0 shrink-0 items-center gap-2">
+          <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
+          <span className="truncate font-mono text-[11px] uppercase tracking-[0.06em] text-fg md:text-[13px]">
+            Portfolio / Dossier — 2026
+          </span>
+        </Link>
 
-      <NavLinks isOpen={isOpen}>
-        {links.map((link) => (
-          <NavLink
-            key={link.to}
-            to={link.to}
-            onClick={closeMenu}
-            active={location.pathname === link.to}
-          >
-            {link.label}
-          </NavLink>
-        ))}
-      </NavLinks>
+        <nav aria-label="Primary" className="hidden items-center gap-5 md:flex">
+          {NAV_LINKS.map((link) => {
+            const isActive = pathname === link.to
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                aria-current={isActive ? 'page' : undefined}
+                className={`font-mono text-[11px] uppercase tracking-[0.04em] md:text-[12px] ${navLinkClass(isActive)}`}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
+        </nav>
 
-      <Hamburger
-        onClick={toggleMenu}
-        isOpen={isOpen}
-        aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
-      >
-        <span />
-        <span />
-        <span />
-      </Hamburger>
-    </NavbarContainer>
+        <div className="flex items-center gap-4">
+          <LocaleToggle locale={locale} onChange={setLocale} className="hidden md:flex" />
+
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+                className="rounded-[4px] md:hidden"
+                aria-label="Open menu"
+              >
+                <Menu className="size-4" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              showCloseButton={false}
+              className="w-72 gap-0 rounded-none border-l border-rule bg-bg p-0 shadow-none"
+            >
+              <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+
+              <div className="flex items-center justify-between border-b border-rule px-6 py-4">
+                <span className="font-mono text-[11px] uppercase tracking-[0.06em] text-muted">
+                  Menu
+                </span>
+                <SheetClose asChild>
+                  <Button variant="ghost" size="icon-sm" className="rounded-[4px]" aria-label="Close menu">
+                    <span aria-hidden="true" className="font-mono text-xs">
+                      ×
+                    </span>
+                  </Button>
+                </SheetClose>
+              </div>
+
+              <nav aria-label="Primary" className="flex flex-1 flex-col gap-4 px-6 py-6">
+                {NAV_LINKS.map((link) => {
+                  const isActive = pathname === link.to
+                  return (
+                    <SheetClose asChild key={link.to}>
+                      <Link
+                        to={link.to}
+                        aria-current={isActive ? 'page' : undefined}
+                        className={`font-mono text-sm uppercase tracking-[0.04em] ${navLinkClass(isActive)}`}
+                      >
+                        {link.label}
+                      </Link>
+                    </SheetClose>
+                  )
+                })}
+              </nav>
+
+              <div className="border-t border-rule px-6 py-4">
+                <LocaleToggle locale={locale} onChange={setLocale} />
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </header>
   )
 }
