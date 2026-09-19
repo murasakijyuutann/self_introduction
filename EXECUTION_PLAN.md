@@ -9,6 +9,8 @@ Phase 2 assumes Phase 1 is fully merged first — several Phase 2 items (dark mo
 
 > **Design source update:** Phase 1 below now implements the "Editorial Case File" spec supplied by the user (warm off-white ground, hairline borders, mono metadata type, restructured project cards) instead of the earlier generic "dark base theme + fully sharp (0px) edges" draft. See **§0 Deltas from the original brief** before executing — a few things intentionally changed.
 
+> **Scope update (post Phase 1):** `Chinchiro.tsx` and the `/chinchiro` route have been **removed entirely** — a dice-game page didn't fit a professional self-introduction/recruiter-facing site. This also dropped `howler` as a dependency. All references to `Chinchiro`/`Chinchirorin` below are historical (describing the pre-redesign codebase) and no longer apply.
+
 Checkboxes are for tracking progress as each step is actually executed; nothing in this plan has been applied to the code yet.
 
 ---
@@ -52,7 +54,8 @@ Two open decisions flagged for the user before/while executing (not blocking the
 - [ ] Configure path alias `@/*` → `src/*` in `tsconfig.app.json` and `vite.config.ts` (`resolve.alias`), required by shadcn's generated imports.
 - [ ] Add self-hosted fonts (no runtime Google Fonts `<link>`, per spec): `@fontsource/inter`, `@fontsource/noto-sans-jp`, `@fontsource-variable/jetbrains-mono` (or the non-variable `@fontsource/jetbrains-mono`) — import the needed weights in `src/main.tsx`/`src/index.css`.
 - [ ] **Remove** `react-simple-typewriter` — the hero's typing animation is explicitly on the avoid-list; the new hero (§1.4) has a static H1 instead.
-- [ ] Keep: `framer-motion` (used, but restrained — see §1.3 Motion), `react-router-dom`, `react-icons`/`lucide-react`, `howler` (Chinchiro game audio, unrelated to this redesign), `@emailjs/browser`.
+- [ ] Keep: `framer-motion` (used, but restrained — see §1.3 Motion), `react-router-dom`, `react-icons`/`lucide-react`, `@emailjs/browser`.
+- [x] `howler` and `Chinchiro.tsx` removed entirely (post-Phase-1 scope change — see note at top of file).
 - [ ] Remove once migration is verified: `styled-components`, `@types/styled-components`.
 
 ### 1.2 Design tokens
@@ -153,12 +156,12 @@ Two open decisions flagged for the user before/while executing (not blocking the
 - [ ] Delete the commented-out dead `ModeLinks` block (also removes stray emojis).
 - [ ] Remove `💙` from the tagline copy; keep icon row (`react-icons`), drop the colored hover glow in favor of a simple `text-muted` → `text-fg`/`text-accent` hover per the "no color-only signaling except mono/accent" rule.
 
-**Other pages (`About.tsx`, `Journey.tsx`, `Skills.tsx`, `Contact.tsx`, `Chinchiro.tsx`)** — not covered by the spec's explicit component breakdown (only Header/Hero/ProjectCaseStudyCard are spec'd in detail), so Phase 1 applies the same tokens/typography/motion/avoid-list rules for visual consistency, using Header/Hero/Projects as the reference language:
+**Other pages (`About.tsx`, `Journey.tsx`, `Skills.tsx`, `Contact.tsx`)** — not covered by the spec's explicit component breakdown (only Header/Hero/ProjectCaseStudyCard are spec'd in detail), so Phase 1 applies the same tokens/typography/motion/avoid-list rules for visual consistency, using Header/Hero/Projects as the reference language:
 - [ ] `About.tsx`: left-align (currently already `text-align: left` for the paragraphs, good — just needs the color/type tokens and remove the gradient section background), drop the pulsing `::after` underline keyframe under "About Me" (continuous animation is on the avoid-list).
 - [ ] `Journey.tsx`: replace circular timeline icon tiles with square/sharp tiles (`rounded-[4px]`, not `rounded-full`); replace the pill `Year` badge with a mono label (`text-accent font-mono text-xs`) instead of a colored pill; remove `🌏` from the subtitle; drop the gradient vertical rule line in favor of `bg-rule`.
 - [ ] `Skills.tsx`: convert each category `Section` into the same hairline-bordered card language as the project cards (`border border-rule rounded-[4px]`, mono category label) and each `Badge` into a flat mono tag (`border border-rule text-xs font-mono uppercase`, not a colored pill) instead of the current gradient pill.
 - [ ] `Contact.tsx`: left-align the form/copy, flat `bg-bg` section (no gradient wrapper), inputs/textarea as shadcn `Input`/`Textarea` with `rounded-[4px] border-rule`, submit as the primary `Button` style from the hero; replace the inline `✅/❌` status text with a `sonner` toast, and remove `💌` from the button label.
-- [ ] `Chinchiro.tsx`: lowest priority for the editorial treatment (it's a standalone game page, not part of the recruiter-facing narrative) — apply the token/emoji rules (flat background, no emoji in title/results/buttons/rules, square dice tiles already close to sharp) but it does not need the 12-col/mono-label case-file layout; keep as a simpler flat-card game screen.
+- [x] ~~`Chinchiro.tsx`~~ — removed entirely post-Phase-1 (see scope-update note at top of file); no longer part of the site.
 
 ### 1.5 shadcn/ui mapping
 
@@ -190,7 +193,7 @@ Two open decisions flagged for the user before/while executing (not blocking the
 - [ ] Confirm no gradients, `backdrop-filter: blur`, or continuous/looping CSS keyframes (`float`, `pulse`, `gradientShift`, dice roll spin) remain.
 - [ ] Confirm no `text-align: center` on body paragraphs (headings/hero eyebrow labels may still be intentionally centered only if the layout calls for it — the spec's hero is left-aligned, so this should be rare).
 - [ ] Run a contrast checker against the final `--fg`/`--muted`/`--bg`/`--accent` values.
-- [ ] Manually click through all 7 routes (`/`, `/about`, `/journey`, `/skills`, `/projects`, `/chinchiro`, `/contact`) at desktop and mobile widths, plus a `prefers-reduced-motion: reduce` pass.
+- [ ] Manually click through all 6 routes (`/`, `/about`, `/journey`, `/skills`, `/projects`, `/contact`) at desktop and mobile widths, plus a `prefers-reduced-motion: reduce` pass.
 - [ ] `npm run lint`, `npm run build` both clean.
 - [ ] Remove `styled-components`/`@types/styled-components` and `react-simple-typewriter` from `package.json`, `npm install`, confirm no leftover imports (`rg "from 'styled-components'"`, `rg "react-simple-typewriter"`).
 - [ ] Update `README.md` Tech Stack / Key Dependencies tables to say Tailwind CSS + shadcn/ui instead of Styled Components, and drop the typewriter library mention.

@@ -6,7 +6,6 @@ import Navbar from './components/Navbar'
 import Skills from './pages/Skills'
 import Projects from './pages/Projects'
 import Journey from './pages/Journey'
-import { ChinchiroGame } from './pages/Chinchiro'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
 import { Toaster } from './components/ui/sonner'
@@ -22,7 +21,6 @@ function App() {
           <Route path="/journey" element={<Journey />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/chinchiro" element={<ChinchiroGame />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

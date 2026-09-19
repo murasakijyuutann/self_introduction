@@ -42,13 +42,6 @@ The site serves as both a **professional resume** and **technical showcase**, hi
 - **Project Portfolio**: Professional project cards with descriptions and links
 - **Contact Form**: EmailJS-powered contact system with validation
 
-### 🎮 **Bonus Features**
-- **Chinchirorin Game**: Interactive Japanese dice game built with React
-  - Real-time game logic and scoring system
-  - Sound effects using Howler.js
-  - Smooth animations and state management
-  - Mobile-responsive controls
-
 ---
 
 ## 🛠 Tech Stack
@@ -88,7 +81,6 @@ my/
 │   │   ├── Journey.tsx      # Career timeline with icons and locations
 │   │   ├── Skills.tsx       # Technology grid with categories
 │   │   ├── Projects.tsx     # Portfolio showcase
-│   │   ├── Chinchiro.tsx    # Interactive dice game
 │   │   └── Contact.tsx      # EmailJS contact form
 │   ├── styles/
 │   │   └── AnimatedBackground.ts  # Shared gradient animations
@@ -160,7 +152,6 @@ npm run preview  # Preview production build locally
 | `react-router-dom` | ^7.9.4 | Client-side routing |
 | `@emailjs/browser` | ^4.4.1 | Contact form backend |
 | `react-simple-typewriter` | ^5.0.1 | Typewriter effect |
-| `howler` | ^2.2.4 | Audio playback |
 | `react-icons` | ^5.5.0 | Icon library |
 
 ---
@@ -198,15 +189,9 @@ npm run preview  # Preview production build locally
   </tr>
   <tr>
     <td width="50%">
-      <h3>🎲 Chinchirorin Game</h3>
-      <p><strong>Description:</strong> Interactive recreation of the traditional Japanese dice game with smooth animations and sound effects.</p>
-      <p><strong>Technologies:</strong> React • Framer Motion • Howler.js</p>
-      <p><a href="https://github.com/murasakijyuutann/self_introduction/blob/main/src/pages/Chinchiro.tsx">View Code →</a></p>
-    </td>
-    <td width="50%">
       <h3>🌐 This Portfolio</h3>
       <p><strong>Description:</strong> Modern portfolio website with responsive design, interactive sections, and professional presentation of skills and experience.</p>
-      <p><strong>Technologies:</strong> React • TypeScript • Styled Components • Vercel</p>
+      <p><strong>Technologies:</strong> React • TypeScript • Tailwind CSS • shadcn/ui • Vercel</p>
       <p><a href="https://self-introduction-i11.vercel.app/">View Live Demo →</a></p>
     </td>
   </tr>
@@ -283,7 +268,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 - Design inspiration from modern portfolio trends
 - Gradient animations inspired by glassmorphism design principles
-- Chinchirorin game rules from traditional Japanese gambling culture
 - Icons provided by [React Icons](https://react-icons.github.io/react-icons/)
 - Deployment powered by [Vercel](https://vercel.com/)
 

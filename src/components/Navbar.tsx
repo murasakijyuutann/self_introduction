@@ -16,7 +16,6 @@ const NAV_LINKS = [
   { to: '/journey', label: 'Journey' },
   { to: '/skills', label: 'Skills' },
   { to: '/projects', label: 'Projects' },
-  { to: '/chinchiro', label: 'Chinchiro' },
   { to: '/contact', label: 'Contact' },
 ] as const
 
